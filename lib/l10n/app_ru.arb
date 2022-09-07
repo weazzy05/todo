@@ -1,0 +1,15 @@
+{
+  "my_tasks": "Мои Дела",
+  "completed": "Выполнено",
+  "new_task": "Новое",
+  "save": "Сохранить",
+  "priority": "Важность",
+  "make_up_to": "Сделать до",
+  "delete": "Удалить",
+  "buy_something": "Купить что-то",
+  "none_priority": "Нет",
+  "low_priority": "Низкий",
+  "high_priority": "!! Высокий",
+  "no_internet_connection": "Нет подключения к интернету, ваши данные сохранятся на сервере при следующем запуске",
+  "unknown_page": "Неизвестная страница"
+}

@@ -1,0 +1,15 @@
+{
+  "my_tasks": "My Tasks",
+  "completed": "Completed",
+  "new_task": "New",
+  "save": "Save",
+  "priority": "Priority",
+  "make_up_to": "Make up to",
+  "delete": "Delete",
+  "buy_something": "Buy something",
+  "none_priority": "None",
+  "low_priority": "Low",
+  "high_priority": "!! High",
+  "no_internet_connection": "There is no internet connection, your data will be saved on the server the next time you start",
+  "unknown_page": "Unknown page"
+}
