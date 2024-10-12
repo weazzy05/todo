@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:todo/src/core/constant/generated/assets.gen.dart';
+import 'package:todo/src/core/utils/extensions.dart';
+import 'package:todo/src/core/utils/priority.dart';
 import 'package:todo/src/feature/initialization/widget/dependencies_scope.dart';
-import 'package:todo/styling/assets_name.dart';
-import 'package:todo/utils/extensions.dart';
-import 'package:todo/utils/priority.dart';
 
 class PriorityIconWidget extends StatelessWidget {
   final String taskModelImportance;
@@ -23,7 +23,7 @@ class PriorityIconWidget extends StatelessWidget {
       return Padding(
         padding: const EdgeInsets.only(top: 3.0),
         child: SvgPicture.asset(
-          AssetsNameFile.highPrioritySvg,
+          Assets.icons.highPriority,
           color: themeData.colorScheme.priorityColor(importantColor),
         ),
       );
@@ -31,7 +31,7 @@ class PriorityIconWidget extends StatelessWidget {
       return Padding(
         padding: const EdgeInsets.only(top: 4.0),
         child: SvgPicture.asset(
-          AssetsNameFile.lowPrioritySvg,
+          Assets.icons.lowPriority,
           color: themeData.colorScheme.gray,
         ),
       );

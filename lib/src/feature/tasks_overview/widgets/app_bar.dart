@@ -3,9 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:todo/features/tasks_overview/bloc/bloc.dart';
-import 'package:todo/features/tasks_overview/filter_tasks.dart';
-import 'package:todo/styling/text_styles.dart';
+import 'package:todo/src/feature/tasks_overview/bloc/bloc.dart';
+import 'package:todo/src/feature/tasks_overview/filter_tasks.dart';
+import 'package:todo/src/core/constant/styling/text_styles.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
   const CustomSliverAppBar({

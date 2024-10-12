@@ -7,7 +7,7 @@ import 'package:todo/domain/revision_repository.dart';
 import 'package:todo/domain/task.dart';
 import 'package:todo/domain/task_repository.dart';
 import 'package:todo/domain/tasks_list.dart';
-import 'package:todo/features/tasks_overview/bloc/bloc.dart';
+import 'package:todo/src/feature/tasks_overview/bloc/bloc.dart';
 import 'package:todo/navigation/cubit_navigation/navigation_cubit.dart';
 import 'package:todo/navigation/page_config.dart';
 import 'package:todo/navigation/router_delegate.dart';

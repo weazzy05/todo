@@ -13,10 +13,10 @@ import 'package:todo/domain/revision_repository.dart';
 import 'package:todo/domain/task.dart';
 import 'package:todo/domain/task_repository.dart';
 import 'package:todo/domain/tasks_list.dart';
-import 'package:todo/features/tasks_overview/filter_tasks.dart';
-import 'package:todo/utils/extensions.dart';
-import 'package:todo/utils/priority.dart';
-import 'package:todo/utils/remote_request_utils.dart';
+import 'package:todo/src/feature/tasks_overview/filter_tasks.dart';
+import 'package:todo/src/core/utils/extensions.dart';
+import 'package:todo/src/core/utils/priority.dart';
+import 'package:todo/src/core/utils/remote_request_utils.dart';
 import 'package:uuid/uuid.dart';
 
 part 'bloc.freezed.dart';

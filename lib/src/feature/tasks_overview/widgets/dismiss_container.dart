@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todo/features/tasks_overview/view/main_screen.dart';
-import 'package:todo/styling/colors.dart';
+import 'package:todo/src/feature/tasks_overview/view/main_screen.dart';
+import 'package:todo/src/core/constant/styling/colors.dart';
 
 class DismissContainerAction extends StatelessWidget {
   final Color color;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo/styling/colors.dart';
+import 'package:todo/src/core/constant/styling/colors.dart';
 
 class ToDoAppTheme {
   static ThemeData get light {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:todo/app/unknown_screen.dart';
 import 'package:todo/data/models/only_task.dart';
 import 'package:todo/di/injector.dart';
 import 'package:todo/domain/analytic_service.dart';
@@ -10,9 +9,10 @@ import 'package:todo/domain/revision_repository.dart';
 import 'package:todo/domain/task.dart';
 import 'package:todo/domain/task_repository.dart';
 import 'package:todo/domain/tasks_list.dart';
-import 'package:todo/features/edit_add_task/bloc/bloc.dart';
-import 'package:todo/features/edit_add_task/view/edit_add_task_screen.dart';
-import 'package:todo/features/tasks_overview/view/main_screen.dart';
+import 'package:todo/navigation/unknown_screen.dart';
+import 'package:todo/src/feature/edit_add_task/bloc/bloc.dart';
+import 'package:todo/src/feature/edit_add_task/view/edit_add_task_screen.dart';
+import 'package:todo/src/feature/tasks_overview/view/main_screen.dart';
 
 class MainScreenPageArgs {
   static const bannerName = 'banner_name';

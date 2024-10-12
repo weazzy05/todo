@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:todo/data/backend_api_repository.dart';
-import 'package:todo/utils/serializable.dart';
-import 'package:todo/utils/types.dart';
+import 'package:todo/src/core/utils/serializable.dart';
+import 'package:todo/src/core/utils/types.dart';
 
 abstract class AbstractAPIRepository {
   final APIRepository _api;

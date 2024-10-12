@@ -5,7 +5,7 @@ import 'package:todo/data/models/only_task.dart';
 import 'package:todo/data/models/task.dart';
 import 'package:todo/di/injector.dart';
 import 'package:todo/domain/revision_repository.dart';
-import 'package:todo/utils/types.dart';
+import 'package:todo/src/core/utils/types.dart';
 
 ///НАСТОЯЩИЙ БЭК ВЫПИЛЕН, ЗАМЕНЕН НА МОКОВЫЙ!
 

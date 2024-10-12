@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo/data/models/only_task.dart';
-import 'package:todo/features/tasks_overview/bloc/bloc.dart';
-import 'package:todo/features/tasks_overview/filter_tasks.dart';
-import 'package:todo/features/tasks_overview/view/main_screen.dart';
-import 'package:todo/features/tasks_overview/widgets/new_task_text_field.dart';
+import 'package:todo/src/feature/tasks_overview/bloc/bloc.dart';
+import 'package:todo/src/feature/tasks_overview/filter_tasks.dart';
+import 'package:todo/src/feature/tasks_overview/view/main_screen.dart';
+import 'package:todo/src/feature/tasks_overview/widgets/new_task_text_field.dart';
 
 class TasksCard extends StatefulWidget {
   const TasksCard({Key? key, required this.tasks}) : super(key: key);

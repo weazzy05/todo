@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:todo/data/models/only_task.dart';
-import 'package:todo/styling/text_styles.dart';
+import 'package:todo/src/core/constant/styling/text_styles.dart';
 
 class TaskTextWidget extends StatelessWidget {
   const TaskTextWidget({

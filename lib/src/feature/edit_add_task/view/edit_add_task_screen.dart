@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:todo/features/edit_add_task/bloc/bloc.dart';
-import 'package:todo/features/edit_add_task/widgets/date_time_switch.dart';
-import 'package:todo/features/edit_add_task/widgets/date_time_text.dart';
-import 'package:todo/features/edit_add_task/widgets/delete_icon_button.dart';
-import 'package:todo/features/edit_add_task/widgets/dropdown_button_widget.dart';
-import 'package:todo/features/edit_add_task/widgets/task_title_card_text_field.dart';
 import 'package:todo/navigation/cubit_navigation/navigation_cubit.dart';
-import 'package:todo/styling/colors.dart';
-import 'package:todo/styling/text_styles.dart';
-import 'package:todo/utils/extensions.dart';
-import 'package:todo/utils/priority.dart';
+import 'package:todo/src/core/constant/styling/colors.dart';
+import 'package:todo/src/core/constant/styling/text_styles.dart';
+import 'package:todo/src/core/utils/extensions.dart';
+import 'package:todo/src/core/utils/priority.dart';
+import 'package:todo/src/feature/edit_add_task/bloc/bloc.dart';
+import 'package:todo/src/feature/edit_add_task/widgets/date_time_switch.dart';
+import 'package:todo/src/feature/edit_add_task/widgets/date_time_text.dart';
+import 'package:todo/src/feature/edit_add_task/widgets/delete_icon_button.dart';
+import 'package:todo/src/feature/edit_add_task/widgets/dropdown_button_widget.dart';
+import 'package:todo/src/feature/edit_add_task/widgets/task_title_card_text_field.dart';
 
 class EditTaskScreenConfigure {
   static const paddingH16 = EdgeInsets.symmetric(horizontal: 16);

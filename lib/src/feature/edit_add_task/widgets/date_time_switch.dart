@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo/features/edit_add_task/bloc/bloc.dart';
+import 'package:todo/src/feature/edit_add_task/bloc/bloc.dart';
 
 class SwitchForDatePickerWidget extends StatelessWidget {
   const SwitchForDatePickerWidget({

@@ -3,7 +3,7 @@ import 'dart:convert' as convert;
 import 'package:flutter/foundation.dart' show mustCallSuper;
 import 'package:http/http.dart' as http;
 import 'package:todo/data/api_exception.dart';
-import 'package:todo/utils/types.dart';
+import 'package:todo/src/core/utils/types.dart';
 
 class APIRepository {
   static const String _authority = '';

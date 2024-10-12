@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:todo/features/tasks_overview/bloc/bloc.dart';
-import 'package:todo/features/tasks_overview/view/main_screen.dart';
+import 'package:todo/src/feature/tasks_overview/bloc/bloc.dart';
+import 'package:todo/src/feature/tasks_overview/view/main_screen.dart';
 
 class NewTaskTextField extends StatefulWidget {
   const NewTaskTextField({Key? key}) : super(key: key);

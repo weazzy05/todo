@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:todo/data/models/only_task.dart';
-import 'package:todo/utils/serializable.dart';
+import 'package:todo/src/core/utils/serializable.dart';
 
 part 'task.freezed.dart';
 part 'task.g.dart';

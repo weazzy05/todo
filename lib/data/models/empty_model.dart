@@ -1,4 +1,4 @@
-import 'package:todo/utils/serializable.dart';
+import 'package:todo/src/core/utils/serializable.dart';
 
 class EmptyModel extends Serializable {
   const EmptyModel();

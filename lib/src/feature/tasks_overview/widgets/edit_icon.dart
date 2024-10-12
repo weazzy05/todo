@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo/data/models/only_task.dart';
-import 'package:todo/features/tasks_overview/view/main_screen.dart';
+import 'package:todo/src/feature/tasks_overview/view/main_screen.dart';
 import 'package:todo/navigation/cubit_navigation/navigation_cubit.dart';
-import 'package:todo/utils/key_widget.dart';
+import 'package:todo/src/core/utils/key_widget.dart';
 
 class EditTaskIconWidget extends StatelessWidget {
   const EditTaskIconWidget({

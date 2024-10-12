@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/domain/remote_config_service.dart';
-import 'package:todo/styling/colors.dart';
-import 'package:todo/utils/priority.dart';
+import 'package:todo/src/core/constant/styling/colors.dart';
+import 'package:todo/src/core/utils/priority.dart';
 
 extension CustomColorScheme on ColorScheme {
   Color get green => brightness == Brightness.light

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
-import 'package:todo/features/edit_add_task/view/edit_add_task_screen.dart';
+import 'package:todo/src/feature/edit_add_task/view/edit_add_task_screen.dart';
 
 class DateTimeTextWidget extends StatelessWidget {
   const DateTimeTextWidget({
