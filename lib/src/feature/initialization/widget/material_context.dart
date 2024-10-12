@@ -1,13 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo/di/injector.dart';
-import 'package:todo/domain/analytic_service.dart';
-import 'package:todo/domain/device_info_repository.dart';
-import 'package:todo/domain/revision_repository.dart';
-import 'package:todo/domain/task.dart';
-import 'package:todo/domain/task_repository.dart';
-import 'package:todo/domain/tasks_list.dart';
-import 'package:todo/src/feature/tasks_overview/bloc/bloc.dart';
 import 'package:todo/navigation/cubit_navigation/navigation_cubit.dart';
 import 'package:todo/navigation/page_config.dart';
 import 'package:todo/navigation/router_delegate.dart';
@@ -16,7 +8,9 @@ import 'package:todo/navigation/router_parser.dart';
 import 'package:todo/navigation/routes.dart';
 import 'package:todo/src/core/constant/localization/localization.dart';
 import 'package:todo/src/feature/initialization/model/app_theme.dart';
+import 'package:todo/src/feature/initialization/widget/dependencies_scope.dart';
 import 'package:todo/src/feature/settings/widget/settings_scope.dart';
+import 'package:todo/src/feature/tasks_overview/bloc/bloc.dart';
 
 /// {@template material_context}
 /// [MaterialContext] is an entry point to the material context.
@@ -35,6 +29,10 @@ class MaterialContext extends StatelessWidget {
   Widget build(BuildContext context) {
     final settings = SettingsScope.settingsOf(context);
     final mediaQueryData = MediaQuery.of(context);
+    final deviceInfo = DependenciesScope.of(context).deviceInfoRepository;
+    final localStorageTasksRepository =
+        DependenciesScope.of(context).tasksRepository;
+    final analyticsService = DependenciesScope.of(context).analyticsService;
     final navigationCubit = NavigationCubit(
       [
         PageConfig(
@@ -42,6 +40,7 @@ class MaterialContext extends StatelessWidget {
           args: const {MainScreenPageArgs.bannerName: 'dev'},
         ),
       ],
+      analyticsService: analyticsService,
     );
     // TODO(weazzy): go_router or octopus router rewrite
     return MaterialApp.router(
@@ -63,15 +62,9 @@ class MaterialContext extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (context) => InitializationBloc(
-              localStorageTasksRepository: getIt.get<TasksRepository>(),
-              deviceInfo: getIt<DeviceInfoRepository>(),
-              patchTaskListApi: getIt<UpdateTasksListRepository>(),
-              deleteTaskRepository: getIt<DeleteTaskRepository>(),
-              revisionRepository: getIt.get<RevisionRepository>(),
-              updateTaskRepository: getIt<UpdateTaskRepository>(),
-              getTasksListApi: getIt<GetTasksListRepository>(),
-              createTasksListRepository: getIt<CreateTasksListRepository>(),
-              analyticsService: getIt<AnalyticsService>(),
+              localStorageTasksRepository: localStorageTasksRepository,
+              deviceInfo: deviceInfo,
+              analyticsService: analyticsService,
             )..add(const StartInitializationEvent()),
           ),
           BlocProvider.value(value: navigationCubit),

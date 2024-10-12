@@ -1,15 +1,7 @@
 import 'package:flutter/foundation.dart';
-import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo/data/revision_api/revision_api.dart';
 
-@module
-abstract class SharedRegisterModule {
-  @preResolve
-  Future<SharedPreferences> get prefs => SharedPreferences.getInstance();
-}
-
-@LazySingleton(as: RevisionApi)
 class RevisionSharedApi implements RevisionApi {
   final SharedPreferences _sharedPreferences;
 

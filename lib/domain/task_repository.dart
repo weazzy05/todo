@@ -1,8 +1,6 @@
-import 'package:injectable/injectable.dart';
 import 'package:todo/data/models/only_task.dart';
 import 'package:todo/data/task_api/task_service.dart';
 
-@injectable
 class TasksRepository {
   const TasksRepository({
     required ITaskService taskApi,

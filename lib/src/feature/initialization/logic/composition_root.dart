@@ -1,7 +1,15 @@
 import 'package:clock/clock.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:todo/data/device_info/device_info_plugin_api.dart';
+import 'package:todo/data/models/only_task.dart';
+import 'package:todo/data/task_api/local_task_api.dart';
+import 'package:todo/domain/analytic_service.dart';
+import 'package:todo/domain/device_info_repository.dart';
 import 'package:todo/domain/remote_config_service.dart';
+import 'package:todo/domain/task_repository.dart';
 import 'package:todo/src/core/constant/config.dart';
 import 'package:todo/src/core/utils/error_tracking_manager.dart';
 import 'package:todo/src/core/utils/refined_logger.dart';
@@ -88,10 +96,26 @@ class DependenciesFactory extends AsyncFactory<DependenciesContainer> {
     final settingsBloc = await SettingsBlocFactory(sharedPreferences).create();
     final remoteConfigService = await RemoteConfigServiceFactory().create();
 
+    final box = await Hive.openBox<OnlyTaskModel>(
+        LocalStorageTaskService.kTasksBoxName);
+    final taskApi = LocalStorageTaskService(box: box)..init();
+    final tasksRepository = TasksRepository(taskApi: taskApi);
+
+    final deviceInfoPlugin = DeviceInfoPlugin();
+    final deviceInfoApi =
+        DeviceInfoPluginApi(deviceInfoPlugin: deviceInfoPlugin);
+    final deviceInfoRepository =
+        DeviceInfoRepository(deviceInfo: deviceInfoApi);
+
+    final analyticsService = FirebaseAnalyticsService();
+
     return DependenciesContainer(
       appSettingsBloc: settingsBloc,
       errorTrackingManager: errorTrackingManager,
       remoteConfigService: remoteConfigService,
+      tasksRepository: tasksRepository,
+      deviceInfoRepository: deviceInfoRepository,
+      analyticsService: analyticsService,
     );
   }
 }

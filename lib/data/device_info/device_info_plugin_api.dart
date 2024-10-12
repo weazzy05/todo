@@ -1,15 +1,8 @@
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:injectable/injectable.dart';
 import 'package:todo/data/device_info/device_info_api.dart';
 
-@module
-abstract class DeviceInfoPluginModule {
-  DeviceInfoPlugin get prefs => DeviceInfoPlugin();
-}
-
-@Singleton(as: DeviceInfoApi)
 class DeviceInfoPluginApi implements DeviceInfoApi {
   final DeviceInfoPlugin deviceInfoPlugin;
 

@@ -1,19 +1,13 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:todo/data/models/only_task.dart';
-import 'package:todo/data/models/task.dart';
 import 'package:todo/domain/analytic_service.dart';
 import 'package:todo/domain/device_info_repository.dart';
-import 'package:todo/domain/revision_repository.dart';
-import 'package:todo/domain/task.dart';
 import 'package:todo/domain/task_repository.dart';
-import 'package:todo/domain/tasks_list.dart';
 import 'package:todo/src/core/utils/extensions.dart';
 import 'package:todo/src/core/utils/priority.dart';
-import 'package:todo/src/core/utils/remote_request_utils.dart';
 import 'package:uuid/uuid.dart';
 
 part 'bloc.freezed.dart';
@@ -23,29 +17,17 @@ part 'state.dart';
 class EditAddTaskBloc extends Bloc<EditAddTaskEvent, EditAddTaskState> {
   final TasksRepository _localStorageTasksRepository;
   final DeviceInfoRepository _deviceInfo;
-  final CreateTasksListRepository _createTasksListRepository;
-  final UpdateTaskRepository _updateTaskRepository;
-  final DeleteTaskRepository _deleteTaskRepository;
-  final RevisionRepository _revisionRepository;
   final AnalyticsService _analyticsService;
 
   bool _internetConnection = true;
 
   EditAddTaskBloc({
     required OnlyTaskModel? initialTask,
-    required CreateTasksListRepository createTasksListRepository,
-    required RevisionRepository revisionRepository,
-    required UpdateTaskRepository updateTaskRepository,
-    required DeleteTaskRepository deleteTaskRepository,
     required DeviceInfoRepository deviceInfo,
     required TasksRepository localStorageTasksRepository,
     required AnalyticsService analyticsService,
   })  : _localStorageTasksRepository = localStorageTasksRepository,
-        _updateTaskRepository = updateTaskRepository,
         _analyticsService = analyticsService,
-        _revisionRepository = revisionRepository,
-        _createTasksListRepository = createTasksListRepository,
-        _deleteTaskRepository = deleteTaskRepository,
         _deviceInfo = deviceInfo,
         super(
           EditAddTaskState(
@@ -146,39 +128,39 @@ class EditAddTaskBloc extends Bloc<EditAddTaskEvent, EditAddTaskState> {
     OnlyTaskModel task,
     Emitter<EditAddTaskState> emit,
   ) async {
-    try {
-      if (_internetConnection) {
-        final revision = _revisionRepository.get();
-        final requestTask = TaskRequestModel(element: task);
-        final extraHeaders = RemoteRequestUtils.createRevisionHeader(revision);
-        if (state.isNewTodo) {
-          final response = await _createTasksListRepository
-              .post(
-                requestTask,
-                extraHeaders: extraHeaders,
-              )
-              .timeout(
-                RemoteRequestUtils.timeOutDuration,
-                onTimeout: RemoteRequestUtils.throwTimeOutInternetConnection,
-              );
-          await _revisionRepository.set(response.revision);
-        } else {
-          final response = await _updateTaskRepository
-              .put(
-                requestTask,
-                id: task.id,
-                extraHeaders: extraHeaders,
-              )
-              .timeout(
-                RemoteRequestUtils.timeOutDuration,
-                onTimeout: RemoteRequestUtils.throwTimeOutInternetConnection,
-              );
-          await _revisionRepository.set(response.revision);
-        }
-      }
-    } on SocketException catch (_) {
-      emitFailureInternetState(emit);
-    }
+    // try {
+    //   if (_internetConnection) {
+    //     final revision = _revisionRepository.get();
+    //     final requestTask = TaskRequestModel(element: task);
+    //     final extraHeaders = RemoteRequestUtils.createRevisionHeader(revision);
+    //     if (state.isNewTodo) {
+    //       final response = await _createTasksListRepository
+    //           .post(
+    //             requestTask,
+    //             extraHeaders: extraHeaders,
+    //           )
+    //           .timeout(
+    //             RemoteRequestUtils.timeOutDuration,
+    //             onTimeout: RemoteRequestUtils.throwTimeOutInternetConnection,
+    //           );
+    //       await _revisionRepository.set(response.revision);
+    //     } else {
+    //       final response = await _updateTaskRepository
+    //           .put(
+    //             requestTask,
+    //             id: task.id,
+    //             extraHeaders: extraHeaders,
+    //           )
+    //           .timeout(
+    //             RemoteRequestUtils.timeOutDuration,
+    //             onTimeout: RemoteRequestUtils.throwTimeOutInternetConnection,
+    //           );
+    //       await _revisionRepository.set(response.revision);
+    //     }
+    //   }
+    // } on SocketException catch (_) {
+    //   emitFailureInternetState(emit);
+    // }
   }
 
   Future<void> _onDeleteTask(
@@ -191,17 +173,17 @@ class EditAddTaskBloc extends Bloc<EditAddTaskEvent, EditAddTaskState> {
       await _localStorageTasksRepository.deleteTask(task.id);
       await _analyticsService.deletedTask(id: task.id);
       if (_internetConnection) {
-        final revision = _revisionRepository.get();
-        final response = await _deleteTaskRepository
-            .delete(
-              id: task.id,
-              extraHeaders: RemoteRequestUtils.createRevisionHeader(revision),
-            )
-            .timeout(
-              RemoteRequestUtils.timeOutDuration,
-              onTimeout: RemoteRequestUtils.throwTimeOutInternetConnection,
-            );
-        await _revisionRepository.set(response.revision);
+        // final revision = _revisionRepository.get();
+        // final response = await _deleteTaskRepository
+        //     .delete(
+        //       id: task.id,
+        //       extraHeaders: RemoteRequestUtils.createRevisionHeader(revision),
+        //     )
+        //     .timeout(
+        //       RemoteRequestUtils.timeOutDuration,
+        //       onTimeout: RemoteRequestUtils.throwTimeOutInternetConnection,
+        //     );
+        // await _revisionRepository.set(response.revision);
       }
 
       emit(state.copyWith(status: EditAddTaskStatus.success));

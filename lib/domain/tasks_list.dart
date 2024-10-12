@@ -1,22 +1,23 @@
-import 'package:injectable/injectable.dart';
 import 'package:todo/data/api_mixins.dart';
 import 'package:todo/data/auth_api_repository.dart';
 import 'package:todo/data/models/only_task.dart';
 import 'package:todo/data/models/task.dart';
 import 'package:todo/data/models/tasks.dart';
-import 'package:todo/di/injector.dart';
 import 'package:todo/domain/revision_repository.dart';
 import 'package:todo/src/core/utils/types.dart';
 
 ///НАСТОЯЩИЙ БЭК ВЫПИЛЕН, ЗАМЕНЕН НА МОКОВЫЙ!!
 
-@injectable
 class GetTasksListRepository extends AbstractAPIRepository
     with GetMixin<TasksResponseModel> {
   static const _prefix = '';
 
-  GetTasksListRepository({required AuthenticatedAPIRepository api})
-      : super(api: api, prefix: _prefix);
+  GetTasksListRepository({
+    required AuthenticatedAPIRepository api,
+    required this.revisionRepository,
+  }) : super(api: api, prefix: _prefix);
+
+  final RevisionRepository revisionRepository;
 
   @override
   Future<TasksResponseModel> get({
@@ -24,7 +25,7 @@ class GetTasksListRepository extends AbstractAPIRepository
     QueryParams? queryParams,
     Map<String, String> extraHeaders = const {},
   }) async {
-    final revision = getIt.get<RevisionRepository>().get();
+    final revision = revisionRepository.get();
     final response = TasksResponseModel(
       status: 'ok',
       revision: revision,
@@ -64,13 +65,16 @@ class GetTasksListRepository extends AbstractAPIRepository
   }
 }
 
-@injectable
 class CreateTasksListRepository extends AbstractAPIRepository
     with CreateMixin<TaskRequestModel, TaskResponseModel> {
   static const _prefix = '';
 
-  CreateTasksListRepository({required AuthenticatedAPIRepository api})
-      : super(api: api, prefix: _prefix);
+  CreateTasksListRepository({
+    required AuthenticatedAPIRepository api,
+    required this.revisionRepository,
+  }) : super(api: api, prefix: _prefix);
+
+  final RevisionRepository revisionRepository;
 
   @override
   Future<TaskResponseModel> post(
@@ -79,7 +83,7 @@ class CreateTasksListRepository extends AbstractAPIRepository
     QueryParams? queryParams,
     Map<String, String> extraHeaders = const {},
   }) async {
-    final revision = getIt.get<RevisionRepository>().get() + 1;
+    final revision = revisionRepository.get() + 1;
     final response = TaskResponseModel(
         status: 'ok',
         element: OnlyTaskModel(
@@ -100,13 +104,16 @@ class CreateTasksListRepository extends AbstractAPIRepository
   }
 }
 
-@injectable
 class UpdateTasksListRepository extends AbstractAPIRepository
     with PartialUpdateMixin<TasksRequestModel, TasksResponseModel> {
   static const _prefix = '';
 
-  UpdateTasksListRepository({required AuthenticatedAPIRepository api})
-      : super(api: api, prefix: _prefix);
+  final RevisionRepository revisionRepository;
+
+  UpdateTasksListRepository({
+    required AuthenticatedAPIRepository api,
+    required this.revisionRepository,
+  }) : super(api: api, prefix: _prefix);
 
   @override
   Future<TasksResponseModel> patch(
@@ -115,7 +122,7 @@ class UpdateTasksListRepository extends AbstractAPIRepository
     QueryParams? queryParams,
     Map<String, String> extraHeaders = const {},
   }) async {
-    final revision = getIt.get<RevisionRepository>().get() + 1;
+    final revision = revisionRepository.get() + 1;
     final response = TasksResponseModel(
       status: 'ok',
       revision: revision,

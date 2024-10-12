@@ -2,29 +2,14 @@ import 'dart:async';
 
 import 'package:hive_flutter/adapters.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:injectable/injectable.dart';
 import 'package:rxdart/subjects.dart';
 import 'package:todo/data/models/only_task.dart';
 import 'package:todo/data/task_api/task_service.dart';
 
-@module
-abstract class HiveRegisterDependency {
-  @preResolve
-  Future<Box<OnlyTaskModel>> get box {
-    if (!Hive.isAdapterRegistered(0)) {
-      Hive.registerAdapter(OnlyTaskAdapter());
-    }
-    return Hive.openBox<OnlyTaskModel>(LocalStorageTaskService.kTasksBoxName);
-  }
-}
-
-@Singleton(as: ITaskService)
 class LocalStorageTaskService implements ITaskService {
   LocalStorageTaskService({
     required Box<OnlyTaskModel> box,
-  }) : _box = box {
-    _init();
-  }
+  }) : _box = box;
 
   Box<OnlyTaskModel> _box;
 
@@ -33,7 +18,7 @@ class LocalStorageTaskService implements ITaskService {
 
   static const kTasksBoxName = '__tasks_box__';
 
-  void _init() {
+  void init() {
     if (!Hive.isAdapterRegistered(0)) {
       Hive.registerAdapter(OnlyTaskAdapter());
     }

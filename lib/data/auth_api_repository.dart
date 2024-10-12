@@ -1,13 +1,10 @@
-import 'package:injectable/injectable.dart';
 import 'package:todo/data/backend_api_repository.dart';
 
-@injectable
 class AuthenticatedAPIHelper {
   final String basePath = '/';
   AuthenticatedAPIHelper();
 }
 
-@singleton
 class AuthenticatedAPIRepository extends APIRepository {
   AuthenticatedAPIRepository({
     required AuthenticatedAPIHelper helper,

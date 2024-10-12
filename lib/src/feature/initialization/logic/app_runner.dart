@@ -5,8 +5,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:todo/di/injector.dart';
-import 'package:todo/domain/analytic_service.dart';
 import 'package:todo/firebase_options.dart';
 import 'package:todo/src/core/constant/config.dart';
 import 'package:todo/src/core/utils/app_bloc_observer.dart';
@@ -43,13 +41,8 @@ final class AppRunner {
       try {
         // TODO(weazzy): migrate to drift
         await Hive.initFlutter();
-        await configureDependencies(config.environment);
         await Firebase.initializeApp(
           options: DefaultFirebaseOptions.currentPlatform,
-        );
-        // TODO(weazzy): write good analytics
-        await getIt<AnalyticsService>().setCurrentScreen(
-          screenName: '/mainScreen',
         );
         logger.info('Start main');
         final result = await CompositionRoot(config, logger).compose();

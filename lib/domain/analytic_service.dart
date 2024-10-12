@@ -1,6 +1,5 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
-import 'package:injectable/injectable.dart';
 
 abstract class AnalyticsService {
   Future<void> createTask({String? id});
@@ -30,13 +29,6 @@ class AnalyticEvents {
   static const updateOutdatedLocalTasks = 'update_outdated_local_tasks';
 }
 
-@Injectable(
-  as: AnalyticsService,
-  env: [
-    Environment.dev,
-    Environment.prod,
-  ],
-)
 class FirebaseAnalyticsService implements AnalyticsService {
   @override
   Future<void> setCurrentScreen({
@@ -107,7 +99,6 @@ class FirebaseAnalyticsService implements AnalyticsService {
   }
 }
 
-@Injectable(as: AnalyticsService, env: [Environment.test])
 class MockAnalyticsService implements AnalyticsService {
   void _logEvent({
     required String name,

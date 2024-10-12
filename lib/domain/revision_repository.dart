@@ -1,7 +1,5 @@
-import 'package:injectable/injectable.dart';
 import 'package:todo/data/revision_api/revision_api.dart';
 
-@injectable
 class RevisionRepository {
   const RevisionRepository({
     required RevisionApi revisionApi,

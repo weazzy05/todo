@@ -1,17 +1,16 @@
-import 'package:injectable/injectable.dart';
 import 'package:todo/data/api_mixins.dart';
 import 'package:todo/data/auth_api_repository.dart';
 import 'package:todo/data/models/only_task.dart';
 import 'package:todo/data/models/task.dart';
-import 'package:todo/di/injector.dart';
 import 'package:todo/domain/revision_repository.dart';
 import 'package:todo/src/core/utils/types.dart';
 
 ///НАСТОЯЩИЙ БЭК ВЫПИЛЕН, ЗАМЕНЕН НА МОКОВЫЙ!
 
-@injectable
 class GetTaskRepository extends AbstractAPIRepository
     with GetMixin<TaskResponseModel> {
+  final RevisionRepository revisionRepository;
+
   static const _prefix = '';
 
   @override
@@ -20,7 +19,7 @@ class GetTaskRepository extends AbstractAPIRepository
     QueryParams? queryParams,
     Map<String, String> extraHeaders = const {},
   }) async {
-    final revision = getIt.get<RevisionRepository>().get();
+    final revision = revisionRepository.get();
     final response = TaskResponseModel(
         status: 'ok',
         element: OnlyTaskModel(
@@ -35,8 +34,10 @@ class GetTaskRepository extends AbstractAPIRepository
     return response;
   }
 
-  GetTaskRepository({required AuthenticatedAPIRepository api})
-      : super(api: api, prefix: _prefix);
+  GetTaskRepository({
+    required AuthenticatedAPIRepository api,
+    required this.revisionRepository,
+  }) : super(api: api, prefix: _prefix);
 
   @override
   TaskResponseModel parse(Map<String, dynamic> data) {
@@ -44,13 +45,16 @@ class GetTaskRepository extends AbstractAPIRepository
   }
 }
 
-@injectable
 class UpdateTaskRepository extends AbstractAPIRepository
     with UpdateMixin<TaskRequestModel, TaskResponseModel> {
   static const _prefix = '';
 
-  UpdateTaskRepository({required AuthenticatedAPIRepository api})
-      : super(api: api, prefix: _prefix);
+  final RevisionRepository revisionRepository;
+
+  UpdateTaskRepository({
+    required AuthenticatedAPIRepository api,
+    required this.revisionRepository,
+  }) : super(api: api, prefix: _prefix);
 
   @override
   Future<TaskResponseModel> put(
@@ -59,7 +63,7 @@ class UpdateTaskRepository extends AbstractAPIRepository
     QueryParams? queryParams,
     Map<String, String> extraHeaders = const {},
   }) async {
-    final revision = getIt.get<RevisionRepository>().get() + 1;
+    final revision = revisionRepository.get() + 1;
     final response = TaskResponseModel(
         status: 'ok',
         element: OnlyTaskModel(
@@ -80,20 +84,23 @@ class UpdateTaskRepository extends AbstractAPIRepository
   }
 }
 
-@injectable
 class DeleteTaskRepository extends AbstractAPIRepository
     with DeleteMixin<TaskResponseModel> {
   static const _prefix = '';
 
-  DeleteTaskRepository({required AuthenticatedAPIRepository api})
-      : super(api: api, prefix: _prefix);
+  DeleteTaskRepository({
+    required AuthenticatedAPIRepository api,
+    required this.revisionRepository,
+  }) : super(api: api, prefix: _prefix);
+
+  final RevisionRepository revisionRepository;
 
   @override
   Future<TaskResponseModel> delete({
     String? id,
     Map<String, String> extraHeaders = const {},
   }) async {
-    final revision = getIt.get<RevisionRepository>().get() + 1;
+    final revision = revisionRepository.get() + 1;
     final response = TaskResponseModel(
         status: 'ok',
         element: OnlyTaskModel(

@@ -58,13 +58,13 @@ class RemoteConfigService {
     required String key,
   }) {
     switch (T) {
-      case String _:
+      case String:
         final value = _firebaseRemoteConfig.getString(key);
         return value as T;
-      case int _:
+      case int:
         final value = _firebaseRemoteConfig.getInt(key);
         return value as T;
-      case bool _:
+      case bool:
         final bool value = _firebaseRemoteConfig.getBool(key);
         return value as T;
       case double:

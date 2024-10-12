@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo/data/models/only_task.dart';
-import 'package:todo/di/injector.dart';
 import 'package:todo/domain/analytic_service.dart';
 import 'package:todo/navigation/page_config.dart';
 import 'package:todo/navigation/router_pages.dart';
@@ -10,8 +9,11 @@ import 'package:todo/src/core/utils/refined_logger.dart';
 part 'navigation_stack.dart';
 
 class NavigationCubit extends Cubit<NavigationStack> {
-  NavigationCubit(List<PageConfig> initialPages)
-      : super(NavigationStack(initialPages));
+  final AnalyticsService analyticsService;
+  NavigationCubit(
+    List<PageConfig> initialPages, {
+    required this.analyticsService,
+  }) : super(NavigationStack(initialPages));
 
   Future<void> push(String path, [Map<String, dynamic>? args]) async {
     logger.info('push called with $path and $args');
@@ -54,7 +56,7 @@ class NavigationCubit extends Cubit<NavigationStack> {
   }
 
   Future<void> _sendInformationToAnalytics(NavigationStack currStack) async {
-    await getIt<AnalyticsService>().setCurrentScreen(
+    await analyticsService.setCurrentScreen(
       screenName: currStack._stack.last.route,
     );
   }

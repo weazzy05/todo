@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:injectable/injectable.dart';
 import 'package:todo/data/models/only_task.dart';
-import 'package:todo/di/injector.dart';
-import 'package:todo/domain/analytic_service.dart';
-import 'package:todo/domain/device_info_repository.dart';
-import 'package:todo/domain/revision_repository.dart';
-import 'package:todo/domain/task.dart';
-import 'package:todo/domain/task_repository.dart';
-import 'package:todo/domain/tasks_list.dart';
 import 'package:todo/navigation/unknown_screen.dart';
 import 'package:todo/src/feature/edit_add_task/bloc/bloc.dart';
 import 'package:todo/src/feature/edit_add_task/view/edit_add_task_screen.dart';
+import 'package:todo/src/feature/initialization/model/environment.dart';
+import 'package:todo/src/feature/initialization/widget/dependencies_scope.dart';
 import 'package:todo/src/feature/tasks_overview/view/main_screen.dart';
 
 class MainScreenPageArgs {
@@ -24,13 +18,11 @@ class MainScreenPage extends CustomPageParent {
   const MainScreenPage({required this.bannerName, required super.args});
 
   @override
-  Widget build(BuildContext context) {
-    return Banner(
-      location: BannerLocation.topEnd,
-      message: bannerName ?? Environment.dev.toUpperCase(),
-      child: const MainScreen(),
-    );
-  }
+  Widget build(BuildContext context) => Banner(
+        location: BannerLocation.topEnd,
+        message: bannerName ?? Environment.dev.toString().toUpperCase(),
+        child: const MainScreen(),
+      );
 }
 
 class UnknownScreenPage extends CustomPageParent {
@@ -57,16 +49,16 @@ class EditAddTaskScreenPage extends CustomPageParent {
 
   @override
   Widget build(BuildContext context) {
+    final deviceInfo = DependenciesScope.of(context).deviceInfoRepository;
+    final localStorageTasksRepository =
+        DependenciesScope.of(context).tasksRepository;
+    final analyticsService = DependenciesScope.of(context).analyticsService;
     return BlocProvider(
       create: (context) => EditAddTaskBloc(
-        deviceInfo: getIt<DeviceInfoRepository>(),
+        deviceInfo: deviceInfo,
         initialTask: task,
-        analyticsService: getIt<AnalyticsService>(),
-        localStorageTasksRepository: getIt<TasksRepository>(),
-        createTasksListRepository: getIt<CreateTasksListRepository>(),
-        deleteTaskRepository: getIt<DeleteTaskRepository>(),
-        updateTaskRepository: getIt<UpdateTaskRepository>(),
-        revisionRepository: getIt<RevisionRepository>(),
+        analyticsService: analyticsService,
+        localStorageTasksRepository: localStorageTasksRepository,
       ),
       child: const EditTaskScreen(),
     );
