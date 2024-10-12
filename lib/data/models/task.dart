@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:todo/data/models/only_task.dart';
-import 'package:todo/src/core/utils/serializable.dart';
 
 part 'task.freezed.dart';
 part 'task.g.dart';
@@ -20,7 +19,7 @@ class TaskResponseModel with _$TaskResponseModel {
 }
 
 @freezed
-class TaskRequestModel extends Serializable with _$TaskRequestModel {
+class TaskRequestModel with _$TaskRequestModel {
   const TaskRequestModel._();
   @JsonSerializable(explicitToJson: true)
   factory TaskRequestModel({
