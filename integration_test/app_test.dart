@@ -8,9 +8,8 @@ import 'package:logging/logging.dart';
 import 'package:todo/di/injector.dart';
 import 'package:todo/features/tasks_overview/view/main_screen.dart';
 import 'package:todo/features/tasks_overview/widgets/app_bar.dart';
+import 'package:todo/main.dart' as app;
 import 'package:todo/utils/key_widget.dart';
-
-import 'main_test.dart' as app;
 
 final testLogger = Logger('[Test]');
 

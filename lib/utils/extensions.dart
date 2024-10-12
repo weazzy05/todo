@@ -12,8 +12,8 @@ extension CustomColorScheme on ColorScheme {
       : TodoDarkColors.gray;
   Color get red =>
       brightness == Brightness.light ? TodoLightColors.red : TodoDarkColors.red;
-  Color priorityColor() {
-    final stringColor = RemoteConfigService.lazyGetColorImportant();
+  Color priorityColor(String stringColor) {
+    final stringColor = RemoteConfigService().colorImportant();
     if (RegExp(r'^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$').hasMatch(stringColor)) {
       return stringColor.toColor();
     } else {
@@ -38,6 +38,6 @@ extension ColorExtension on String {
 
 extension ParseToString on Priority {
   String toShortString() {
-    return toString().split('.').last;
+    return this.toString().split('.').last;
   }
 }

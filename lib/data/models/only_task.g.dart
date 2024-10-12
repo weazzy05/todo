@@ -6,17 +6,17 @@ part of 'only_task.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class OnlyTaskAdapter extends TypeAdapter<_$_TaskModel> {
+class OnlyTaskAdapter extends TypeAdapter<_$TaskModelImpl> {
   @override
   final int typeId = 0;
 
   @override
-  _$_TaskModel read(BinaryReader reader) {
+  _$TaskModelImpl read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return _$_TaskModel(
+    return _$TaskModelImpl(
       id: fields[0] as String,
       text: fields[1] as String,
       importance: fields[2] as String,
@@ -30,7 +30,7 @@ class OnlyTaskAdapter extends TypeAdapter<_$_TaskModel> {
   }
 
   @override
-  void write(BinaryWriter writer, _$_TaskModel obj) {
+  void write(BinaryWriter writer, _$TaskModelImpl obj) {
     writer
       ..writeByte(9)
       ..writeByte(0)
@@ -68,19 +68,20 @@ class OnlyTaskAdapter extends TypeAdapter<_$_TaskModel> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TaskModel _$$_TaskModelFromJson(Map<String, dynamic> json) => _$_TaskModel(
+_$TaskModelImpl _$$TaskModelImplFromJson(Map<String, dynamic> json) =>
+    _$TaskModelImpl(
       id: json['id'] as String,
       text: json['text'] as String,
       importance: json['importance'] as String? ?? 'basic',
-      deadline: json['deadline'] as int?,
+      deadline: (json['deadline'] as num?)?.toInt(),
       done: json['done'] as bool,
       color: json['color'] as String?,
-      createdAt: json['created_at'] as int,
-      changedAt: json['changed_at'] as int,
+      createdAt: (json['created_at'] as num).toInt(),
+      changedAt: (json['changed_at'] as num).toInt(),
       lastUpdatedBy: json['last_updated_by'] as String,
     );
 
-Map<String, dynamic> _$$_TaskModelToJson(_$_TaskModel instance) =>
+Map<String, dynamic> _$$TaskModelImplToJson(_$TaskModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'text': instance.text,

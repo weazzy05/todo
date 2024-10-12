@@ -1,11 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo/app/logger.dart';
 import 'package:todo/data/models/only_task.dart';
 import 'package:todo/di/injector.dart';
 import 'package:todo/domain/analytic_service.dart';
 import 'package:todo/navigation/page_config.dart';
 import 'package:todo/navigation/router_pages.dart';
 import 'package:todo/navigation/routes.dart';
+import 'package:todo/src/core/utils/refined_logger.dart';
 
 part 'navigation_stack.dart';
 

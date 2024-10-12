@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'bloc.dart';
 
@@ -12,38 +12,10 @@ part of 'bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$EditAddTaskEvent {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String title) titleChange,
-    required TResult Function(String importance) importanceChange,
-    required TResult Function(DateTime? deadline) deadlineChange,
-    required TResult Function() taskSubmit,
-    required TResult Function() taskDelete,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String title)? titleChange,
-    TResult Function(String importance)? importanceChange,
-    TResult Function(DateTime? deadline)? deadlineChange,
-    TResult Function()? taskSubmit,
-    TResult Function()? taskDelete,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String title)? titleChange,
-    TResult Function(String importance)? importanceChange,
-    TResult Function(DateTime? deadline)? deadlineChange,
-    TResult Function()? taskSubmit,
-    TResult Function()? taskDelete,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(EditTaskTitleChanged value) titleChange,
@@ -55,11 +27,11 @@ mixin _$EditAddTaskEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(EditTaskTitleChanged value)? titleChange,
-    TResult Function(EditTaskImportanceChanged value)? importanceChange,
-    TResult Function(EditTaskDeadlineChanged value)? deadlineChange,
-    TResult Function(EditTaskSubmitted value)? taskSubmit,
-    TResult Function(EditTaskDeleted value)? taskDelete,
+    TResult? Function(EditTaskTitleChanged value)? titleChange,
+    TResult? Function(EditTaskImportanceChanged value)? importanceChange,
+    TResult? Function(EditTaskDeadlineChanged value)? deadlineChange,
+    TResult? Function(EditTaskSubmitted value)? taskSubmit,
+    TResult? Function(EditTaskDeleted value)? taskDelete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,44 +50,49 @@ mixin _$EditAddTaskEvent {
 abstract class $EditAddTaskEventCopyWith<$Res> {
   factory $EditAddTaskEventCopyWith(
           EditAddTaskEvent value, $Res Function(EditAddTaskEvent) then) =
-      _$EditAddTaskEventCopyWithImpl<$Res>;
+      _$EditAddTaskEventCopyWithImpl<$Res, EditAddTaskEvent>;
 }
 
 /// @nodoc
-class _$EditAddTaskEventCopyWithImpl<$Res>
+class _$EditAddTaskEventCopyWithImpl<$Res, $Val extends EditAddTaskEvent>
     implements $EditAddTaskEventCopyWith<$Res> {
   _$EditAddTaskEventCopyWithImpl(this._value, this._then);
 
-  final EditAddTaskEvent _value;
   // ignore: unused_field
-  final $Res Function(EditAddTaskEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of EditAddTaskEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$EditTaskTitleChangedCopyWith<$Res> {
-  factory _$$EditTaskTitleChangedCopyWith(_$EditTaskTitleChanged value,
-          $Res Function(_$EditTaskTitleChanged) then) =
-      __$$EditTaskTitleChangedCopyWithImpl<$Res>;
+abstract class _$$EditTaskTitleChangedImplCopyWith<$Res> {
+  factory _$$EditTaskTitleChangedImplCopyWith(_$EditTaskTitleChangedImpl value,
+          $Res Function(_$EditTaskTitleChangedImpl) then) =
+      __$$EditTaskTitleChangedImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({String title});
 }
 
 /// @nodoc
-class __$$EditTaskTitleChangedCopyWithImpl<$Res>
-    extends _$EditAddTaskEventCopyWithImpl<$Res>
-    implements _$$EditTaskTitleChangedCopyWith<$Res> {
-  __$$EditTaskTitleChangedCopyWithImpl(_$EditTaskTitleChanged _value,
-      $Res Function(_$EditTaskTitleChanged) _then)
-      : super(_value, (v) => _then(v as _$EditTaskTitleChanged));
+class __$$EditTaskTitleChangedImplCopyWithImpl<$Res>
+    extends _$EditAddTaskEventCopyWithImpl<$Res, _$EditTaskTitleChangedImpl>
+    implements _$$EditTaskTitleChangedImplCopyWith<$Res> {
+  __$$EditTaskTitleChangedImplCopyWithImpl(_$EditTaskTitleChangedImpl _value,
+      $Res Function(_$EditTaskTitleChangedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$EditTaskTitleChanged get _value => super._value as _$EditTaskTitleChanged;
-
+  /// Create a copy of EditAddTaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = freezed,
+    Object? title = null,
   }) {
-    return _then(_$EditTaskTitleChanged(
-      title == freezed
+    return _then(_$EditTaskTitleChangedImpl(
+      null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
@@ -125,8 +102,8 @@ class __$$EditTaskTitleChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EditTaskTitleChanged implements EditTaskTitleChanged {
-  const _$EditTaskTitleChanged(this.title);
+class _$EditTaskTitleChangedImpl implements EditTaskTitleChanged {
+  const _$EditTaskTitleChangedImpl(this.title);
 
   @override
   final String title;
@@ -137,62 +114,25 @@ class _$EditTaskTitleChanged implements EditTaskTitleChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EditTaskTitleChanged &&
-            const DeepCollectionEquality().equals(other.title, title));
+            other is _$EditTaskTitleChangedImpl &&
+            (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(title));
+  int get hashCode => Object.hash(runtimeType, title);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EditAddTaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$$EditTaskTitleChangedCopyWith<_$EditTaskTitleChanged> get copyWith =>
-      __$$EditTaskTitleChangedCopyWithImpl<_$EditTaskTitleChanged>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String title) titleChange,
-    required TResult Function(String importance) importanceChange,
-    required TResult Function(DateTime? deadline) deadlineChange,
-    required TResult Function() taskSubmit,
-    required TResult Function() taskDelete,
-  }) {
-    return titleChange(title);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String title)? titleChange,
-    TResult Function(String importance)? importanceChange,
-    TResult Function(DateTime? deadline)? deadlineChange,
-    TResult Function()? taskSubmit,
-    TResult Function()? taskDelete,
-  }) {
-    return titleChange?.call(title);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String title)? titleChange,
-    TResult Function(String importance)? importanceChange,
-    TResult Function(DateTime? deadline)? deadlineChange,
-    TResult Function()? taskSubmit,
-    TResult Function()? taskDelete,
-    required TResult orElse(),
-  }) {
-    if (titleChange != null) {
-      return titleChange(title);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$EditTaskTitleChangedImplCopyWith<_$EditTaskTitleChangedImpl>
+      get copyWith =>
+          __$$EditTaskTitleChangedImplCopyWithImpl<_$EditTaskTitleChangedImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -209,11 +149,11 @@ class _$EditTaskTitleChanged implements EditTaskTitleChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(EditTaskTitleChanged value)? titleChange,
-    TResult Function(EditTaskImportanceChanged value)? importanceChange,
-    TResult Function(EditTaskDeadlineChanged value)? deadlineChange,
-    TResult Function(EditTaskSubmitted value)? taskSubmit,
-    TResult Function(EditTaskDeleted value)? taskDelete,
+    TResult? Function(EditTaskTitleChanged value)? titleChange,
+    TResult? Function(EditTaskImportanceChanged value)? importanceChange,
+    TResult? Function(EditTaskDeadlineChanged value)? deadlineChange,
+    TResult? Function(EditTaskSubmitted value)? taskSubmit,
+    TResult? Function(EditTaskDeleted value)? taskDelete,
   }) {
     return titleChange?.call(this);
   }
@@ -237,41 +177,46 @@ class _$EditTaskTitleChanged implements EditTaskTitleChanged {
 
 abstract class EditTaskTitleChanged implements EditAddTaskEvent {
   const factory EditTaskTitleChanged(final String title) =
-      _$EditTaskTitleChanged;
+      _$EditTaskTitleChangedImpl;
 
   String get title;
-  @JsonKey(ignore: true)
-  _$$EditTaskTitleChangedCopyWith<_$EditTaskTitleChanged> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of EditAddTaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EditTaskTitleChangedImplCopyWith<_$EditTaskTitleChangedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$EditTaskImportanceChangedCopyWith<$Res> {
-  factory _$$EditTaskImportanceChangedCopyWith(
-          _$EditTaskImportanceChanged value,
-          $Res Function(_$EditTaskImportanceChanged) then) =
-      __$$EditTaskImportanceChangedCopyWithImpl<$Res>;
+abstract class _$$EditTaskImportanceChangedImplCopyWith<$Res> {
+  factory _$$EditTaskImportanceChangedImplCopyWith(
+          _$EditTaskImportanceChangedImpl value,
+          $Res Function(_$EditTaskImportanceChangedImpl) then) =
+      __$$EditTaskImportanceChangedImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({String importance});
 }
 
 /// @nodoc
-class __$$EditTaskImportanceChangedCopyWithImpl<$Res>
-    extends _$EditAddTaskEventCopyWithImpl<$Res>
-    implements _$$EditTaskImportanceChangedCopyWith<$Res> {
-  __$$EditTaskImportanceChangedCopyWithImpl(_$EditTaskImportanceChanged _value,
-      $Res Function(_$EditTaskImportanceChanged) _then)
-      : super(_value, (v) => _then(v as _$EditTaskImportanceChanged));
+class __$$EditTaskImportanceChangedImplCopyWithImpl<$Res>
+    extends _$EditAddTaskEventCopyWithImpl<$Res,
+        _$EditTaskImportanceChangedImpl>
+    implements _$$EditTaskImportanceChangedImplCopyWith<$Res> {
+  __$$EditTaskImportanceChangedImplCopyWithImpl(
+      _$EditTaskImportanceChangedImpl _value,
+      $Res Function(_$EditTaskImportanceChangedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$EditTaskImportanceChanged get _value =>
-      super._value as _$EditTaskImportanceChanged;
-
+  /// Create a copy of EditAddTaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? importance = freezed,
+    Object? importance = null,
   }) {
-    return _then(_$EditTaskImportanceChanged(
-      importance == freezed
+    return _then(_$EditTaskImportanceChangedImpl(
+      null == importance
           ? _value.importance
           : importance // ignore: cast_nullable_to_non_nullable
               as String,
@@ -281,8 +226,8 @@ class __$$EditTaskImportanceChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EditTaskImportanceChanged implements EditTaskImportanceChanged {
-  const _$EditTaskImportanceChanged(this.importance);
+class _$EditTaskImportanceChangedImpl implements EditTaskImportanceChanged {
+  const _$EditTaskImportanceChangedImpl(this.importance);
 
   @override
   final String importance;
@@ -293,63 +238,25 @@ class _$EditTaskImportanceChanged implements EditTaskImportanceChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EditTaskImportanceChanged &&
-            const DeepCollectionEquality()
-                .equals(other.importance, importance));
+            other is _$EditTaskImportanceChangedImpl &&
+            (identical(other.importance, importance) ||
+                other.importance == importance));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(importance));
+  int get hashCode => Object.hash(runtimeType, importance);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EditAddTaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$$EditTaskImportanceChangedCopyWith<_$EditTaskImportanceChanged>
-      get copyWith => __$$EditTaskImportanceChangedCopyWithImpl<
-          _$EditTaskImportanceChanged>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String title) titleChange,
-    required TResult Function(String importance) importanceChange,
-    required TResult Function(DateTime? deadline) deadlineChange,
-    required TResult Function() taskSubmit,
-    required TResult Function() taskDelete,
-  }) {
-    return importanceChange(importance);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String title)? titleChange,
-    TResult Function(String importance)? importanceChange,
-    TResult Function(DateTime? deadline)? deadlineChange,
-    TResult Function()? taskSubmit,
-    TResult Function()? taskDelete,
-  }) {
-    return importanceChange?.call(importance);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String title)? titleChange,
-    TResult Function(String importance)? importanceChange,
-    TResult Function(DateTime? deadline)? deadlineChange,
-    TResult Function()? taskSubmit,
-    TResult Function()? taskDelete,
-    required TResult orElse(),
-  }) {
-    if (importanceChange != null) {
-      return importanceChange(importance);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$EditTaskImportanceChangedImplCopyWith<_$EditTaskImportanceChangedImpl>
+      get copyWith => __$$EditTaskImportanceChangedImplCopyWithImpl<
+          _$EditTaskImportanceChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -366,11 +273,11 @@ class _$EditTaskImportanceChanged implements EditTaskImportanceChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(EditTaskTitleChanged value)? titleChange,
-    TResult Function(EditTaskImportanceChanged value)? importanceChange,
-    TResult Function(EditTaskDeadlineChanged value)? deadlineChange,
-    TResult Function(EditTaskSubmitted value)? taskSubmit,
-    TResult Function(EditTaskDeleted value)? taskDelete,
+    TResult? Function(EditTaskTitleChanged value)? titleChange,
+    TResult? Function(EditTaskImportanceChanged value)? importanceChange,
+    TResult? Function(EditTaskDeadlineChanged value)? deadlineChange,
+    TResult? Function(EditTaskSubmitted value)? taskSubmit,
+    TResult? Function(EditTaskDeleted value)? taskDelete,
   }) {
     return importanceChange?.call(this);
   }
@@ -394,40 +301,45 @@ class _$EditTaskImportanceChanged implements EditTaskImportanceChanged {
 
 abstract class EditTaskImportanceChanged implements EditAddTaskEvent {
   const factory EditTaskImportanceChanged(final String importance) =
-      _$EditTaskImportanceChanged;
+      _$EditTaskImportanceChangedImpl;
 
   String get importance;
-  @JsonKey(ignore: true)
-  _$$EditTaskImportanceChangedCopyWith<_$EditTaskImportanceChanged>
+
+  /// Create a copy of EditAddTaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EditTaskImportanceChangedImplCopyWith<_$EditTaskImportanceChangedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$EditTaskDeadlineChangedCopyWith<$Res> {
-  factory _$$EditTaskDeadlineChangedCopyWith(_$EditTaskDeadlineChanged value,
-          $Res Function(_$EditTaskDeadlineChanged) then) =
-      __$$EditTaskDeadlineChangedCopyWithImpl<$Res>;
+abstract class _$$EditTaskDeadlineChangedImplCopyWith<$Res> {
+  factory _$$EditTaskDeadlineChangedImplCopyWith(
+          _$EditTaskDeadlineChangedImpl value,
+          $Res Function(_$EditTaskDeadlineChangedImpl) then) =
+      __$$EditTaskDeadlineChangedImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({DateTime? deadline});
 }
 
 /// @nodoc
-class __$$EditTaskDeadlineChangedCopyWithImpl<$Res>
-    extends _$EditAddTaskEventCopyWithImpl<$Res>
-    implements _$$EditTaskDeadlineChangedCopyWith<$Res> {
-  __$$EditTaskDeadlineChangedCopyWithImpl(_$EditTaskDeadlineChanged _value,
-      $Res Function(_$EditTaskDeadlineChanged) _then)
-      : super(_value, (v) => _then(v as _$EditTaskDeadlineChanged));
+class __$$EditTaskDeadlineChangedImplCopyWithImpl<$Res>
+    extends _$EditAddTaskEventCopyWithImpl<$Res, _$EditTaskDeadlineChangedImpl>
+    implements _$$EditTaskDeadlineChangedImplCopyWith<$Res> {
+  __$$EditTaskDeadlineChangedImplCopyWithImpl(
+      _$EditTaskDeadlineChangedImpl _value,
+      $Res Function(_$EditTaskDeadlineChangedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$EditTaskDeadlineChanged get _value =>
-      super._value as _$EditTaskDeadlineChanged;
-
+  /// Create a copy of EditAddTaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? deadline = freezed,
   }) {
-    return _then(_$EditTaskDeadlineChanged(
-      deadline == freezed
+    return _then(_$EditTaskDeadlineChangedImpl(
+      freezed == deadline
           ? _value.deadline
           : deadline // ignore: cast_nullable_to_non_nullable
               as DateTime?,
@@ -437,8 +349,8 @@ class __$$EditTaskDeadlineChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EditTaskDeadlineChanged implements EditTaskDeadlineChanged {
-  const _$EditTaskDeadlineChanged(this.deadline);
+class _$EditTaskDeadlineChangedImpl implements EditTaskDeadlineChanged {
+  const _$EditTaskDeadlineChangedImpl(this.deadline);
 
   @override
   final DateTime? deadline;
@@ -449,62 +361,25 @@ class _$EditTaskDeadlineChanged implements EditTaskDeadlineChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EditTaskDeadlineChanged &&
-            const DeepCollectionEquality().equals(other.deadline, deadline));
+            other is _$EditTaskDeadlineChangedImpl &&
+            (identical(other.deadline, deadline) ||
+                other.deadline == deadline));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(deadline));
+  int get hashCode => Object.hash(runtimeType, deadline);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EditAddTaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$$EditTaskDeadlineChangedCopyWith<_$EditTaskDeadlineChanged> get copyWith =>
-      __$$EditTaskDeadlineChangedCopyWithImpl<_$EditTaskDeadlineChanged>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String title) titleChange,
-    required TResult Function(String importance) importanceChange,
-    required TResult Function(DateTime? deadline) deadlineChange,
-    required TResult Function() taskSubmit,
-    required TResult Function() taskDelete,
-  }) {
-    return deadlineChange(deadline);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String title)? titleChange,
-    TResult Function(String importance)? importanceChange,
-    TResult Function(DateTime? deadline)? deadlineChange,
-    TResult Function()? taskSubmit,
-    TResult Function()? taskDelete,
-  }) {
-    return deadlineChange?.call(deadline);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String title)? titleChange,
-    TResult Function(String importance)? importanceChange,
-    TResult Function(DateTime? deadline)? deadlineChange,
-    TResult Function()? taskSubmit,
-    TResult Function()? taskDelete,
-    required TResult orElse(),
-  }) {
-    if (deadlineChange != null) {
-      return deadlineChange(deadline);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$EditTaskDeadlineChangedImplCopyWith<_$EditTaskDeadlineChangedImpl>
+      get copyWith => __$$EditTaskDeadlineChangedImplCopyWithImpl<
+          _$EditTaskDeadlineChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -521,11 +396,11 @@ class _$EditTaskDeadlineChanged implements EditTaskDeadlineChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(EditTaskTitleChanged value)? titleChange,
-    TResult Function(EditTaskImportanceChanged value)? importanceChange,
-    TResult Function(EditTaskDeadlineChanged value)? deadlineChange,
-    TResult Function(EditTaskSubmitted value)? taskSubmit,
-    TResult Function(EditTaskDeleted value)? taskDelete,
+    TResult? Function(EditTaskTitleChanged value)? titleChange,
+    TResult? Function(EditTaskImportanceChanged value)? importanceChange,
+    TResult? Function(EditTaskDeadlineChanged value)? deadlineChange,
+    TResult? Function(EditTaskSubmitted value)? taskSubmit,
+    TResult? Function(EditTaskDeleted value)? taskDelete,
   }) {
     return deadlineChange?.call(this);
   }
@@ -549,37 +424,40 @@ class _$EditTaskDeadlineChanged implements EditTaskDeadlineChanged {
 
 abstract class EditTaskDeadlineChanged implements EditAddTaskEvent {
   const factory EditTaskDeadlineChanged(final DateTime? deadline) =
-      _$EditTaskDeadlineChanged;
+      _$EditTaskDeadlineChangedImpl;
 
   DateTime? get deadline;
-  @JsonKey(ignore: true)
-  _$$EditTaskDeadlineChangedCopyWith<_$EditTaskDeadlineChanged> get copyWith =>
-      throw _privateConstructorUsedError;
+
+  /// Create a copy of EditAddTaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EditTaskDeadlineChangedImplCopyWith<_$EditTaskDeadlineChangedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$EditTaskSubmittedCopyWith<$Res> {
-  factory _$$EditTaskSubmittedCopyWith(
-          _$EditTaskSubmitted value, $Res Function(_$EditTaskSubmitted) then) =
-      __$$EditTaskSubmittedCopyWithImpl<$Res>;
+abstract class _$$EditTaskSubmittedImplCopyWith<$Res> {
+  factory _$$EditTaskSubmittedImplCopyWith(_$EditTaskSubmittedImpl value,
+          $Res Function(_$EditTaskSubmittedImpl) then) =
+      __$$EditTaskSubmittedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$EditTaskSubmittedCopyWithImpl<$Res>
-    extends _$EditAddTaskEventCopyWithImpl<$Res>
-    implements _$$EditTaskSubmittedCopyWith<$Res> {
-  __$$EditTaskSubmittedCopyWithImpl(
-      _$EditTaskSubmitted _value, $Res Function(_$EditTaskSubmitted) _then)
-      : super(_value, (v) => _then(v as _$EditTaskSubmitted));
+class __$$EditTaskSubmittedImplCopyWithImpl<$Res>
+    extends _$EditAddTaskEventCopyWithImpl<$Res, _$EditTaskSubmittedImpl>
+    implements _$$EditTaskSubmittedImplCopyWith<$Res> {
+  __$$EditTaskSubmittedImplCopyWithImpl(_$EditTaskSubmittedImpl _value,
+      $Res Function(_$EditTaskSubmittedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$EditTaskSubmitted get _value => super._value as _$EditTaskSubmitted;
+  /// Create a copy of EditAddTaskEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$EditTaskSubmitted implements EditTaskSubmitted {
-  const _$EditTaskSubmitted();
+class _$EditTaskSubmittedImpl implements EditTaskSubmitted {
+  const _$EditTaskSubmittedImpl();
 
   @override
   String toString() {
@@ -587,53 +465,13 @@ class _$EditTaskSubmitted implements EditTaskSubmitted {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EditTaskSubmitted);
+        (other.runtimeType == runtimeType && other is _$EditTaskSubmittedImpl);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String title) titleChange,
-    required TResult Function(String importance) importanceChange,
-    required TResult Function(DateTime? deadline) deadlineChange,
-    required TResult Function() taskSubmit,
-    required TResult Function() taskDelete,
-  }) {
-    return taskSubmit();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String title)? titleChange,
-    TResult Function(String importance)? importanceChange,
-    TResult Function(DateTime? deadline)? deadlineChange,
-    TResult Function()? taskSubmit,
-    TResult Function()? taskDelete,
-  }) {
-    return taskSubmit?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String title)? titleChange,
-    TResult Function(String importance)? importanceChange,
-    TResult Function(DateTime? deadline)? deadlineChange,
-    TResult Function()? taskSubmit,
-    TResult Function()? taskDelete,
-    required TResult orElse(),
-  }) {
-    if (taskSubmit != null) {
-      return taskSubmit();
-    }
-    return orElse();
-  }
 
   @override
   @optionalTypeArgs
@@ -650,11 +488,11 @@ class _$EditTaskSubmitted implements EditTaskSubmitted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(EditTaskTitleChanged value)? titleChange,
-    TResult Function(EditTaskImportanceChanged value)? importanceChange,
-    TResult Function(EditTaskDeadlineChanged value)? deadlineChange,
-    TResult Function(EditTaskSubmitted value)? taskSubmit,
-    TResult Function(EditTaskDeleted value)? taskDelete,
+    TResult? Function(EditTaskTitleChanged value)? titleChange,
+    TResult? Function(EditTaskImportanceChanged value)? importanceChange,
+    TResult? Function(EditTaskDeadlineChanged value)? deadlineChange,
+    TResult? Function(EditTaskSubmitted value)? taskSubmit,
+    TResult? Function(EditTaskDeleted value)? taskDelete,
   }) {
     return taskSubmit?.call(this);
   }
@@ -677,32 +515,32 @@ class _$EditTaskSubmitted implements EditTaskSubmitted {
 }
 
 abstract class EditTaskSubmitted implements EditAddTaskEvent {
-  const factory EditTaskSubmitted() = _$EditTaskSubmitted;
+  const factory EditTaskSubmitted() = _$EditTaskSubmittedImpl;
 }
 
 /// @nodoc
-abstract class _$$EditTaskDeletedCopyWith<$Res> {
-  factory _$$EditTaskDeletedCopyWith(
-          _$EditTaskDeleted value, $Res Function(_$EditTaskDeleted) then) =
-      __$$EditTaskDeletedCopyWithImpl<$Res>;
+abstract class _$$EditTaskDeletedImplCopyWith<$Res> {
+  factory _$$EditTaskDeletedImplCopyWith(_$EditTaskDeletedImpl value,
+          $Res Function(_$EditTaskDeletedImpl) then) =
+      __$$EditTaskDeletedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$EditTaskDeletedCopyWithImpl<$Res>
-    extends _$EditAddTaskEventCopyWithImpl<$Res>
-    implements _$$EditTaskDeletedCopyWith<$Res> {
-  __$$EditTaskDeletedCopyWithImpl(
-      _$EditTaskDeleted _value, $Res Function(_$EditTaskDeleted) _then)
-      : super(_value, (v) => _then(v as _$EditTaskDeleted));
+class __$$EditTaskDeletedImplCopyWithImpl<$Res>
+    extends _$EditAddTaskEventCopyWithImpl<$Res, _$EditTaskDeletedImpl>
+    implements _$$EditTaskDeletedImplCopyWith<$Res> {
+  __$$EditTaskDeletedImplCopyWithImpl(
+      _$EditTaskDeletedImpl _value, $Res Function(_$EditTaskDeletedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$EditTaskDeleted get _value => super._value as _$EditTaskDeleted;
+  /// Create a copy of EditAddTaskEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$EditTaskDeleted implements EditTaskDeleted {
-  const _$EditTaskDeleted();
+class _$EditTaskDeletedImpl implements EditTaskDeleted {
+  const _$EditTaskDeletedImpl();
 
   @override
   String toString() {
@@ -710,53 +548,13 @@ class _$EditTaskDeleted implements EditTaskDeleted {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EditTaskDeleted);
+        (other.runtimeType == runtimeType && other is _$EditTaskDeletedImpl);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String title) titleChange,
-    required TResult Function(String importance) importanceChange,
-    required TResult Function(DateTime? deadline) deadlineChange,
-    required TResult Function() taskSubmit,
-    required TResult Function() taskDelete,
-  }) {
-    return taskDelete();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String title)? titleChange,
-    TResult Function(String importance)? importanceChange,
-    TResult Function(DateTime? deadline)? deadlineChange,
-    TResult Function()? taskSubmit,
-    TResult Function()? taskDelete,
-  }) {
-    return taskDelete?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String title)? titleChange,
-    TResult Function(String importance)? importanceChange,
-    TResult Function(DateTime? deadline)? deadlineChange,
-    TResult Function()? taskSubmit,
-    TResult Function()? taskDelete,
-    required TResult orElse(),
-  }) {
-    if (taskDelete != null) {
-      return taskDelete();
-    }
-    return orElse();
-  }
 
   @override
   @optionalTypeArgs
@@ -773,11 +571,11 @@ class _$EditTaskDeleted implements EditTaskDeleted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(EditTaskTitleChanged value)? titleChange,
-    TResult Function(EditTaskImportanceChanged value)? importanceChange,
-    TResult Function(EditTaskDeadlineChanged value)? deadlineChange,
-    TResult Function(EditTaskSubmitted value)? taskSubmit,
-    TResult Function(EditTaskDeleted value)? taskDelete,
+    TResult? Function(EditTaskTitleChanged value)? titleChange,
+    TResult? Function(EditTaskImportanceChanged value)? importanceChange,
+    TResult? Function(EditTaskDeadlineChanged value)? deadlineChange,
+    TResult? Function(EditTaskSubmitted value)? taskSubmit,
+    TResult? Function(EditTaskDeleted value)? taskDelete,
   }) {
     return taskDelete?.call(this);
   }
@@ -800,7 +598,7 @@ class _$EditTaskDeleted implements EditTaskDeleted {
 }
 
 abstract class EditTaskDeleted implements EditAddTaskEvent {
-  const factory EditTaskDeleted() = _$EditTaskDeleted;
+  const factory EditTaskDeleted() = _$EditTaskDeletedImpl;
 }
 
 /// @nodoc
@@ -811,7 +609,9 @@ mixin _$EditAddTaskState {
   String? get importance => throw _privateConstructorUsedError;
   int? get deadline => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EditAddTaskState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EditAddTaskStateCopyWith<EditAddTaskState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -820,7 +620,8 @@ mixin _$EditAddTaskState {
 abstract class $EditAddTaskStateCopyWith<$Res> {
   factory $EditAddTaskStateCopyWith(
           EditAddTaskState value, $Res Function(EditAddTaskState) then) =
-      _$EditAddTaskStateCopyWithImpl<$Res>;
+      _$EditAddTaskStateCopyWithImpl<$Res, EditAddTaskState>;
+  @useResult
   $Res call(
       {EditAddTaskStatus status,
       OnlyTaskModel? initialTask,
@@ -832,65 +633,73 @@ abstract class $EditAddTaskStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EditAddTaskStateCopyWithImpl<$Res>
+class _$EditAddTaskStateCopyWithImpl<$Res, $Val extends EditAddTaskState>
     implements $EditAddTaskStateCopyWith<$Res> {
   _$EditAddTaskStateCopyWithImpl(this._value, this._then);
 
-  final EditAddTaskState _value;
   // ignore: unused_field
-  final $Res Function(EditAddTaskState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of EditAddTaskState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
+    Object? status = null,
     Object? initialTask = freezed,
-    Object? title = freezed,
+    Object? title = null,
     Object? importance = freezed,
     Object? deadline = freezed,
   }) {
     return _then(_value.copyWith(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as EditAddTaskStatus,
-      initialTask: initialTask == freezed
+      initialTask: freezed == initialTask
           ? _value.initialTask
           : initialTask // ignore: cast_nullable_to_non_nullable
               as OnlyTaskModel?,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      importance: importance == freezed
+      importance: freezed == importance
           ? _value.importance
           : importance // ignore: cast_nullable_to_non_nullable
               as String?,
-      deadline: deadline == freezed
+      deadline: freezed == deadline
           ? _value.deadline
           : deadline // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+    ) as $Val);
   }
 
+  /// Create a copy of EditAddTaskState
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $OnlyTaskModelCopyWith<$Res>? get initialTask {
     if (_value.initialTask == null) {
       return null;
     }
 
     return $OnlyTaskModelCopyWith<$Res>(_value.initialTask!, (value) {
-      return _then(_value.copyWith(initialTask: value));
+      return _then(_value.copyWith(initialTask: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_EditAddTaskStateCopyWith<$Res>
+abstract class _$$EditAddTaskStateImplCopyWith<$Res>
     implements $EditAddTaskStateCopyWith<$Res> {
-  factory _$$_EditAddTaskStateCopyWith(
-          _$_EditAddTaskState value, $Res Function(_$_EditAddTaskState) then) =
-      __$$_EditAddTaskStateCopyWithImpl<$Res>;
+  factory _$$EditAddTaskStateImplCopyWith(_$EditAddTaskStateImpl value,
+          $Res Function(_$EditAddTaskStateImpl) then) =
+      __$$EditAddTaskStateImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {EditAddTaskStatus status,
       OnlyTaskModel? initialTask,
@@ -903,42 +712,42 @@ abstract class _$$_EditAddTaskStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_EditAddTaskStateCopyWithImpl<$Res>
-    extends _$EditAddTaskStateCopyWithImpl<$Res>
-    implements _$$_EditAddTaskStateCopyWith<$Res> {
-  __$$_EditAddTaskStateCopyWithImpl(
-      _$_EditAddTaskState _value, $Res Function(_$_EditAddTaskState) _then)
-      : super(_value, (v) => _then(v as _$_EditAddTaskState));
+class __$$EditAddTaskStateImplCopyWithImpl<$Res>
+    extends _$EditAddTaskStateCopyWithImpl<$Res, _$EditAddTaskStateImpl>
+    implements _$$EditAddTaskStateImplCopyWith<$Res> {
+  __$$EditAddTaskStateImplCopyWithImpl(_$EditAddTaskStateImpl _value,
+      $Res Function(_$EditAddTaskStateImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_EditAddTaskState get _value => super._value as _$_EditAddTaskState;
-
+  /// Create a copy of EditAddTaskState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
+    Object? status = null,
     Object? initialTask = freezed,
-    Object? title = freezed,
+    Object? title = null,
     Object? importance = freezed,
     Object? deadline = freezed,
   }) {
-    return _then(_$_EditAddTaskState(
-      status: status == freezed
+    return _then(_$EditAddTaskStateImpl(
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as EditAddTaskStatus,
-      initialTask: initialTask == freezed
+      initialTask: freezed == initialTask
           ? _value.initialTask
           : initialTask // ignore: cast_nullable_to_non_nullable
               as OnlyTaskModel?,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      importance: importance == freezed
+      importance: freezed == importance
           ? _value.importance
           : importance // ignore: cast_nullable_to_non_nullable
               as String?,
-      deadline: deadline == freezed
+      deadline: freezed == deadline
           ? _value.deadline
           : deadline // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -948,8 +757,8 @@ class __$$_EditAddTaskStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EditAddTaskState extends _EditAddTaskState {
-  const _$_EditAddTaskState(
+class _$EditAddTaskStateImpl extends _EditAddTaskState {
+  const _$EditAddTaskStateImpl(
       {this.status = EditAddTaskStatus.initial,
       this.initialTask,
       this.title = '',
@@ -976,32 +785,32 @@ class _$_EditAddTaskState extends _EditAddTaskState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EditAddTaskState &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality()
-                .equals(other.initialTask, initialTask) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality()
-                .equals(other.importance, importance) &&
-            const DeepCollectionEquality().equals(other.deadline, deadline));
+            other is _$EditAddTaskStateImpl &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.initialTask, initialTask) ||
+                other.initialTask == initialTask) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.importance, importance) ||
+                other.importance == importance) &&
+            (identical(other.deadline, deadline) ||
+                other.deadline == deadline));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(initialTask),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(importance),
-      const DeepCollectionEquality().hash(deadline));
+      runtimeType, status, initialTask, title, importance, deadline);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EditAddTaskState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$$_EditAddTaskStateCopyWith<_$_EditAddTaskState> get copyWith =>
-      __$$_EditAddTaskStateCopyWithImpl<_$_EditAddTaskState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$EditAddTaskStateImplCopyWith<_$EditAddTaskStateImpl> get copyWith =>
+      __$$EditAddTaskStateImplCopyWithImpl<_$EditAddTaskStateImpl>(
+          this, _$identity);
 }
 
 abstract class _EditAddTaskState extends EditAddTaskState {
@@ -1010,7 +819,7 @@ abstract class _EditAddTaskState extends EditAddTaskState {
       final OnlyTaskModel? initialTask,
       final String title,
       final String? importance,
-      final int? deadline}) = _$_EditAddTaskState;
+      final int? deadline}) = _$EditAddTaskStateImpl;
   const _EditAddTaskState._() : super._();
 
   @override
@@ -1023,8 +832,11 @@ abstract class _EditAddTaskState extends EditAddTaskState {
   String? get importance;
   @override
   int? get deadline;
+
+  /// Create a copy of EditAddTaskState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_EditAddTaskStateCopyWith<_$_EditAddTaskState> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EditAddTaskStateImplCopyWith<_$EditAddTaskStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

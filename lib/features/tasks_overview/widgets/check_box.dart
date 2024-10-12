@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/data/models/only_task.dart';
 import 'package:todo/features/tasks_overview/view/main_screen.dart';
+import 'package:todo/src/feature/initialization/widget/dependencies_scope.dart';
 import 'package:todo/utils/extensions.dart';
 import 'package:todo/utils/key_widget.dart';
 import 'package:todo/utils/priority.dart';
@@ -29,10 +30,15 @@ class CheckBoxWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    final remoteConfigService =
+        DependenciesScope.of(context).remoteConfigService;
+    final importantColor = remoteConfigService.colorImportant();
+    return DecoratedBox(
       decoration: BoxDecoration(
         color: taskModel.importance == Priority.important.toShortString()
-            ? themeData.colorScheme.priorityColor().withOpacity(0.16)
+            ? themeData.colorScheme
+                .priorityColor(importantColor)
+                .withOpacity(0.16)
             : themeData.cardColor,
       ),
       child: Transform.scale(
@@ -45,7 +51,7 @@ class CheckBoxWidget extends StatelessWidget {
                 return themeData.colorScheme.green;
               }
               if (taskModel.importance == Priority.important.toShortString()) {
-                return themeData.colorScheme.priorityColor();
+                return themeData.colorScheme.priorityColor(importantColor);
               }
               return themeData.dividerColor;
             },
