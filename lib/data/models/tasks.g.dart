@@ -6,32 +6,32 @@ part of 'tasks.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_TasksModel _$$_TasksModelFromJson(Map<String, dynamic> json) =>
-    _$_TasksModel(
+_$TasksModelImpl _$$TasksModelImplFromJson(Map<String, dynamic> json) =>
+    _$TasksModelImpl(
       status: json['status'] as String,
       list: (json['list'] as List<dynamic>)
           .map((e) => OnlyTaskModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-      revision: json['revision'] as int,
+      revision: (json['revision'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$_TasksModelToJson(_$_TasksModel instance) =>
+Map<String, dynamic> _$$TasksModelImplToJson(_$TasksModelImpl instance) =>
     <String, dynamic>{
       'status': instance.status,
       'list': instance.list.map((e) => e.toJson()).toList(),
       'revision': instance.revision,
     };
 
-_$_TasksWithoutRevisionModel _$$_TasksWithoutRevisionModelFromJson(
+_$TasksWithoutRevisionModelImpl _$$TasksWithoutRevisionModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_TasksWithoutRevisionModel(
+    _$TasksWithoutRevisionModelImpl(
       list: (json['list'] as List<dynamic>)
           .map((e) => OnlyTaskModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_TasksWithoutRevisionModelToJson(
-        _$_TasksWithoutRevisionModel instance) =>
+Map<String, dynamic> _$$TasksWithoutRevisionModelImplToJson(
+        _$TasksWithoutRevisionModelImpl instance) =>
     <String, dynamic>{
       'list': instance.list.map((e) => e.toJson()).toList(),
     };

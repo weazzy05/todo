@@ -12,23 +12,21 @@ class DateTimeTextWidget extends StatelessWidget {
   final int? deadline;
 
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          AppLocalizations.of(context)!.make_up_to,
-          style: EditTaskScreenConfigure.textStyleW16H18,
-        ),
-        if (deadline != null)
+  Widget build(BuildContext context) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
           Text(
-            DateFormat.yMMMMd(Localizations.localeOf(context).toString())
-                .format(
-              DateTime.fromMillisecondsSinceEpoch(deadline! * 1000),
-            ),
-            style: TextStyle(color: Theme.of(context).primaryColor),
+            AppLocalizations.of(context)!.make_up_to,
+            style: EditTaskScreenConfigure.textStyleW16H18,
           ),
-      ],
-    );
-  }
+          if (deadline != null)
+            Text(
+              DateFormat.yMMMMd(Localizations.localeOf(context).toString())
+                  .format(
+                DateTime.fromMillisecondsSinceEpoch(deadline! * 1000),
+              ),
+              style: TextStyle(color: Theme.of(context).primaryColor),
+            ),
+        ],
+      );
 }

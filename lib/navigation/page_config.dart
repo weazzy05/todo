@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:todo/app/logger.dart';
+import 'package:todo/data/models/only_task.dart';
 import 'package:todo/navigation/router_pages.dart';
 import 'package:todo/navigation/routes.dart';
 
@@ -48,13 +49,13 @@ CustomPageParent getEPage(PageConfig config) {
   return p;
 }
 
-Map<String, CustomPageParent Function(Map<String, dynamic>)> _routes = {
+Map<String, CustomPageParent Function(Map<String, dynamic> arg)> _routes = {
   Routes.mainScreen: (args) => MainScreenPage(
-        bannerName: args[MainScreenPageArgs.bannerName],
+        bannerName: args[MainScreenPageArgs.bannerName] as String?,
         args: args,
       ),
   Routes.editTask: (args) => EditAddTaskScreenPage(
-        task: args[EditAddTaskScreenPageArgs.task],
+        task: args[EditAddTaskScreenPageArgs.task] as OnlyTaskModel?,
         args: args,
       ),
 };

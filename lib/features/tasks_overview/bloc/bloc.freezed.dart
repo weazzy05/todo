@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'bloc.dart';
 
@@ -12,44 +12,10 @@ part of 'bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$InitializationEvent {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() startInit,
-    required TResult Function(OnlyTaskModel task, bool isCompleted,
-            SendingApproach sendingApproach)
-        taskToggleComplete,
-    required TResult Function(TaskFilter filter) filterChange,
-    required TResult Function(OnlyTaskModel task) taskDelete,
-    required TResult Function(String title) createOnMainScreen,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? startInit,
-    TResult Function(OnlyTaskModel task, bool isCompleted,
-            SendingApproach sendingApproach)?
-        taskToggleComplete,
-    TResult Function(TaskFilter filter)? filterChange,
-    TResult Function(OnlyTaskModel task)? taskDelete,
-    TResult Function(String title)? createOnMainScreen,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? startInit,
-    TResult Function(OnlyTaskModel task, bool isCompleted,
-            SendingApproach sendingApproach)?
-        taskToggleComplete,
-    TResult Function(TaskFilter filter)? filterChange,
-    TResult Function(OnlyTaskModel task)? taskDelete,
-    TResult Function(String title)? createOnMainScreen,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(StartInitializationEvent value) startInit,
@@ -64,12 +30,12 @@ mixin _$InitializationEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(StartInitializationEvent value)? startInit,
-    TResult Function(TaskCompletionToggledInitializationEvent value)?
+    TResult? Function(StartInitializationEvent value)? startInit,
+    TResult? Function(TaskCompletionToggledInitializationEvent value)?
         taskToggleComplete,
-    TResult Function(TaskFilterChangedInitializationEvent value)? filterChange,
-    TResult Function(TaskDeleteInitializationEvent value)? taskDelete,
-    TResult Function(FastTaskCreateInitializationEvent value)?
+    TResult? Function(TaskFilterChangedInitializationEvent value)? filterChange,
+    TResult? Function(TaskDeleteInitializationEvent value)? taskDelete,
+    TResult? Function(FastTaskCreateInitializationEvent value)?
         createOnMainScreen,
   }) =>
       throw _privateConstructorUsedError;
@@ -91,43 +57,49 @@ mixin _$InitializationEvent {
 abstract class $InitializationEventCopyWith<$Res> {
   factory $InitializationEventCopyWith(
           InitializationEvent value, $Res Function(InitializationEvent) then) =
-      _$InitializationEventCopyWithImpl<$Res>;
+      _$InitializationEventCopyWithImpl<$Res, InitializationEvent>;
 }
 
 /// @nodoc
-class _$InitializationEventCopyWithImpl<$Res>
+class _$InitializationEventCopyWithImpl<$Res, $Val extends InitializationEvent>
     implements $InitializationEventCopyWith<$Res> {
   _$InitializationEventCopyWithImpl(this._value, this._then);
 
-  final InitializationEvent _value;
   // ignore: unused_field
-  final $Res Function(InitializationEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of InitializationEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$StartInitializationEventCopyWith<$Res> {
-  factory _$$StartInitializationEventCopyWith(_$StartInitializationEvent value,
-          $Res Function(_$StartInitializationEvent) then) =
-      __$$StartInitializationEventCopyWithImpl<$Res>;
+abstract class _$$StartInitializationEventImplCopyWith<$Res> {
+  factory _$$StartInitializationEventImplCopyWith(
+          _$StartInitializationEventImpl value,
+          $Res Function(_$StartInitializationEventImpl) then) =
+      __$$StartInitializationEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$StartInitializationEventCopyWithImpl<$Res>
-    extends _$InitializationEventCopyWithImpl<$Res>
-    implements _$$StartInitializationEventCopyWith<$Res> {
-  __$$StartInitializationEventCopyWithImpl(_$StartInitializationEvent _value,
-      $Res Function(_$StartInitializationEvent) _then)
-      : super(_value, (v) => _then(v as _$StartInitializationEvent));
+class __$$StartInitializationEventImplCopyWithImpl<$Res>
+    extends _$InitializationEventCopyWithImpl<$Res,
+        _$StartInitializationEventImpl>
+    implements _$$StartInitializationEventImplCopyWith<$Res> {
+  __$$StartInitializationEventImplCopyWithImpl(
+      _$StartInitializationEventImpl _value,
+      $Res Function(_$StartInitializationEventImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$StartInitializationEvent get _value =>
-      super._value as _$StartInitializationEvent;
+  /// Create a copy of InitializationEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$StartInitializationEvent implements StartInitializationEvent {
-  const _$StartInitializationEvent();
+class _$StartInitializationEventImpl implements StartInitializationEvent {
+  const _$StartInitializationEventImpl();
 
   @override
   String toString() {
@@ -135,60 +107,14 @@ class _$StartInitializationEvent implements StartInitializationEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StartInitializationEvent);
+            other is _$StartInitializationEventImpl);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() startInit,
-    required TResult Function(OnlyTaskModel task, bool isCompleted,
-            SendingApproach sendingApproach)
-        taskToggleComplete,
-    required TResult Function(TaskFilter filter) filterChange,
-    required TResult Function(OnlyTaskModel task) taskDelete,
-    required TResult Function(String title) createOnMainScreen,
-  }) {
-    return startInit();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? startInit,
-    TResult Function(OnlyTaskModel task, bool isCompleted,
-            SendingApproach sendingApproach)?
-        taskToggleComplete,
-    TResult Function(TaskFilter filter)? filterChange,
-    TResult Function(OnlyTaskModel task)? taskDelete,
-    TResult Function(String title)? createOnMainScreen,
-  }) {
-    return startInit?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? startInit,
-    TResult Function(OnlyTaskModel task, bool isCompleted,
-            SendingApproach sendingApproach)?
-        taskToggleComplete,
-    TResult Function(TaskFilter filter)? filterChange,
-    TResult Function(OnlyTaskModel task)? taskDelete,
-    TResult Function(String title)? createOnMainScreen,
-    required TResult orElse(),
-  }) {
-    if (startInit != null) {
-      return startInit();
-    }
-    return orElse();
-  }
 
   @override
   @optionalTypeArgs
@@ -208,12 +134,12 @@ class _$StartInitializationEvent implements StartInitializationEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(StartInitializationEvent value)? startInit,
-    TResult Function(TaskCompletionToggledInitializationEvent value)?
+    TResult? Function(StartInitializationEvent value)? startInit,
+    TResult? Function(TaskCompletionToggledInitializationEvent value)?
         taskToggleComplete,
-    TResult Function(TaskFilterChangedInitializationEvent value)? filterChange,
-    TResult Function(TaskDeleteInitializationEvent value)? taskDelete,
-    TResult Function(FastTaskCreateInitializationEvent value)?
+    TResult? Function(TaskFilterChangedInitializationEvent value)? filterChange,
+    TResult? Function(TaskDeleteInitializationEvent value)? taskDelete,
+    TResult? Function(FastTaskCreateInitializationEvent value)?
         createOnMainScreen,
   }) {
     return startInit?.call(this);
@@ -239,15 +165,16 @@ class _$StartInitializationEvent implements StartInitializationEvent {
 }
 
 abstract class StartInitializationEvent implements InitializationEvent {
-  const factory StartInitializationEvent() = _$StartInitializationEvent;
+  const factory StartInitializationEvent() = _$StartInitializationEventImpl;
 }
 
 /// @nodoc
-abstract class _$$TaskCompletionToggledInitializationEventCopyWith<$Res> {
-  factory _$$TaskCompletionToggledInitializationEventCopyWith(
-          _$TaskCompletionToggledInitializationEvent value,
-          $Res Function(_$TaskCompletionToggledInitializationEvent) then) =
-      __$$TaskCompletionToggledInitializationEventCopyWithImpl<$Res>;
+abstract class _$$TaskCompletionToggledInitializationEventImplCopyWith<$Res> {
+  factory _$$TaskCompletionToggledInitializationEventImplCopyWith(
+          _$TaskCompletionToggledInitializationEventImpl value,
+          $Res Function(_$TaskCompletionToggledInitializationEventImpl) then) =
+      __$$TaskCompletionToggledInitializationEventImplCopyWithImpl<$Res>;
+  @useResult
   $Res call(
       {OnlyTaskModel task, bool isCompleted, SendingApproach sendingApproach});
 
@@ -255,42 +182,44 @@ abstract class _$$TaskCompletionToggledInitializationEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$TaskCompletionToggledInitializationEventCopyWithImpl<$Res>
-    extends _$InitializationEventCopyWithImpl<$Res>
-    implements _$$TaskCompletionToggledInitializationEventCopyWith<$Res> {
-  __$$TaskCompletionToggledInitializationEventCopyWithImpl(
-      _$TaskCompletionToggledInitializationEvent _value,
-      $Res Function(_$TaskCompletionToggledInitializationEvent) _then)
-      : super(_value,
-            (v) => _then(v as _$TaskCompletionToggledInitializationEvent));
+class __$$TaskCompletionToggledInitializationEventImplCopyWithImpl<$Res>
+    extends _$InitializationEventCopyWithImpl<$Res,
+        _$TaskCompletionToggledInitializationEventImpl>
+    implements _$$TaskCompletionToggledInitializationEventImplCopyWith<$Res> {
+  __$$TaskCompletionToggledInitializationEventImplCopyWithImpl(
+      _$TaskCompletionToggledInitializationEventImpl _value,
+      $Res Function(_$TaskCompletionToggledInitializationEventImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$TaskCompletionToggledInitializationEvent get _value =>
-      super._value as _$TaskCompletionToggledInitializationEvent;
-
+  /// Create a copy of InitializationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? task = freezed,
-    Object? isCompleted = freezed,
-    Object? sendingApproach = freezed,
+    Object? task = null,
+    Object? isCompleted = null,
+    Object? sendingApproach = null,
   }) {
-    return _then(_$TaskCompletionToggledInitializationEvent(
-      task: task == freezed
+    return _then(_$TaskCompletionToggledInitializationEventImpl(
+      task: null == task
           ? _value.task
           : task // ignore: cast_nullable_to_non_nullable
               as OnlyTaskModel,
-      isCompleted: isCompleted == freezed
+      isCompleted: null == isCompleted
           ? _value.isCompleted
           : isCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      sendingApproach: sendingApproach == freezed
+      sendingApproach: null == sendingApproach
           ? _value.sendingApproach
           : sendingApproach // ignore: cast_nullable_to_non_nullable
               as SendingApproach,
     ));
   }
 
+  /// Create a copy of InitializationEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $OnlyTaskModelCopyWith<$Res> get task {
     return $OnlyTaskModelCopyWith<$Res>(_value.task, (value) {
       return _then(_value.copyWith(task: value));
@@ -300,9 +229,9 @@ class __$$TaskCompletionToggledInitializationEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TaskCompletionToggledInitializationEvent
+class _$TaskCompletionToggledInitializationEventImpl
     implements TaskCompletionToggledInitializationEvent {
-  const _$TaskCompletionToggledInitializationEvent(
+  const _$TaskCompletionToggledInitializationEventImpl(
       {required this.task,
       required this.isCompleted,
       this.sendingApproach = SendingApproach.dismissible});
@@ -321,76 +250,31 @@ class _$TaskCompletionToggledInitializationEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TaskCompletionToggledInitializationEvent &&
-            const DeepCollectionEquality().equals(other.task, task) &&
-            const DeepCollectionEquality()
-                .equals(other.isCompleted, isCompleted) &&
-            const DeepCollectionEquality()
-                .equals(other.sendingApproach, sendingApproach));
+            other is _$TaskCompletionToggledInitializationEventImpl &&
+            (identical(other.task, task) || other.task == task) &&
+            (identical(other.isCompleted, isCompleted) ||
+                other.isCompleted == isCompleted) &&
+            (identical(other.sendingApproach, sendingApproach) ||
+                other.sendingApproach == sendingApproach));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(task),
-      const DeepCollectionEquality().hash(isCompleted),
-      const DeepCollectionEquality().hash(sendingApproach));
+  int get hashCode =>
+      Object.hash(runtimeType, task, isCompleted, sendingApproach);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of InitializationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$$TaskCompletionToggledInitializationEventCopyWith<
-          _$TaskCompletionToggledInitializationEvent>
-      get copyWith => __$$TaskCompletionToggledInitializationEventCopyWithImpl<
-          _$TaskCompletionToggledInitializationEvent>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() startInit,
-    required TResult Function(OnlyTaskModel task, bool isCompleted,
-            SendingApproach sendingApproach)
-        taskToggleComplete,
-    required TResult Function(TaskFilter filter) filterChange,
-    required TResult Function(OnlyTaskModel task) taskDelete,
-    required TResult Function(String title) createOnMainScreen,
-  }) {
-    return taskToggleComplete(task, isCompleted, sendingApproach);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? startInit,
-    TResult Function(OnlyTaskModel task, bool isCompleted,
-            SendingApproach sendingApproach)?
-        taskToggleComplete,
-    TResult Function(TaskFilter filter)? filterChange,
-    TResult Function(OnlyTaskModel task)? taskDelete,
-    TResult Function(String title)? createOnMainScreen,
-  }) {
-    return taskToggleComplete?.call(task, isCompleted, sendingApproach);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? startInit,
-    TResult Function(OnlyTaskModel task, bool isCompleted,
-            SendingApproach sendingApproach)?
-        taskToggleComplete,
-    TResult Function(TaskFilter filter)? filterChange,
-    TResult Function(OnlyTaskModel task)? taskDelete,
-    TResult Function(String title)? createOnMainScreen,
-    required TResult orElse(),
-  }) {
-    if (taskToggleComplete != null) {
-      return taskToggleComplete(task, isCompleted, sendingApproach);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$TaskCompletionToggledInitializationEventImplCopyWith<
+          _$TaskCompletionToggledInitializationEventImpl>
+      get copyWith =>
+          __$$TaskCompletionToggledInitializationEventImplCopyWithImpl<
+              _$TaskCompletionToggledInitializationEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -410,12 +294,12 @@ class _$TaskCompletionToggledInitializationEvent
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(StartInitializationEvent value)? startInit,
-    TResult Function(TaskCompletionToggledInitializationEvent value)?
+    TResult? Function(StartInitializationEvent value)? startInit,
+    TResult? Function(TaskCompletionToggledInitializationEvent value)?
         taskToggleComplete,
-    TResult Function(TaskFilterChangedInitializationEvent value)? filterChange,
-    TResult Function(TaskDeleteInitializationEvent value)? taskDelete,
-    TResult Function(FastTaskCreateInitializationEvent value)?
+    TResult? Function(TaskFilterChangedInitializationEvent value)? filterChange,
+    TResult? Function(TaskDeleteInitializationEvent value)? taskDelete,
+    TResult? Function(FastTaskCreateInitializationEvent value)?
         createOnMainScreen,
   }) {
     return taskToggleComplete?.call(this);
@@ -446,46 +330,49 @@ abstract class TaskCompletionToggledInitializationEvent
           {required final OnlyTaskModel task,
           required final bool isCompleted,
           final SendingApproach sendingApproach}) =
-      _$TaskCompletionToggledInitializationEvent;
+      _$TaskCompletionToggledInitializationEventImpl;
 
   OnlyTaskModel get task;
   bool get isCompleted;
   SendingApproach get sendingApproach;
-  @JsonKey(ignore: true)
-  _$$TaskCompletionToggledInitializationEventCopyWith<
-          _$TaskCompletionToggledInitializationEvent>
+
+  /// Create a copy of InitializationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$TaskCompletionToggledInitializationEventImplCopyWith<
+          _$TaskCompletionToggledInitializationEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TaskFilterChangedInitializationEventCopyWith<$Res> {
-  factory _$$TaskFilterChangedInitializationEventCopyWith(
-          _$TaskFilterChangedInitializationEvent value,
-          $Res Function(_$TaskFilterChangedInitializationEvent) then) =
-      __$$TaskFilterChangedInitializationEventCopyWithImpl<$Res>;
+abstract class _$$TaskFilterChangedInitializationEventImplCopyWith<$Res> {
+  factory _$$TaskFilterChangedInitializationEventImplCopyWith(
+          _$TaskFilterChangedInitializationEventImpl value,
+          $Res Function(_$TaskFilterChangedInitializationEventImpl) then) =
+      __$$TaskFilterChangedInitializationEventImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({TaskFilter filter});
 }
 
 /// @nodoc
-class __$$TaskFilterChangedInitializationEventCopyWithImpl<$Res>
-    extends _$InitializationEventCopyWithImpl<$Res>
-    implements _$$TaskFilterChangedInitializationEventCopyWith<$Res> {
-  __$$TaskFilterChangedInitializationEventCopyWithImpl(
-      _$TaskFilterChangedInitializationEvent _value,
-      $Res Function(_$TaskFilterChangedInitializationEvent) _then)
-      : super(
-            _value, (v) => _then(v as _$TaskFilterChangedInitializationEvent));
+class __$$TaskFilterChangedInitializationEventImplCopyWithImpl<$Res>
+    extends _$InitializationEventCopyWithImpl<$Res,
+        _$TaskFilterChangedInitializationEventImpl>
+    implements _$$TaskFilterChangedInitializationEventImplCopyWith<$Res> {
+  __$$TaskFilterChangedInitializationEventImplCopyWithImpl(
+      _$TaskFilterChangedInitializationEventImpl _value,
+      $Res Function(_$TaskFilterChangedInitializationEventImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$TaskFilterChangedInitializationEvent get _value =>
-      super._value as _$TaskFilterChangedInitializationEvent;
-
+  /// Create a copy of InitializationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? filter = freezed,
+    Object? filter = null,
   }) {
-    return _then(_$TaskFilterChangedInitializationEvent(
-      filter == freezed
+    return _then(_$TaskFilterChangedInitializationEventImpl(
+      null == filter
           ? _value.filter
           : filter // ignore: cast_nullable_to_non_nullable
               as TaskFilter,
@@ -495,9 +382,9 @@ class __$$TaskFilterChangedInitializationEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TaskFilterChangedInitializationEvent
+class _$TaskFilterChangedInitializationEventImpl
     implements TaskFilterChangedInitializationEvent {
-  const _$TaskFilterChangedInitializationEvent(this.filter);
+  const _$TaskFilterChangedInitializationEventImpl(this.filter);
 
   @override
   final TaskFilter filter;
@@ -508,69 +395,25 @@ class _$TaskFilterChangedInitializationEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TaskFilterChangedInitializationEvent &&
-            const DeepCollectionEquality().equals(other.filter, filter));
+            other is _$TaskFilterChangedInitializationEventImpl &&
+            (identical(other.filter, filter) || other.filter == filter));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(filter));
+  int get hashCode => Object.hash(runtimeType, filter);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of InitializationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$$TaskFilterChangedInitializationEventCopyWith<
-          _$TaskFilterChangedInitializationEvent>
-      get copyWith => __$$TaskFilterChangedInitializationEventCopyWithImpl<
-          _$TaskFilterChangedInitializationEvent>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() startInit,
-    required TResult Function(OnlyTaskModel task, bool isCompleted,
-            SendingApproach sendingApproach)
-        taskToggleComplete,
-    required TResult Function(TaskFilter filter) filterChange,
-    required TResult Function(OnlyTaskModel task) taskDelete,
-    required TResult Function(String title) createOnMainScreen,
-  }) {
-    return filterChange(filter);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? startInit,
-    TResult Function(OnlyTaskModel task, bool isCompleted,
-            SendingApproach sendingApproach)?
-        taskToggleComplete,
-    TResult Function(TaskFilter filter)? filterChange,
-    TResult Function(OnlyTaskModel task)? taskDelete,
-    TResult Function(String title)? createOnMainScreen,
-  }) {
-    return filterChange?.call(filter);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? startInit,
-    TResult Function(OnlyTaskModel task, bool isCompleted,
-            SendingApproach sendingApproach)?
-        taskToggleComplete,
-    TResult Function(TaskFilter filter)? filterChange,
-    TResult Function(OnlyTaskModel task)? taskDelete,
-    TResult Function(String title)? createOnMainScreen,
-    required TResult orElse(),
-  }) {
-    if (filterChange != null) {
-      return filterChange(filter);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$TaskFilterChangedInitializationEventImplCopyWith<
+          _$TaskFilterChangedInitializationEventImpl>
+      get copyWith => __$$TaskFilterChangedInitializationEventImplCopyWithImpl<
+          _$TaskFilterChangedInitializationEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -590,12 +433,12 @@ class _$TaskFilterChangedInitializationEvent
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(StartInitializationEvent value)? startInit,
-    TResult Function(TaskCompletionToggledInitializationEvent value)?
+    TResult? Function(StartInitializationEvent value)? startInit,
+    TResult? Function(TaskCompletionToggledInitializationEvent value)?
         taskToggleComplete,
-    TResult Function(TaskFilterChangedInitializationEvent value)? filterChange,
-    TResult Function(TaskDeleteInitializationEvent value)? taskDelete,
-    TResult Function(FastTaskCreateInitializationEvent value)?
+    TResult? Function(TaskFilterChangedInitializationEvent value)? filterChange,
+    TResult? Function(TaskDeleteInitializationEvent value)? taskDelete,
+    TResult? Function(FastTaskCreateInitializationEvent value)?
         createOnMainScreen,
   }) {
     return filterChange?.call(this);
@@ -623,52 +466,59 @@ class _$TaskFilterChangedInitializationEvent
 abstract class TaskFilterChangedInitializationEvent
     implements InitializationEvent {
   const factory TaskFilterChangedInitializationEvent(final TaskFilter filter) =
-      _$TaskFilterChangedInitializationEvent;
+      _$TaskFilterChangedInitializationEventImpl;
 
   TaskFilter get filter;
-  @JsonKey(ignore: true)
-  _$$TaskFilterChangedInitializationEventCopyWith<
-          _$TaskFilterChangedInitializationEvent>
+
+  /// Create a copy of InitializationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$TaskFilterChangedInitializationEventImplCopyWith<
+          _$TaskFilterChangedInitializationEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TaskDeleteInitializationEventCopyWith<$Res> {
-  factory _$$TaskDeleteInitializationEventCopyWith(
-          _$TaskDeleteInitializationEvent value,
-          $Res Function(_$TaskDeleteInitializationEvent) then) =
-      __$$TaskDeleteInitializationEventCopyWithImpl<$Res>;
+abstract class _$$TaskDeleteInitializationEventImplCopyWith<$Res> {
+  factory _$$TaskDeleteInitializationEventImplCopyWith(
+          _$TaskDeleteInitializationEventImpl value,
+          $Res Function(_$TaskDeleteInitializationEventImpl) then) =
+      __$$TaskDeleteInitializationEventImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({OnlyTaskModel task});
 
   $OnlyTaskModelCopyWith<$Res> get task;
 }
 
 /// @nodoc
-class __$$TaskDeleteInitializationEventCopyWithImpl<$Res>
-    extends _$InitializationEventCopyWithImpl<$Res>
-    implements _$$TaskDeleteInitializationEventCopyWith<$Res> {
-  __$$TaskDeleteInitializationEventCopyWithImpl(
-      _$TaskDeleteInitializationEvent _value,
-      $Res Function(_$TaskDeleteInitializationEvent) _then)
-      : super(_value, (v) => _then(v as _$TaskDeleteInitializationEvent));
+class __$$TaskDeleteInitializationEventImplCopyWithImpl<$Res>
+    extends _$InitializationEventCopyWithImpl<$Res,
+        _$TaskDeleteInitializationEventImpl>
+    implements _$$TaskDeleteInitializationEventImplCopyWith<$Res> {
+  __$$TaskDeleteInitializationEventImplCopyWithImpl(
+      _$TaskDeleteInitializationEventImpl _value,
+      $Res Function(_$TaskDeleteInitializationEventImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$TaskDeleteInitializationEvent get _value =>
-      super._value as _$TaskDeleteInitializationEvent;
-
+  /// Create a copy of InitializationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? task = freezed,
+    Object? task = null,
   }) {
-    return _then(_$TaskDeleteInitializationEvent(
-      task == freezed
+    return _then(_$TaskDeleteInitializationEventImpl(
+      null == task
           ? _value.task
           : task // ignore: cast_nullable_to_non_nullable
               as OnlyTaskModel,
     ));
   }
 
+  /// Create a copy of InitializationEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $OnlyTaskModelCopyWith<$Res> get task {
     return $OnlyTaskModelCopyWith<$Res>(_value.task, (value) {
       return _then(_value.copyWith(task: value));
@@ -678,8 +528,9 @@ class __$$TaskDeleteInitializationEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TaskDeleteInitializationEvent implements TaskDeleteInitializationEvent {
-  const _$TaskDeleteInitializationEvent(this.task);
+class _$TaskDeleteInitializationEventImpl
+    implements TaskDeleteInitializationEvent {
+  const _$TaskDeleteInitializationEventImpl(this.task);
 
   @override
   final OnlyTaskModel task;
@@ -690,68 +541,25 @@ class _$TaskDeleteInitializationEvent implements TaskDeleteInitializationEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TaskDeleteInitializationEvent &&
-            const DeepCollectionEquality().equals(other.task, task));
+            other is _$TaskDeleteInitializationEventImpl &&
+            (identical(other.task, task) || other.task == task));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(task));
+  int get hashCode => Object.hash(runtimeType, task);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of InitializationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$$TaskDeleteInitializationEventCopyWith<_$TaskDeleteInitializationEvent>
-      get copyWith => __$$TaskDeleteInitializationEventCopyWithImpl<
-          _$TaskDeleteInitializationEvent>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() startInit,
-    required TResult Function(OnlyTaskModel task, bool isCompleted,
-            SendingApproach sendingApproach)
-        taskToggleComplete,
-    required TResult Function(TaskFilter filter) filterChange,
-    required TResult Function(OnlyTaskModel task) taskDelete,
-    required TResult Function(String title) createOnMainScreen,
-  }) {
-    return taskDelete(task);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? startInit,
-    TResult Function(OnlyTaskModel task, bool isCompleted,
-            SendingApproach sendingApproach)?
-        taskToggleComplete,
-    TResult Function(TaskFilter filter)? filterChange,
-    TResult Function(OnlyTaskModel task)? taskDelete,
-    TResult Function(String title)? createOnMainScreen,
-  }) {
-    return taskDelete?.call(task);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? startInit,
-    TResult Function(OnlyTaskModel task, bool isCompleted,
-            SendingApproach sendingApproach)?
-        taskToggleComplete,
-    TResult Function(TaskFilter filter)? filterChange,
-    TResult Function(OnlyTaskModel task)? taskDelete,
-    TResult Function(String title)? createOnMainScreen,
-    required TResult orElse(),
-  }) {
-    if (taskDelete != null) {
-      return taskDelete(task);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$TaskDeleteInitializationEventImplCopyWith<
+          _$TaskDeleteInitializationEventImpl>
+      get copyWith => __$$TaskDeleteInitializationEventImplCopyWithImpl<
+          _$TaskDeleteInitializationEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -771,12 +579,12 @@ class _$TaskDeleteInitializationEvent implements TaskDeleteInitializationEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(StartInitializationEvent value)? startInit,
-    TResult Function(TaskCompletionToggledInitializationEvent value)?
+    TResult? Function(StartInitializationEvent value)? startInit,
+    TResult? Function(TaskCompletionToggledInitializationEvent value)?
         taskToggleComplete,
-    TResult Function(TaskFilterChangedInitializationEvent value)? filterChange,
-    TResult Function(TaskDeleteInitializationEvent value)? taskDelete,
-    TResult Function(FastTaskCreateInitializationEvent value)?
+    TResult? Function(TaskFilterChangedInitializationEvent value)? filterChange,
+    TResult? Function(TaskDeleteInitializationEvent value)? taskDelete,
+    TResult? Function(FastTaskCreateInitializationEvent value)?
         createOnMainScreen,
   }) {
     return taskDelete?.call(this);
@@ -803,42 +611,47 @@ class _$TaskDeleteInitializationEvent implements TaskDeleteInitializationEvent {
 
 abstract class TaskDeleteInitializationEvent implements InitializationEvent {
   const factory TaskDeleteInitializationEvent(final OnlyTaskModel task) =
-      _$TaskDeleteInitializationEvent;
+      _$TaskDeleteInitializationEventImpl;
 
   OnlyTaskModel get task;
-  @JsonKey(ignore: true)
-  _$$TaskDeleteInitializationEventCopyWith<_$TaskDeleteInitializationEvent>
+
+  /// Create a copy of InitializationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$TaskDeleteInitializationEventImplCopyWith<
+          _$TaskDeleteInitializationEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FastTaskCreateInitializationEventCopyWith<$Res> {
-  factory _$$FastTaskCreateInitializationEventCopyWith(
-          _$FastTaskCreateInitializationEvent value,
-          $Res Function(_$FastTaskCreateInitializationEvent) then) =
-      __$$FastTaskCreateInitializationEventCopyWithImpl<$Res>;
+abstract class _$$FastTaskCreateInitializationEventImplCopyWith<$Res> {
+  factory _$$FastTaskCreateInitializationEventImplCopyWith(
+          _$FastTaskCreateInitializationEventImpl value,
+          $Res Function(_$FastTaskCreateInitializationEventImpl) then) =
+      __$$FastTaskCreateInitializationEventImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({String title});
 }
 
 /// @nodoc
-class __$$FastTaskCreateInitializationEventCopyWithImpl<$Res>
-    extends _$InitializationEventCopyWithImpl<$Res>
-    implements _$$FastTaskCreateInitializationEventCopyWith<$Res> {
-  __$$FastTaskCreateInitializationEventCopyWithImpl(
-      _$FastTaskCreateInitializationEvent _value,
-      $Res Function(_$FastTaskCreateInitializationEvent) _then)
-      : super(_value, (v) => _then(v as _$FastTaskCreateInitializationEvent));
+class __$$FastTaskCreateInitializationEventImplCopyWithImpl<$Res>
+    extends _$InitializationEventCopyWithImpl<$Res,
+        _$FastTaskCreateInitializationEventImpl>
+    implements _$$FastTaskCreateInitializationEventImplCopyWith<$Res> {
+  __$$FastTaskCreateInitializationEventImplCopyWithImpl(
+      _$FastTaskCreateInitializationEventImpl _value,
+      $Res Function(_$FastTaskCreateInitializationEventImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$FastTaskCreateInitializationEvent get _value =>
-      super._value as _$FastTaskCreateInitializationEvent;
-
+  /// Create a copy of InitializationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = freezed,
+    Object? title = null,
   }) {
-    return _then(_$FastTaskCreateInitializationEvent(
-      title == freezed
+    return _then(_$FastTaskCreateInitializationEventImpl(
+      null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
@@ -848,9 +661,9 @@ class __$$FastTaskCreateInitializationEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FastTaskCreateInitializationEvent
+class _$FastTaskCreateInitializationEventImpl
     implements FastTaskCreateInitializationEvent {
-  const _$FastTaskCreateInitializationEvent(this.title);
+  const _$FastTaskCreateInitializationEventImpl(this.title);
 
   @override
   final String title;
@@ -861,69 +674,25 @@ class _$FastTaskCreateInitializationEvent
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FastTaskCreateInitializationEvent &&
-            const DeepCollectionEquality().equals(other.title, title));
+            other is _$FastTaskCreateInitializationEventImpl &&
+            (identical(other.title, title) || other.title == title));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(title));
+  int get hashCode => Object.hash(runtimeType, title);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of InitializationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$$FastTaskCreateInitializationEventCopyWith<
-          _$FastTaskCreateInitializationEvent>
-      get copyWith => __$$FastTaskCreateInitializationEventCopyWithImpl<
-          _$FastTaskCreateInitializationEvent>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() startInit,
-    required TResult Function(OnlyTaskModel task, bool isCompleted,
-            SendingApproach sendingApproach)
-        taskToggleComplete,
-    required TResult Function(TaskFilter filter) filterChange,
-    required TResult Function(OnlyTaskModel task) taskDelete,
-    required TResult Function(String title) createOnMainScreen,
-  }) {
-    return createOnMainScreen(title);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? startInit,
-    TResult Function(OnlyTaskModel task, bool isCompleted,
-            SendingApproach sendingApproach)?
-        taskToggleComplete,
-    TResult Function(TaskFilter filter)? filterChange,
-    TResult Function(OnlyTaskModel task)? taskDelete,
-    TResult Function(String title)? createOnMainScreen,
-  }) {
-    return createOnMainScreen?.call(title);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? startInit,
-    TResult Function(OnlyTaskModel task, bool isCompleted,
-            SendingApproach sendingApproach)?
-        taskToggleComplete,
-    TResult Function(TaskFilter filter)? filterChange,
-    TResult Function(OnlyTaskModel task)? taskDelete,
-    TResult Function(String title)? createOnMainScreen,
-    required TResult orElse(),
-  }) {
-    if (createOnMainScreen != null) {
-      return createOnMainScreen(title);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$FastTaskCreateInitializationEventImplCopyWith<
+          _$FastTaskCreateInitializationEventImpl>
+      get copyWith => __$$FastTaskCreateInitializationEventImplCopyWithImpl<
+          _$FastTaskCreateInitializationEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -943,12 +712,12 @@ class _$FastTaskCreateInitializationEvent
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(StartInitializationEvent value)? startInit,
-    TResult Function(TaskCompletionToggledInitializationEvent value)?
+    TResult? Function(StartInitializationEvent value)? startInit,
+    TResult? Function(TaskCompletionToggledInitializationEvent value)?
         taskToggleComplete,
-    TResult Function(TaskFilterChangedInitializationEvent value)? filterChange,
-    TResult Function(TaskDeleteInitializationEvent value)? taskDelete,
-    TResult Function(FastTaskCreateInitializationEvent value)?
+    TResult? Function(TaskFilterChangedInitializationEvent value)? filterChange,
+    TResult? Function(TaskDeleteInitializationEvent value)? taskDelete,
+    TResult? Function(FastTaskCreateInitializationEvent value)?
         createOnMainScreen,
   }) {
     return createOnMainScreen?.call(this);
@@ -976,12 +745,15 @@ class _$FastTaskCreateInitializationEvent
 abstract class FastTaskCreateInitializationEvent
     implements InitializationEvent {
   const factory FastTaskCreateInitializationEvent(final String title) =
-      _$FastTaskCreateInitializationEvent;
+      _$FastTaskCreateInitializationEventImpl;
 
   String get title;
-  @JsonKey(ignore: true)
-  _$$FastTaskCreateInitializationEventCopyWith<
-          _$FastTaskCreateInitializationEvent>
+
+  /// Create a copy of InitializationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FastTaskCreateInitializationEventImplCopyWith<
+          _$FastTaskCreateInitializationEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -992,7 +764,9 @@ mixin _$InitializationState {
   List<OnlyTaskModel> get tasks => throw _privateConstructorUsedError;
   TaskFilter get filter => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of InitializationState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $InitializationStateCopyWith<InitializationState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1001,7 +775,8 @@ mixin _$InitializationState {
 abstract class $InitializationStateCopyWith<$Res> {
   factory $InitializationStateCopyWith(
           InitializationState value, $Res Function(InitializationState) then) =
-      _$InitializationStateCopyWithImpl<$Res>;
+      _$InitializationStateCopyWithImpl<$Res, InitializationState>;
+  @useResult
   $Res call(
       {InitializationStatus status,
       int competedTasks,
@@ -1010,49 +785,54 @@ abstract class $InitializationStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$InitializationStateCopyWithImpl<$Res>
+class _$InitializationStateCopyWithImpl<$Res, $Val extends InitializationState>
     implements $InitializationStateCopyWith<$Res> {
   _$InitializationStateCopyWithImpl(this._value, this._then);
 
-  final InitializationState _value;
   // ignore: unused_field
-  final $Res Function(InitializationState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of InitializationState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? competedTasks = freezed,
-    Object? tasks = freezed,
-    Object? filter = freezed,
+    Object? status = null,
+    Object? competedTasks = null,
+    Object? tasks = null,
+    Object? filter = null,
   }) {
     return _then(_value.copyWith(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as InitializationStatus,
-      competedTasks: competedTasks == freezed
+      competedTasks: null == competedTasks
           ? _value.competedTasks
           : competedTasks // ignore: cast_nullable_to_non_nullable
               as int,
-      tasks: tasks == freezed
+      tasks: null == tasks
           ? _value.tasks
           : tasks // ignore: cast_nullable_to_non_nullable
               as List<OnlyTaskModel>,
-      filter: filter == freezed
+      filter: null == filter
           ? _value.filter
           : filter // ignore: cast_nullable_to_non_nullable
               as TaskFilter,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_InitializationStateCopyWith<$Res>
+abstract class _$$InitializationStateImplCopyWith<$Res>
     implements $InitializationStateCopyWith<$Res> {
-  factory _$$_InitializationStateCopyWith(_$_InitializationState value,
-          $Res Function(_$_InitializationState) then) =
-      __$$_InitializationStateCopyWithImpl<$Res>;
+  factory _$$InitializationStateImplCopyWith(_$InitializationStateImpl value,
+          $Res Function(_$InitializationStateImpl) then) =
+      __$$InitializationStateImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {InitializationStatus status,
       int competedTasks,
@@ -1061,37 +841,37 @@ abstract class _$$_InitializationStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_InitializationStateCopyWithImpl<$Res>
-    extends _$InitializationStateCopyWithImpl<$Res>
-    implements _$$_InitializationStateCopyWith<$Res> {
-  __$$_InitializationStateCopyWithImpl(_$_InitializationState _value,
-      $Res Function(_$_InitializationState) _then)
-      : super(_value, (v) => _then(v as _$_InitializationState));
+class __$$InitializationStateImplCopyWithImpl<$Res>
+    extends _$InitializationStateCopyWithImpl<$Res, _$InitializationStateImpl>
+    implements _$$InitializationStateImplCopyWith<$Res> {
+  __$$InitializationStateImplCopyWithImpl(_$InitializationStateImpl _value,
+      $Res Function(_$InitializationStateImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_InitializationState get _value => super._value as _$_InitializationState;
-
+  /// Create a copy of InitializationState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? competedTasks = freezed,
-    Object? tasks = freezed,
-    Object? filter = freezed,
+    Object? status = null,
+    Object? competedTasks = null,
+    Object? tasks = null,
+    Object? filter = null,
   }) {
-    return _then(_$_InitializationState(
-      status: status == freezed
+    return _then(_$InitializationStateImpl(
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as InitializationStatus,
-      competedTasks: competedTasks == freezed
+      competedTasks: null == competedTasks
           ? _value.competedTasks
           : competedTasks // ignore: cast_nullable_to_non_nullable
               as int,
-      tasks: tasks == freezed
+      tasks: null == tasks
           ? _value._tasks
           : tasks // ignore: cast_nullable_to_non_nullable
               as List<OnlyTaskModel>,
-      filter: filter == freezed
+      filter: null == filter
           ? _value.filter
           : filter // ignore: cast_nullable_to_non_nullable
               as TaskFilter,
@@ -1101,8 +881,8 @@ class __$$_InitializationStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_InitializationState extends _InitializationState {
-  const _$_InitializationState(
+class _$InitializationStateImpl extends _InitializationState {
+  const _$InitializationStateImpl(
       {this.status = InitializationStatus.initial,
       this.competedTasks = 0,
       final List<OnlyTaskModel> tasks = const [],
@@ -1120,6 +900,7 @@ class _$_InitializationState extends _InitializationState {
   @override
   @JsonKey()
   List<OnlyTaskModel> get tasks {
+    if (_tasks is EqualUnmodifiableListView) return _tasks;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_tasks);
   }
@@ -1134,29 +915,28 @@ class _$_InitializationState extends _InitializationState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InitializationState &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality()
-                .equals(other.competedTasks, competedTasks) &&
+            other is _$InitializationStateImpl &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.competedTasks, competedTasks) ||
+                other.competedTasks == competedTasks) &&
             const DeepCollectionEquality().equals(other._tasks, _tasks) &&
-            const DeepCollectionEquality().equals(other.filter, filter));
+            (identical(other.filter, filter) || other.filter == filter));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(competedTasks),
-      const DeepCollectionEquality().hash(_tasks),
-      const DeepCollectionEquality().hash(filter));
+  int get hashCode => Object.hash(runtimeType, status, competedTasks,
+      const DeepCollectionEquality().hash(_tasks), filter);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of InitializationState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$$_InitializationStateCopyWith<_$_InitializationState> get copyWith =>
-      __$$_InitializationStateCopyWithImpl<_$_InitializationState>(
+  @pragma('vm:prefer-inline')
+  _$$InitializationStateImplCopyWith<_$InitializationStateImpl> get copyWith =>
+      __$$InitializationStateImplCopyWithImpl<_$InitializationStateImpl>(
           this, _$identity);
 }
 
@@ -1165,7 +945,7 @@ abstract class _InitializationState extends InitializationState {
       {final InitializationStatus status,
       final int competedTasks,
       final List<OnlyTaskModel> tasks,
-      final TaskFilter filter}) = _$_InitializationState;
+      final TaskFilter filter}) = _$InitializationStateImpl;
   const _InitializationState._() : super._();
 
   @override
@@ -1176,8 +956,11 @@ abstract class _InitializationState extends InitializationState {
   List<OnlyTaskModel> get tasks;
   @override
   TaskFilter get filter;
+
+  /// Create a copy of InitializationState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_InitializationStateCopyWith<_$_InitializationState> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$InitializationStateImplCopyWith<_$InitializationStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -51,7 +51,7 @@ class FirebaseAnalyticsService implements AnalyticsService {
 
   Future<void> _logEvent({
     required String name,
-    Map<String, Object?>? parameters,
+    Map<String, Object>? parameters,
   }) async {
     await FirebaseAnalytics.instance.logEvent(
       name: name,
@@ -59,11 +59,13 @@ class FirebaseAnalyticsService implements AnalyticsService {
     );
   }
 
+  // TODO(weazzy): Переписать аналитику
+
   @override
   Future<void> createTask({String? id}) async {
     await _logEvent(
       name: AnalyticEvents.createTask,
-      parameters: {'id': id},
+      parameters: {'id': id ?? ''},
     );
   }
 
@@ -71,7 +73,7 @@ class FirebaseAnalyticsService implements AnalyticsService {
   Future<void> filterChanged({String? filter}) async {
     await _logEvent(
       name: AnalyticEvents.filterChanged,
-      parameters: {'filter': filter},
+      parameters: {'filter': filter ?? ''},
     );
   }
 
@@ -79,7 +81,7 @@ class FirebaseAnalyticsService implements AnalyticsService {
   Future<void> taskCompleteEdited({String? id}) async {
     await _logEvent(
       name: AnalyticEvents.taskCompleteEdited,
-      parameters: {'id': id},
+      parameters: {'id': id ?? ''},
     );
   }
 
@@ -87,7 +89,7 @@ class FirebaseAnalyticsService implements AnalyticsService {
   Future<void> updateTask({String? id}) async {
     await _logEvent(
       name: AnalyticEvents.updateTask,
-      parameters: {'id': id},
+      parameters: {'id': id ?? ''},
     );
   }
 
@@ -95,7 +97,7 @@ class FirebaseAnalyticsService implements AnalyticsService {
   Future<void> deletedTask({String? id}) async {
     await _logEvent(
       name: AnalyticEvents.deleteTask,
-      parameters: {'id': id},
+      parameters: {'id': id ?? ''},
     );
   }
 

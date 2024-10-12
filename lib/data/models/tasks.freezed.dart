@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'tasks.dart';
 
@@ -12,7 +12,7 @@ part of 'tasks.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 TasksResponseModel _$TasksResponseModelFromJson(Map<String, dynamic> json) {
   return _TasksModel.fromJson(json);
@@ -24,8 +24,12 @@ mixin _$TasksResponseModel {
   List<OnlyTaskModel> get list => throw _privateConstructorUsedError;
   int get revision => throw _privateConstructorUsedError;
 
+  /// Serializes this TasksResponseModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TasksResponseModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TasksResponseModelCopyWith<TasksResponseModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -34,79 +38,85 @@ mixin _$TasksResponseModel {
 abstract class $TasksResponseModelCopyWith<$Res> {
   factory $TasksResponseModelCopyWith(
           TasksResponseModel value, $Res Function(TasksResponseModel) then) =
-      _$TasksResponseModelCopyWithImpl<$Res>;
+      _$TasksResponseModelCopyWithImpl<$Res, TasksResponseModel>;
+  @useResult
   $Res call({String status, List<OnlyTaskModel> list, int revision});
 }
 
 /// @nodoc
-class _$TasksResponseModelCopyWithImpl<$Res>
+class _$TasksResponseModelCopyWithImpl<$Res, $Val extends TasksResponseModel>
     implements $TasksResponseModelCopyWith<$Res> {
   _$TasksResponseModelCopyWithImpl(this._value, this._then);
 
-  final TasksResponseModel _value;
   // ignore: unused_field
-  final $Res Function(TasksResponseModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of TasksResponseModel
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? list = freezed,
-    Object? revision = freezed,
+    Object? status = null,
+    Object? list = null,
+    Object? revision = null,
   }) {
     return _then(_value.copyWith(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      list: list == freezed
+      list: null == list
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
               as List<OnlyTaskModel>,
-      revision: revision == freezed
+      revision: null == revision
           ? _value.revision
           : revision // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_TasksModelCopyWith<$Res>
+abstract class _$$TasksModelImplCopyWith<$Res>
     implements $TasksResponseModelCopyWith<$Res> {
-  factory _$$_TasksModelCopyWith(
-          _$_TasksModel value, $Res Function(_$_TasksModel) then) =
-      __$$_TasksModelCopyWithImpl<$Res>;
+  factory _$$TasksModelImplCopyWith(
+          _$TasksModelImpl value, $Res Function(_$TasksModelImpl) then) =
+      __$$TasksModelImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String status, List<OnlyTaskModel> list, int revision});
 }
 
 /// @nodoc
-class __$$_TasksModelCopyWithImpl<$Res>
-    extends _$TasksResponseModelCopyWithImpl<$Res>
-    implements _$$_TasksModelCopyWith<$Res> {
-  __$$_TasksModelCopyWithImpl(
-      _$_TasksModel _value, $Res Function(_$_TasksModel) _then)
-      : super(_value, (v) => _then(v as _$_TasksModel));
+class __$$TasksModelImplCopyWithImpl<$Res>
+    extends _$TasksResponseModelCopyWithImpl<$Res, _$TasksModelImpl>
+    implements _$$TasksModelImplCopyWith<$Res> {
+  __$$TasksModelImplCopyWithImpl(
+      _$TasksModelImpl _value, $Res Function(_$TasksModelImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_TasksModel get _value => super._value as _$_TasksModel;
-
+  /// Create a copy of TasksResponseModel
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? list = freezed,
-    Object? revision = freezed,
+    Object? status = null,
+    Object? list = null,
+    Object? revision = null,
   }) {
-    return _then(_$_TasksModel(
-      status: status == freezed
+    return _then(_$TasksModelImpl(
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
-      list: list == freezed
+      list: null == list
           ? _value._list
           : list // ignore: cast_nullable_to_non_nullable
               as List<OnlyTaskModel>,
-      revision: revision == freezed
+      revision: null == revision
           ? _value.revision
           : revision // ignore: cast_nullable_to_non_nullable
               as int,
@@ -117,22 +127,23 @@ class __$$_TasksModelCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$_TasksModel extends _TasksModel {
-  _$_TasksModel(
+class _$TasksModelImpl extends _TasksModel {
+  _$TasksModelImpl(
       {required this.status,
       required final List<OnlyTaskModel> list,
       required this.revision})
       : _list = list,
         super._();
 
-  factory _$_TasksModel.fromJson(Map<String, dynamic> json) =>
-      _$$_TasksModelFromJson(json);
+  factory _$TasksModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TasksModelImplFromJson(json);
 
   @override
   final String status;
   final List<OnlyTaskModel> _list;
   @override
   List<OnlyTaskModel> get list {
+    if (_list is EqualUnmodifiableListView) return _list;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_list);
   }
@@ -146,31 +157,32 @@ class _$_TasksModel extends _TasksModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TasksModel &&
-            const DeepCollectionEquality().equals(other.status, status) &&
+            other is _$TasksModelImpl &&
+            (identical(other.status, status) || other.status == status) &&
             const DeepCollectionEquality().equals(other._list, _list) &&
-            const DeepCollectionEquality().equals(other.revision, revision));
+            (identical(other.revision, revision) ||
+                other.revision == revision));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(_list),
-      const DeepCollectionEquality().hash(revision));
+  int get hashCode => Object.hash(runtimeType, status,
+      const DeepCollectionEquality().hash(_list), revision);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TasksResponseModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$$_TasksModelCopyWith<_$_TasksModel> get copyWith =>
-      __$$_TasksModelCopyWithImpl<_$_TasksModel>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$TasksModelImplCopyWith<_$TasksModelImpl> get copyWith =>
+      __$$TasksModelImplCopyWithImpl<_$TasksModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TasksModelToJson(
+    return _$$TasksModelImplToJson(
       this,
     );
   }
@@ -180,11 +192,11 @@ abstract class _TasksModel extends TasksResponseModel {
   factory _TasksModel(
       {required final String status,
       required final List<OnlyTaskModel> list,
-      required final int revision}) = _$_TasksModel;
+      required final int revision}) = _$TasksModelImpl;
   _TasksModel._() : super._();
 
   factory _TasksModel.fromJson(Map<String, dynamic> json) =
-      _$_TasksModel.fromJson;
+      _$TasksModelImpl.fromJson;
 
   @override
   String get status;
@@ -192,9 +204,12 @@ abstract class _TasksModel extends TasksResponseModel {
   List<OnlyTaskModel> get list;
   @override
   int get revision;
+
+  /// Create a copy of TasksResponseModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_TasksModelCopyWith<_$_TasksModel> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$TasksModelImplCopyWith<_$TasksModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -206,8 +221,12 @@ TasksRequestModel _$TasksRequestModelFromJson(Map<String, dynamic> json) {
 mixin _$TasksRequestModel {
   List<OnlyTaskModel> get list => throw _privateConstructorUsedError;
 
+  /// Serializes this TasksRequestModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TasksRequestModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TasksRequestModelCopyWith<TasksRequestModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -216,62 +235,68 @@ mixin _$TasksRequestModel {
 abstract class $TasksRequestModelCopyWith<$Res> {
   factory $TasksRequestModelCopyWith(
           TasksRequestModel value, $Res Function(TasksRequestModel) then) =
-      _$TasksRequestModelCopyWithImpl<$Res>;
+      _$TasksRequestModelCopyWithImpl<$Res, TasksRequestModel>;
+  @useResult
   $Res call({List<OnlyTaskModel> list});
 }
 
 /// @nodoc
-class _$TasksRequestModelCopyWithImpl<$Res>
+class _$TasksRequestModelCopyWithImpl<$Res, $Val extends TasksRequestModel>
     implements $TasksRequestModelCopyWith<$Res> {
   _$TasksRequestModelCopyWithImpl(this._value, this._then);
 
-  final TasksRequestModel _value;
   // ignore: unused_field
-  final $Res Function(TasksRequestModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of TasksRequestModel
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? list = freezed,
+    Object? list = null,
   }) {
     return _then(_value.copyWith(
-      list: list == freezed
+      list: null == list
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
               as List<OnlyTaskModel>,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_TasksWithoutRevisionModelCopyWith<$Res>
+abstract class _$$TasksWithoutRevisionModelImplCopyWith<$Res>
     implements $TasksRequestModelCopyWith<$Res> {
-  factory _$$_TasksWithoutRevisionModelCopyWith(
-          _$_TasksWithoutRevisionModel value,
-          $Res Function(_$_TasksWithoutRevisionModel) then) =
-      __$$_TasksWithoutRevisionModelCopyWithImpl<$Res>;
+  factory _$$TasksWithoutRevisionModelImplCopyWith(
+          _$TasksWithoutRevisionModelImpl value,
+          $Res Function(_$TasksWithoutRevisionModelImpl) then) =
+      __$$TasksWithoutRevisionModelImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<OnlyTaskModel> list});
 }
 
 /// @nodoc
-class __$$_TasksWithoutRevisionModelCopyWithImpl<$Res>
-    extends _$TasksRequestModelCopyWithImpl<$Res>
-    implements _$$_TasksWithoutRevisionModelCopyWith<$Res> {
-  __$$_TasksWithoutRevisionModelCopyWithImpl(
-      _$_TasksWithoutRevisionModel _value,
-      $Res Function(_$_TasksWithoutRevisionModel) _then)
-      : super(_value, (v) => _then(v as _$_TasksWithoutRevisionModel));
+class __$$TasksWithoutRevisionModelImplCopyWithImpl<$Res>
+    extends _$TasksRequestModelCopyWithImpl<$Res,
+        _$TasksWithoutRevisionModelImpl>
+    implements _$$TasksWithoutRevisionModelImplCopyWith<$Res> {
+  __$$TasksWithoutRevisionModelImplCopyWithImpl(
+      _$TasksWithoutRevisionModelImpl _value,
+      $Res Function(_$TasksWithoutRevisionModelImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_TasksWithoutRevisionModel get _value =>
-      super._value as _$_TasksWithoutRevisionModel;
-
+  /// Create a copy of TasksRequestModel
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? list = freezed,
+    Object? list = null,
   }) {
-    return _then(_$_TasksWithoutRevisionModel(
-      list: list == freezed
+    return _then(_$TasksWithoutRevisionModelImpl(
+      list: null == list
           ? _value._list
           : list // ignore: cast_nullable_to_non_nullable
               as List<OnlyTaskModel>,
@@ -282,17 +307,18 @@ class __$$_TasksWithoutRevisionModelCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$_TasksWithoutRevisionModel extends _TasksWithoutRevisionModel {
-  _$_TasksWithoutRevisionModel({required final List<OnlyTaskModel> list})
+class _$TasksWithoutRevisionModelImpl extends _TasksWithoutRevisionModel {
+  _$TasksWithoutRevisionModelImpl({required final List<OnlyTaskModel> list})
       : _list = list,
         super._();
 
-  factory _$_TasksWithoutRevisionModel.fromJson(Map<String, dynamic> json) =>
-      _$$_TasksWithoutRevisionModelFromJson(json);
+  factory _$TasksWithoutRevisionModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TasksWithoutRevisionModelImplFromJson(json);
 
   final List<OnlyTaskModel> _list;
   @override
   List<OnlyTaskModel> get list {
+    if (_list is EqualUnmodifiableListView) return _list;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_list);
   }
@@ -303,27 +329,30 @@ class _$_TasksWithoutRevisionModel extends _TasksWithoutRevisionModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TasksWithoutRevisionModel &&
+            other is _$TasksWithoutRevisionModelImpl &&
             const DeepCollectionEquality().equals(other._list, _list));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_list));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TasksRequestModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$$_TasksWithoutRevisionModelCopyWith<_$_TasksWithoutRevisionModel>
-      get copyWith => __$$_TasksWithoutRevisionModelCopyWithImpl<
-          _$_TasksWithoutRevisionModel>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$TasksWithoutRevisionModelImplCopyWith<_$TasksWithoutRevisionModelImpl>
+      get copyWith => __$$TasksWithoutRevisionModelImplCopyWithImpl<
+          _$TasksWithoutRevisionModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TasksWithoutRevisionModelToJson(
+    return _$$TasksWithoutRevisionModelImplToJson(
       this,
     );
   }
@@ -331,16 +360,20 @@ class _$_TasksWithoutRevisionModel extends _TasksWithoutRevisionModel {
 
 abstract class _TasksWithoutRevisionModel extends TasksRequestModel {
   factory _TasksWithoutRevisionModel(
-      {required final List<OnlyTaskModel> list}) = _$_TasksWithoutRevisionModel;
+          {required final List<OnlyTaskModel> list}) =
+      _$TasksWithoutRevisionModelImpl;
   _TasksWithoutRevisionModel._() : super._();
 
   factory _TasksWithoutRevisionModel.fromJson(Map<String, dynamic> json) =
-      _$_TasksWithoutRevisionModel.fromJson;
+      _$TasksWithoutRevisionModelImpl.fromJson;
 
   @override
   List<OnlyTaskModel> get list;
+
+  /// Create a copy of TasksRequestModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_TasksWithoutRevisionModelCopyWith<_$_TasksWithoutRevisionModel>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$TasksWithoutRevisionModelImplCopyWith<_$TasksWithoutRevisionModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

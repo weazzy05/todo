@@ -22,7 +22,7 @@ class ToDoAppTheme {
         backgroundColor: TodoLightColors.backPrimary,
       ),
       secondaryHeaderColor: TodoLightColors.labelTertiary,
-      backgroundColor: TodoLightColors.backSecondary,
+      // backgroundColor: TodoLightColors.backSecondary,
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
         foregroundColor: TodoLightColors.white,
         backgroundColor: TodoLightColors.blue,
@@ -31,8 +31,8 @@ class ToDoAppTheme {
       colorScheme: ColorScheme.fromSwatch(
         brightness: Brightness.light,
       ),
-      toggleableActiveColor: TodoLightColors.blue,
-      errorColor: TodoLightColors.red,
+      // toggleableActiveColor: TodoLightColors.blue,
+      // errorColor: TodoLightColors.red,
     );
   }
 
@@ -53,7 +53,7 @@ class ToDoAppTheme {
           TodoDarkColors.blue,
         ),
       ),
-      backgroundColor: TodoDarkColors.backSecondary,
+      // backgroundColor: TodoDarkColors.backSecondary,
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
         foregroundColor: TodoDarkColors.white,
         backgroundColor: TodoDarkColors.blue,
@@ -66,8 +66,8 @@ class ToDoAppTheme {
       colorScheme: ColorScheme.fromSwatch(
         brightness: Brightness.dark,
       ),
-      toggleableActiveColor: TodoDarkColors.blue,
-      errorColor: TodoDarkColors.red,
+      // toggleableActiveColor: TodoDarkColors.blue,
+      // errorColor: TodoDarkColors.red,
     );
   }
 }

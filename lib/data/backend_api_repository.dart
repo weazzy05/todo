@@ -35,22 +35,22 @@ class APIRepository {
     }
   }
 
-  Future<dynamic> get(
+  Future<Map<String, dynamic>> get(
     String path, {
     QueryParams? queryParams,
     Map<String, String> extraHeaders = const {},
   }) async {
     final uri = Uri.https(_authority, _basePath + path, queryParams);
-    var response = await _withClient(
+    final response = await _withClient(
       (client) async => client.get(
         uri,
-        headers: (headers)..addAll(extraHeaders),
+        headers: headers..addAll(extraHeaders),
       ),
     );
     return _decode(response);
   }
 
-  Future<dynamic> post(
+  Future<Map<String, dynamic>> post(
     String path,
     dynamic data, {
     QueryParams? queryParams,
@@ -68,7 +68,7 @@ class APIRepository {
     return _decode(response);
   }
 
-  Future<dynamic> put(
+  Future<Map<String, dynamic>> put(
     String path,
     Map<String, dynamic> data, {
     QueryParams? queryParams,
@@ -86,7 +86,7 @@ class APIRepository {
     return _decode(response);
   }
 
-  Future<dynamic> patch(
+  Future<Map<String, dynamic>> patch(
     String path,
     Map<String, dynamic> data, {
     QueryParams? queryParams,
@@ -104,7 +104,7 @@ class APIRepository {
     return _decode(response);
   }
 
-  Future<dynamic> delete(
+  Future<Map<String, dynamic>> delete(
     String path, {
     QueryParams? queryParams,
     Map<String, String> extraHeaders = const {},
@@ -120,13 +120,14 @@ class APIRepository {
     return _decode(response);
   }
 
-  Future<List<dynamic>> list(String path, {QueryParams? queryParams}) async {
+  Future<List<Map<String, dynamic>>> list(String path,
+      {QueryParams? queryParams}) async {
     return await get(
       path,
       queryParams: queryParams?.map<String, String>(
         (key, value) => MapEntry(key, value.toString()),
       ),
-    );
+    ) as List<Map<String, dynamic>>;
   }
 
   void _handleError(http.Response response) {
@@ -136,7 +137,7 @@ class APIRepository {
 
     final utf8Body = convert.utf8.decode(response.bodyBytes);
     try {
-      final jsonResponse = convert.jsonDecode(utf8Body);
+      final jsonResponse = convert.jsonDecode(utf8Body) as Map<String, dynamic>;
       final errorString = _collectErrorString(jsonResponse);
       if (response.statusCode == 400) {
         throw APIValidationException(errorString);
@@ -151,32 +152,33 @@ class APIRepository {
     }
   }
 
-  String _collectErrorString(dynamic json) {
+  String _collectErrorString(Map<String, dynamic> json) {
     final errors = json['errors'];
     if (errors == null || errors is! List) {
-      return json['message'] ?? '$json';
+      return json['message']?.toString() ?? '${json}';
     }
 
     errors.removeWhere((errorJson) => errorJson['message'] == null);
     if (errors.isEmpty) {
-      return json['message'] ?? '$json';
+      return json['message']?.toString() ?? '$json';
     }
 
     return errors.map((errorJson) => errorJson['message']).join(', ');
   }
 
-  dynamic _decode(http.Response response) {
+  Map<String, dynamic> _decode(http.Response response) {
     if (response.statusCode >= 200 && response.statusCode < 400) {
       var utf8Body = convert.utf8.decode(response.bodyBytes);
       if (utf8Body.isEmpty) {
         return <String, dynamic>{};
       }
       try {
-        return convert.jsonDecode(utf8Body);
+        return convert.jsonDecode(utf8Body) as Map<String, dynamic>;
       } on FormatException {
         throw APIGenericException(utf8Body);
       }
     }
     _handleError(response);
+    return <String, dynamic>{};
   }
 }

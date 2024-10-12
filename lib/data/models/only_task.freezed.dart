@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'only_task.dart';
 
@@ -12,7 +12,7 @@ part of 'only_task.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 OnlyTaskModel _$OnlyTaskModelFromJson(Map<String, dynamic> json) {
   return _TaskModel.fromJson(json);
@@ -42,8 +42,12 @@ mixin _$OnlyTaskModel {
   @HiveField(8)
   String get lastUpdatedBy => throw _privateConstructorUsedError;
 
+  /// Serializes this OnlyTaskModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of OnlyTaskModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $OnlyTaskModelCopyWith<OnlyTaskModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -52,7 +56,8 @@ mixin _$OnlyTaskModel {
 abstract class $OnlyTaskModelCopyWith<$Res> {
   factory $OnlyTaskModelCopyWith(
           OnlyTaskModel value, $Res Function(OnlyTaskModel) then) =
-      _$OnlyTaskModelCopyWithImpl<$Res>;
+      _$OnlyTaskModelCopyWithImpl<$Res, OnlyTaskModel>;
+  @useResult
   $Res call(
       {@HiveField(0) String id,
       @HiveField(1) String text,
@@ -66,74 +71,79 @@ abstract class $OnlyTaskModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$OnlyTaskModelCopyWithImpl<$Res>
+class _$OnlyTaskModelCopyWithImpl<$Res, $Val extends OnlyTaskModel>
     implements $OnlyTaskModelCopyWith<$Res> {
   _$OnlyTaskModelCopyWithImpl(this._value, this._then);
 
-  final OnlyTaskModel _value;
   // ignore: unused_field
-  final $Res Function(OnlyTaskModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  /// Create a copy of OnlyTaskModel
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? text = freezed,
-    Object? importance = freezed,
+    Object? id = null,
+    Object? text = null,
+    Object? importance = null,
     Object? deadline = freezed,
-    Object? done = freezed,
+    Object? done = null,
     Object? color = freezed,
-    Object? createdAt = freezed,
-    Object? changedAt = freezed,
-    Object? lastUpdatedBy = freezed,
+    Object? createdAt = null,
+    Object? changedAt = null,
+    Object? lastUpdatedBy = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      text: text == freezed
+      text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
-      importance: importance == freezed
+      importance: null == importance
           ? _value.importance
           : importance // ignore: cast_nullable_to_non_nullable
               as String,
-      deadline: deadline == freezed
+      deadline: freezed == deadline
           ? _value.deadline
           : deadline // ignore: cast_nullable_to_non_nullable
               as int?,
-      done: done == freezed
+      done: null == done
           ? _value.done
           : done // ignore: cast_nullable_to_non_nullable
               as bool,
-      color: color == freezed
+      color: freezed == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String?,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as int,
-      changedAt: changedAt == freezed
+      changedAt: null == changedAt
           ? _value.changedAt
           : changedAt // ignore: cast_nullable_to_non_nullable
               as int,
-      lastUpdatedBy: lastUpdatedBy == freezed
+      lastUpdatedBy: null == lastUpdatedBy
           ? _value.lastUpdatedBy
           : lastUpdatedBy // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_TaskModelCopyWith<$Res>
+abstract class _$$TaskModelImplCopyWith<$Res>
     implements $OnlyTaskModelCopyWith<$Res> {
-  factory _$$_TaskModelCopyWith(
-          _$_TaskModel value, $Res Function(_$_TaskModel) then) =
-      __$$_TaskModelCopyWithImpl<$Res>;
+  factory _$$TaskModelImplCopyWith(
+          _$TaskModelImpl value, $Res Function(_$TaskModelImpl) then) =
+      __$$TaskModelImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@HiveField(0) String id,
       @HiveField(1) String text,
@@ -147,61 +157,62 @@ abstract class _$$_TaskModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TaskModelCopyWithImpl<$Res> extends _$OnlyTaskModelCopyWithImpl<$Res>
-    implements _$$_TaskModelCopyWith<$Res> {
-  __$$_TaskModelCopyWithImpl(
-      _$_TaskModel _value, $Res Function(_$_TaskModel) _then)
-      : super(_value, (v) => _then(v as _$_TaskModel));
+class __$$TaskModelImplCopyWithImpl<$Res>
+    extends _$OnlyTaskModelCopyWithImpl<$Res, _$TaskModelImpl>
+    implements _$$TaskModelImplCopyWith<$Res> {
+  __$$TaskModelImplCopyWithImpl(
+      _$TaskModelImpl _value, $Res Function(_$TaskModelImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_TaskModel get _value => super._value as _$_TaskModel;
-
+  /// Create a copy of OnlyTaskModel
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? text = freezed,
-    Object? importance = freezed,
+    Object? id = null,
+    Object? text = null,
+    Object? importance = null,
     Object? deadline = freezed,
-    Object? done = freezed,
+    Object? done = null,
     Object? color = freezed,
-    Object? createdAt = freezed,
-    Object? changedAt = freezed,
-    Object? lastUpdatedBy = freezed,
+    Object? createdAt = null,
+    Object? changedAt = null,
+    Object? lastUpdatedBy = null,
   }) {
-    return _then(_$_TaskModel(
-      id: id == freezed
+    return _then(_$TaskModelImpl(
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      text: text == freezed
+      text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
-      importance: importance == freezed
+      importance: null == importance
           ? _value.importance
           : importance // ignore: cast_nullable_to_non_nullable
               as String,
-      deadline: deadline == freezed
+      deadline: freezed == deadline
           ? _value.deadline
           : deadline // ignore: cast_nullable_to_non_nullable
               as int?,
-      done: done == freezed
+      done: null == done
           ? _value.done
           : done // ignore: cast_nullable_to_non_nullable
               as bool,
-      color: color == freezed
+      color: freezed == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String?,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as int,
-      changedAt: changedAt == freezed
+      changedAt: null == changedAt
           ? _value.changedAt
           : changedAt // ignore: cast_nullable_to_non_nullable
               as int,
-      lastUpdatedBy: lastUpdatedBy == freezed
+      lastUpdatedBy: null == lastUpdatedBy
           ? _value.lastUpdatedBy
           : lastUpdatedBy // ignore: cast_nullable_to_non_nullable
               as String,
@@ -212,33 +223,23 @@ class __$$_TaskModelCopyWithImpl<$Res> extends _$OnlyTaskModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 @HiveType(typeId: 0, adapterName: 'OnlyTaskAdapter')
-class _$_TaskModel extends _TaskModel {
-  _$_TaskModel(
-      {@HiveField(0)
-          required this.id,
-      @HiveField(1)
-          required this.text,
-      @HiveField(2)
-          this.importance = 'basic',
-      @HiveField(3)
-          this.deadline,
-      @HiveField(4)
-          required this.done,
-      @HiveField(5)
-          this.color,
-      @JsonKey(name: 'created_at')
-      @HiveField(6)
-          required this.createdAt,
-      @JsonKey(name: 'changed_at')
-      @HiveField(7)
-          required this.changedAt,
+class _$TaskModelImpl extends _TaskModel {
+  _$TaskModelImpl(
+      {@HiveField(0) required this.id,
+      @HiveField(1) required this.text,
+      @HiveField(2) this.importance = 'basic',
+      @HiveField(3) this.deadline,
+      @HiveField(4) required this.done,
+      @HiveField(5) this.color,
+      @JsonKey(name: 'created_at') @HiveField(6) required this.createdAt,
+      @JsonKey(name: 'changed_at') @HiveField(7) required this.changedAt,
       @JsonKey(name: 'last_updated_by')
       @HiveField(8)
-          required this.lastUpdatedBy})
+      required this.lastUpdatedBy})
       : super._();
 
-  factory _$_TaskModel.fromJson(Map<String, dynamic> json) =>
-      _$$_TaskModelFromJson(json);
+  factory _$TaskModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TaskModelImplFromJson(json);
 
   @override
   @HiveField(0)
@@ -278,45 +279,42 @@ class _$_TaskModel extends _TaskModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TaskModel &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.text, text) &&
-            const DeepCollectionEquality()
-                .equals(other.importance, importance) &&
-            const DeepCollectionEquality().equals(other.deadline, deadline) &&
-            const DeepCollectionEquality().equals(other.done, done) &&
-            const DeepCollectionEquality().equals(other.color, color) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.changedAt, changedAt) &&
-            const DeepCollectionEquality()
-                .equals(other.lastUpdatedBy, lastUpdatedBy));
+            other is _$TaskModelImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.text, text) || other.text == text) &&
+            (identical(other.importance, importance) ||
+                other.importance == importance) &&
+            (identical(other.deadline, deadline) ||
+                other.deadline == deadline) &&
+            (identical(other.done, done) || other.done == done) &&
+            (identical(other.color, color) || other.color == color) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.changedAt, changedAt) ||
+                other.changedAt == changedAt) &&
+            (identical(other.lastUpdatedBy, lastUpdatedBy) ||
+                other.lastUpdatedBy == lastUpdatedBy));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(text),
-      const DeepCollectionEquality().hash(importance),
-      const DeepCollectionEquality().hash(deadline),
-      const DeepCollectionEquality().hash(done),
-      const DeepCollectionEquality().hash(color),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(changedAt),
-      const DeepCollectionEquality().hash(lastUpdatedBy));
+  int get hashCode => Object.hash(runtimeType, id, text, importance, deadline,
+      done, color, createdAt, changedAt, lastUpdatedBy);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OnlyTaskModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  _$$_TaskModelCopyWith<_$_TaskModel> get copyWith =>
-      __$$_TaskModelCopyWithImpl<_$_TaskModel>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$TaskModelImplCopyWith<_$TaskModelImpl> get copyWith =>
+      __$$TaskModelImplCopyWithImpl<_$TaskModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TaskModelToJson(
+    return _$$TaskModelImplToJson(
       this,
     );
   }
@@ -324,31 +322,21 @@ class _$_TaskModel extends _TaskModel {
 
 abstract class _TaskModel extends OnlyTaskModel {
   factory _TaskModel(
-      {@HiveField(0)
-          required final String id,
-      @HiveField(1)
-          required final String text,
-      @HiveField(2)
-          final String importance,
-      @HiveField(3)
-          final int? deadline,
-      @HiveField(4)
-          required final bool done,
-      @HiveField(5)
-          final String? color,
-      @JsonKey(name: 'created_at')
-      @HiveField(6)
-          required final int createdAt,
-      @JsonKey(name: 'changed_at')
-      @HiveField(7)
-          required final int changedAt,
+      {@HiveField(0) required final String id,
+      @HiveField(1) required final String text,
+      @HiveField(2) final String importance,
+      @HiveField(3) final int? deadline,
+      @HiveField(4) required final bool done,
+      @HiveField(5) final String? color,
+      @JsonKey(name: 'created_at') @HiveField(6) required final int createdAt,
+      @JsonKey(name: 'changed_at') @HiveField(7) required final int changedAt,
       @JsonKey(name: 'last_updated_by')
       @HiveField(8)
-          required final String lastUpdatedBy}) = _$_TaskModel;
+      required final String lastUpdatedBy}) = _$TaskModelImpl;
   _TaskModel._() : super._();
 
   factory _TaskModel.fromJson(Map<String, dynamic> json) =
-      _$_TaskModel.fromJson;
+      _$TaskModelImpl.fromJson;
 
   @override
   @HiveField(0)
@@ -380,8 +368,11 @@ abstract class _TaskModel extends OnlyTaskModel {
   @JsonKey(name: 'last_updated_by')
   @HiveField(8)
   String get lastUpdatedBy;
+
+  /// Create a copy of OnlyTaskModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_TaskModelCopyWith<_$_TaskModel> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$TaskModelImplCopyWith<_$TaskModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

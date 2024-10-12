@@ -32,9 +32,7 @@ class PriorityCustomDropdownButtonWidget extends StatelessWidget {
     final themeData = Theme.of(context);
     return DropdownButton2(
       isDense: true,
-      dropdownWidth: 120,
       value: importance,
-      icon: const SizedBox.shrink(),
       underline: const SizedBox.shrink(),
       onChanged: (String? value) {
         context.read<EditAddTaskBloc>().add(

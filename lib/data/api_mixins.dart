@@ -68,8 +68,9 @@ mixin CreateMixin<T extends Serializable, M> on AbstractAPIRepository {
 
 mixin CreateListMixin<T extends Serializable, M> on AbstractAPIRepository {
   Future<List<M>> post(List<T> models) async {
-    final List<dynamic> data =
-        await _api.post(_prefix, models.map((m) => m.toJson()).toList());
+    final List<Map<String, dynamic>> data =
+        (await _api.post(_prefix, models.map((m) => m.toJson()).toList()))
+            as List<Map<String, dynamic>>;
     return data.map((d) => parse(d)).toList();
   }
 
