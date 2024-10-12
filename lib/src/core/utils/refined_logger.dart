@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:clock/clock.dart';
 import 'package:flutter/foundation.dart';
 import 'package:stack_trace/stack_trace.dart';
+import 'package:todo/src/core/utils/error_tracking_manager.dart';
 
 /// Logger global instance.
 ///
@@ -12,7 +13,8 @@ import 'package:stack_trace/stack_trace.dart';
 ///
 /// This is a zone-scoped logger, which means that it can be overridden
 /// in nested zones or during tests.
-RefinedLogger get logger => Zone.current[kLoggerKey] as RefinedLogger? ?? _logger;
+RefinedLogger get logger =>
+    Zone.current[kLoggerKey] as RefinedLogger? ?? _logger;
 
 /// Runs [callback] with the given [logger] instance.
 ///
@@ -132,7 +134,8 @@ class DefaultLogger extends RefinedLogger {
       return;
     }
 
-    _logSubscription = _logWrapStream.listen((l) => _printLogMessage(l, options));
+    _logSubscription =
+        _logWrapStream.listen((l) => _printLogMessage(l, options));
   }
 
   @override
@@ -289,6 +292,7 @@ abstract class RefinedLogger {
         details.toString(),
         level: LogLevel.error,
         error: details.exception,
+        context: <String, Object?>{FlutterErrorKey.keyFlutterError: details},
         stackTrace: details.stack,
         printStackTrace: false,
         printError: false,

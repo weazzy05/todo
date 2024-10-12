@@ -1,6 +1,7 @@
 import 'package:clock/clock.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:todo/domain/remote_config_service.dart';
 import 'package:todo/src/core/constant/config.dart';
 import 'package:todo/src/core/utils/error_tracking_manager.dart';
 import 'package:todo/src/core/utils/refined_logger.dart';
@@ -85,10 +86,12 @@ class DependenciesFactory extends AsyncFactory<DependenciesContainer> {
     final errorTrackingManager =
         await ErrorTrackingManagerFactory(config, logger).create();
     final settingsBloc = await SettingsBlocFactory(sharedPreferences).create();
+    final remoteConfigService = await RemoteConfigServiceFactory().create();
 
     return DependenciesContainer(
       appSettingsBloc: settingsBloc,
       errorTrackingManager: errorTrackingManager,
+      remoteConfigService: remoteConfigService,
     );
   }
 }
@@ -108,13 +111,9 @@ class ErrorTrackingManagerFactory extends AsyncFactory<ErrorTrackingManager> {
 
   @override
   Future<ErrorTrackingManager> create() async {
-    final errorTrackingManager = SentryTrackingManager(
-      logger,
-      sentryDsn: config.sentryDsn,
-      environment: config.environment.value,
-    );
+    final errorTrackingManager = FirebaseTrackingManager(logger);
 
-    if (config.enableSentry && kReleaseMode) {
+    if (kReleaseMode) {
       await errorTrackingManager.enableReporting();
     }
 
@@ -146,6 +145,21 @@ class SettingsBlocFactory extends AsyncFactory<AppSettingsBloc> {
       appSettingsRepository: appSettingsRepository,
       initialState: initialState,
     );
+  }
+}
+
+/// Factory that creates an instance of [RemoteConfigService].
+class RemoteConfigServiceFactory extends AsyncFactory<RemoteConfigService> {
+  /// Factory that creates an instance of [RemoteConfigService].
+  RemoteConfigServiceFactory();
+
+  @override
+  Future<RemoteConfigService> create() async {
+    final remoteConfigService = RemoteConfigService();
+
+    await remoteConfigService.init();
+
+    return remoteConfigService;
   }
 }
 

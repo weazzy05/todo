@@ -1,38 +1,20 @@
 import 'package:firebase_remote_config/firebase_remote_config.dart';
-import 'package:todo/app/logger.dart';
+import 'package:todo/src/core/utils/refined_logger.dart';
 
 class RemoteConfigService {
-  late FirebaseRemoteConfig _firebaseRemoteConfig;
+  final FirebaseRemoteConfig _firebaseRemoteConfig;
 
-  RemoteConfigService._internal();
+  RemoteConfigService({FirebaseRemoteConfig? firebaseRemoteConfig})
+      : _firebaseRemoteConfig =
+            firebaseRemoteConfig ?? FirebaseRemoteConfig.instance;
 
-  static RemoteConfigService? _instance;
-
-  static String? _stringColor;
-
-  static Future<RemoteConfigService> initialize() async {
-    if (_instance == null) {
-      _instance = RemoteConfigService._internal();
-      await _instance!._initialize();
-    }
-    return _instance!;
-  }
-
-  static String lazyGetColorImportant() {
-    if (_stringColor == null) {
-      _instance!._setColorImportant();
-    }
-    return _stringColor!;
-  }
-
-  void _setColorImportant() {
-    _stringColor = getValueOrDefault<String>(
+  String colorImportant() {
+    return getValueOrDefault<String>(
       key: ValuesRemoveConfig.useDefaultPriorityColor,
     );
   }
 
-  Future<void> _initialize() async {
-    _firebaseRemoteConfig = FirebaseRemoteConfig.instance;
+  Future<void> init() async {
     await _firebaseRemoteConfig.setConfigSettings(
       RemoteConfigSettings(
         fetchTimeout: const Duration(minutes: 1),
@@ -42,8 +24,12 @@ class RemoteConfigService {
     await _firebaseRemoteConfig.setDefaults(ValuesRemoveConfig.defaults);
     try {
       await _firebaseRemoteConfig.fetch();
-    } catch (e) {
-      logger.warning(e);
+    } catch (e, s) {
+      logger.warn(
+        'Failed to initialize remote config.',
+        error: e,
+        stackTrace: s,
+      );
     } finally {
       await _firebaseRemoteConfig.activate();
     }
@@ -59,8 +45,12 @@ class RemoteConfigService {
         ),
       );
       await _firebaseRemoteConfig.fetchAndActivate();
-    } catch (e) {
-      logger.warning(e);
+    } catch (e, s) {
+      logger.warn(
+        'Failed to force fetch remote config.',
+        error: e,
+        stackTrace: s,
+      );
     }
   }
 
@@ -68,17 +58,17 @@ class RemoteConfigService {
     required String key,
   }) {
     switch (T) {
-      case String:
-        var value = _firebaseRemoteConfig.getString(key);
+      case String _:
+        final value = _firebaseRemoteConfig.getString(key);
         return value as T;
-      case int:
-        var value = _firebaseRemoteConfig.getInt(key);
+      case int _:
+        final value = _firebaseRemoteConfig.getInt(key);
         return value as T;
-      case bool:
-        bool value = _firebaseRemoteConfig.getBool(key);
+      case bool _:
+        final bool value = _firebaseRemoteConfig.getBool(key);
         return value as T;
       case double:
-        var value = _firebaseRemoteConfig.getDouble(key);
+        final value = _firebaseRemoteConfig.getDouble(key);
         return value as T;
       default:
         throw Exception('Implementation not found');

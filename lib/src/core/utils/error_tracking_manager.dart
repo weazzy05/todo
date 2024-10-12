@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
@@ -132,4 +133,53 @@ final class SentryTrackingManager extends ErrorTrackingManagerBase {
         LogLevel.error => SentryLevel.error,
         LogLevel.fatal => SentryLevel.fatal,
       };
+}
+
+/// {@template sentry_tracking_manager}
+/// A class that is responsible for managing Firebase error reporting.
+/// {@endtemplate}
+final class FirebaseTrackingManager extends ErrorTrackingManagerBase {
+  /// {@macro sentry_tracking_manager}
+  FirebaseTrackingManager(super._logger);
+
+  @override
+  Future<void> report(LogMessage log) async {
+    final error = log.error;
+    final stackTrace = log.stackTrace;
+
+    if (error == null && stackTrace == null) {
+      await FirebaseCrashlytics.instance.log(log.message);
+      return;
+    }
+
+    final flutterErrorDetails = log.context?[FlutterErrorKey.keyFlutterError];
+
+    if (flutterErrorDetails != null &&
+        flutterErrorDetails is FlutterErrorDetails) {
+      await FirebaseCrashlytics.instance
+          .recordFlutterFatalError(flutterErrorDetails);
+    } else {
+      await FirebaseCrashlytics.instance.recordError(
+        error ?? log.message,
+        stackTrace,
+      );
+    }
+  }
+
+  @override
+  Future<void> enableReporting() async {
+    FirebaseCrashlytics.instance;
+    await super.enableReporting();
+  }
+
+  @override
+  Future<void> disableReporting() async {
+    await super.disableReporting();
+  }
+}
+
+/// The keyFlutterError in log.context
+extension FlutterErrorKey on FlutterErrorDetails {
+  /// The keyFlutterError in log.context
+  static String keyFlutterError = 'keyFlutterError';
 }
