@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo/data/models/only_task.dart';
 import 'package:todo/src/feature/tasks_overview/bloc/bloc.dart';
 import 'package:todo/src/feature/tasks_overview/filter_tasks.dart';
+import 'package:todo/src/feature/tasks_overview/model/only_task.dart';
 import 'package:todo/src/feature/tasks_overview/view/main_screen.dart';
 import 'package:todo/src/feature/tasks_overview/widgets/new_task_text_field.dart';
 

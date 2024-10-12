@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo/data/models/only_task.dart';
-import 'package:todo/navigation/unknown_screen.dart';
+import 'package:todo/src/core/navigation/unknown_screen.dart';
 import 'package:todo/src/feature/edit_add_task/bloc/bloc.dart';
 import 'package:todo/src/feature/edit_add_task/view/edit_add_task_screen.dart';
 import 'package:todo/src/feature/initialization/model/environment.dart';
 import 'package:todo/src/feature/initialization/widget/dependencies_scope.dart';
+import 'package:todo/src/feature/tasks_overview/model/only_task.dart';
 import 'package:todo/src/feature/tasks_overview/view/main_screen.dart';
 
 class MainScreenPageArgs {

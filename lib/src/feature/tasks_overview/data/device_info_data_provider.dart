@@ -1,12 +1,17 @@
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:todo/data/device_info/device_info_api.dart';
 
-class DeviceInfoPluginApi implements DeviceInfoApi {
+abstract class DeviceInfoDataProvider {
+  const DeviceInfoDataProvider();
+
+  Future<String> getInfo();
+}
+
+class DeviceInfoDataProviderImpl implements DeviceInfoDataProvider {
   final DeviceInfoPlugin deviceInfoPlugin;
 
-  DeviceInfoPluginApi({required this.deviceInfoPlugin});
+  DeviceInfoDataProviderImpl({required this.deviceInfoPlugin});
 
   @override
   Future<String> getInfo() async {
@@ -16,7 +21,7 @@ class DeviceInfoPluginApi implements DeviceInfoApi {
       return iosDeviceInfo.identifierForVendor ?? defaultValue;
     } else if (Platform.isAndroid) {
       var androidDeviceInfo = await deviceInfoPlugin.androidInfo;
-      return androidDeviceInfo.id ?? defaultValue;
+      return androidDeviceInfo.id;
     }
     return defaultValue;
   }

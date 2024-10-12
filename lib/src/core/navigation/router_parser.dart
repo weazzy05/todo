@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo/navigation/page_config.dart';
+import 'package:todo/src/core/navigation/page_config.dart';
 
 class ERouteInformationParser extends RouteInformationParser<PageConfig> {
   @override

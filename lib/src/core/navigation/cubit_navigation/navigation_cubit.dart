@@ -1,10 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo/data/models/only_task.dart';
-import 'package:todo/domain/analytic_service.dart';
-import 'package:todo/navigation/page_config.dart';
-import 'package:todo/navigation/router_pages.dart';
-import 'package:todo/navigation/routes.dart';
+import 'package:todo/src/core/analytic_service.dart';
+import 'package:todo/src/core/navigation/page_config.dart';
+import 'package:todo/src/core/navigation/router_pages.dart';
+import 'package:todo/src/core/navigation/routes.dart';
 import 'package:todo/src/core/utils/refined_logger.dart';
+import 'package:todo/src/feature/tasks_overview/model/only_task.dart';
 
 part 'navigation_stack.dart';
 

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:todo/navigation/cubit_navigation/navigation_cubit.dart';
 import 'package:todo/src/core/constant/styling/colors.dart';
 import 'package:todo/src/core/constant/styling/text_styles.dart';
+import 'package:todo/src/core/navigation/cubit_navigation/navigation_cubit.dart';
 import 'package:todo/src/core/utils/extensions.dart';
 import 'package:todo/src/core/utils/priority.dart';
 import 'package:todo/src/feature/edit_add_task/bloc/bloc.dart';

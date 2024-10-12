@@ -1,13 +1,23 @@
-import 'dart:async';
-
-import 'package:hive_flutter/adapters.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:rxdart/subjects.dart';
-import 'package:todo/data/models/only_task.dart';
-import 'package:todo/data/task_api/task_service.dart';
+import 'package:todo/src/feature/tasks_overview/model/only_task.dart';
 
-class LocalStorageTaskService implements ITaskService {
-  LocalStorageTaskService({
+/// Task data provider.
+abstract interface class TaskDataProvider {
+  /// Fetches tasks from the data source
+  Stream<List<OnlyTaskModel>> getTasks();
+
+  Future<void> saveTasks(OnlyTaskModel task);
+
+  Future<void> deleteTask(String id);
+
+  Future<void> saveAllTasks(List<OnlyTaskModel> tasks);
+
+  Future<void> dispose();
+}
+
+class LocalTaskDataProvider implements TaskDataProvider {
+  LocalTaskDataProvider({
     required Box<OnlyTaskModel> box,
   }) : _box = box;
 
@@ -42,7 +52,8 @@ class LocalStorageTaskService implements ITaskService {
     }
     if (!_box.isOpen) {
       _box = await Hive.openBox<OnlyTaskModel>(
-          LocalStorageTaskService.kTasksBoxName);
+        LocalTaskDataProvider.kTasksBoxName,
+      );
     }
     final tasks = [..._todoStreamController.value];
     final todoIndex = tasks.indexWhere((t) => t.id == task.id);
@@ -63,9 +74,9 @@ class LocalStorageTaskService implements ITaskService {
     }
     if (!_box.isOpen) {
       _box = await Hive.openBox<OnlyTaskModel>(
-          LocalStorageTaskService.kTasksBoxName);
+          LocalTaskDataProvider.kTasksBoxName);
     }
-    final List<OnlyTaskModel> tasksForStream = [];
+    final tasksForStream = <OnlyTaskModel>[];
     tasksForStream.addAll(tasks);
     await _box.clear();
     await _box.addAll(tasks);
@@ -79,7 +90,7 @@ class LocalStorageTaskService implements ITaskService {
     }
     if (!_box.isOpen) {
       _box = await Hive.openBox<OnlyTaskModel>(
-          LocalStorageTaskService.kTasksBoxName);
+          LocalTaskDataProvider.kTasksBoxName);
     }
     final tasks = [..._todoStreamController.value];
     final taskIndex = tasks.indexWhere((t) => t.id == id);

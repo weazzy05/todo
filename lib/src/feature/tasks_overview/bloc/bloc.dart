@@ -4,13 +4,13 @@ import 'dart:io';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:todo/data/models/only_task.dart';
-import 'package:todo/domain/analytic_service.dart';
-import 'package:todo/domain/device_info_repository.dart';
-import 'package:todo/domain/task_repository.dart';
+import 'package:todo/src/core/analytic_service.dart';
 import 'package:todo/src/core/utils/extensions.dart';
 import 'package:todo/src/core/utils/priority.dart';
+import 'package:todo/src/feature/tasks_overview/data/device_info_repository.dart';
+import 'package:todo/src/feature/tasks_overview/data/task_repository.dart';
 import 'package:todo/src/feature/tasks_overview/filter_tasks.dart';
+import 'package:todo/src/feature/tasks_overview/model/only_task.dart';
 import 'package:uuid/uuid.dart';
 
 part 'bloc.freezed.dart';

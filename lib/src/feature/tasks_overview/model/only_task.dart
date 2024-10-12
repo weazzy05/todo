@@ -19,7 +19,7 @@ class OnlyTaskModel with _$OnlyTaskModel {
     @JsonKey(name: 'changed_at') @HiveField(7) required int changedAt,
     @JsonKey(name: 'last_updated_by')
     @HiveField(8)
-        required String lastUpdatedBy,
+    required String lastUpdatedBy,
   }) = _TaskModel;
 
   factory OnlyTaskModel.fromJson(Map<String, dynamic> json) =>

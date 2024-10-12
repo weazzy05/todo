@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo/navigation/cubit_navigation/navigation_cubit.dart';
-import 'package:todo/navigation/page_config.dart';
+import 'package:todo/src/core/navigation/cubit_navigation/navigation_cubit.dart';
+import 'package:todo/src/core/navigation/page_config.dart';
 
 class ERouterDelegate extends RouterDelegate<PageConfig>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<PageConfig> {

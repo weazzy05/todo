@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
-import 'package:todo/data/models/only_task.dart';
-import 'package:todo/navigation/router_pages.dart';
-import 'package:todo/navigation/routes.dart';
+import 'package:todo/src/core/navigation/router_pages.dart';
+import 'package:todo/src/core/navigation/routes.dart';
 import 'package:todo/src/core/utils/refined_logger.dart';
+import 'package:todo/src/feature/tasks_overview/model/only_task.dart';
 
 class PageConfig extends Equatable {
   ///полный путь к странице

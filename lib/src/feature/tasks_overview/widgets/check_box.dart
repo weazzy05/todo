@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:todo/data/models/only_task.dart';
-import 'package:todo/src/feature/tasks_overview/view/main_screen.dart';
 import 'package:todo/src/core/utils/extensions.dart';
 import 'package:todo/src/core/utils/key_widget.dart';
 import 'package:todo/src/core/utils/priority.dart';
 import 'package:todo/src/feature/initialization/widget/dependencies_scope.dart';
+import 'package:todo/src/feature/tasks_overview/model/only_task.dart';
+import 'package:todo/src/feature/tasks_overview/view/main_screen.dart';
 
 class CheckBoxWidget extends StatelessWidget {
   const CheckBoxWidget({

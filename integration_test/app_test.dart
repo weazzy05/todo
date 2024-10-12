@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:logging/logging.dart';
-import 'package:todo/di/injector.dart';
 import 'package:todo/main.dart' as app;
 import 'package:todo/src/core/utils/key_widget.dart';
 import 'package:todo/src/feature/tasks_overview/view/main_screen.dart';
@@ -36,11 +35,6 @@ void main() {
   });
 
   tearDownAll(() async => await loggerSub.cancel());
-
-  // Сбрасываем контейнер getIt после каждого теста
-  tearDown(() {
-    getIt.reset();
-  });
 
   Future<void> restoreFlutterError(Future<void> Function() call) async {
     final originalOnError = FlutterError.onError!;
