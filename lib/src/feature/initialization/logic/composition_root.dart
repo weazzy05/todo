@@ -96,6 +96,9 @@ class DependenciesFactory extends AsyncFactory<DependenciesContainer> {
     final settingsBloc = await SettingsBlocFactory(sharedPreferences).create();
     final remoteConfigService = await RemoteConfigServiceFactory().create();
 
+    if (!Hive.isAdapterRegistered(0)) {
+      Hive.registerAdapter(OnlyTaskAdapter());
+    }
     final box =
         await Hive.openBox<OnlyTaskModel>(LocalTaskDataProvider.kTasksBoxName);
     final localTaskDataProvider = LocalTaskDataProvider(box: box);

@@ -4,6 +4,7 @@ import 'package:todo/src/feature/tasks_overview/bloc/bloc.dart';
 import 'package:todo/src/feature/tasks_overview/filter_tasks.dart';
 import 'package:todo/src/feature/tasks_overview/model/only_task.dart';
 import 'package:todo/src/feature/tasks_overview/view/main_screen.dart';
+import 'package:todo/src/feature/tasks_overview/view/task_overview_scope.dart';
 import 'package:todo/src/feature/tasks_overview/widgets/new_task_text_field.dart';
 
 class TasksCard extends StatefulWidget {
@@ -36,9 +37,11 @@ class _TasksCardState extends State<TasksCard> {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = TaskOverviewScope.of(context).taskOverviewBloc;
     return MultiBlocListener(
       listeners: [
-        BlocListener<InitializationBloc, InitializationState>(
+        BlocListener<TaskOverviewBloc, TaskOverviewState>(
+          bloc: bloc,
           listenWhen: (prev, curr) {
             if ((prev.filter == TaskFilter.all &&
                     curr.filter == TaskFilter.activeOnly) ||
@@ -66,7 +69,8 @@ class _TasksCardState extends State<TasksCard> {
             }
           },
         ),
-        BlocListener<InitializationBloc, InitializationState>(
+        BlocListener<TaskOverviewBloc, TaskOverviewState>(
+          bloc: bloc,
           listenWhen: (prev, curr) {
             if (prev.tasks.length < curr.tasks.length) {
               return true;
@@ -81,7 +85,8 @@ class _TasksCardState extends State<TasksCard> {
             );
           },
         ),
-        BlocListener<InitializationBloc, InitializationState>(
+        BlocListener<TaskOverviewBloc, TaskOverviewState>(
+          bloc: bloc,
           listenWhen: (prev, curr) {
             if (prev.tasks.length > curr.tasks.length) {
               return true;
@@ -97,61 +102,56 @@ class _TasksCardState extends State<TasksCard> {
           },
         ),
       ],
-      child: BlocBuilder<InitializationBloc, InitializationState>(
-        builder: (context, state) {
-          return Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-            margin: const EdgeInsets.symmetric(horizontal: 10),
-            child: Column(
-              children: [
-                AnimatedList(
-                  physics: const NeverScrollableScrollPhysics(),
-                  key: _listKey,
-                  shrinkWrap: true,
-                  padding: const EdgeInsets.only(top: 8),
-                  // initialItemCount: widget.tasks.length,
-                  itemBuilder: (context, index, animation) {
-                    return SlideTransition(
-                      position: CurvedAnimation(
-                        curve: Curves.easeOut,
-                        parent: animation,
-                      ).drive(
-                        (Tween<Offset>(
-                          begin: const Offset(1, 0),
-                          end: const Offset(0, 0),
-                        )),
-                      ),
-                      child: TaskWidget(
-                        listKey: _listKey,
-                        index: index,
-                        taskModel: widget.tasks[index],
-                        onToggleCompleted: (isCompleted) {
-                          context.read<InitializationBloc>().add(
-                                TaskCompletionToggledInitializationEvent(
-                                  task: widget.tasks[index],
-                                  isCompleted: isCompleted,
-                                  sendingApproach: SendingApproach.checkBox,
-                                ),
-                              );
-                          if (state.filter == TaskFilter.activeOnly) {
-                            _listKey.currentState?.removeItem(
-                              index,
-                              (context, animation) => Container(),
-                            );
-                          }
-                        },
-                      ),
-                    );
-                  },
+      child: BlocBuilder<TaskOverviewBloc, TaskOverviewState>(
+        bloc: bloc,
+        builder: (context, state) => Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          margin: const EdgeInsets.symmetric(horizontal: 10),
+          child: Column(
+            children: [
+              AnimatedList(
+                physics: const NeverScrollableScrollPhysics(),
+                key: _listKey,
+                shrinkWrap: true,
+                padding: const EdgeInsets.only(top: 8),
+                // initialItemCount: widget.tasks.length,
+                itemBuilder: (context, index, animation) => SlideTransition(
+                  position: CurvedAnimation(
+                    curve: Curves.easeOut,
+                    parent: animation,
+                  ).drive(
+                    Tween<Offset>(
+                      begin: const Offset(1, 0),
+                      end: Offset.zero,
+                    ),
+                  ),
+                  child: TaskWidget(
+                    listKey: _listKey,
+                    index: index,
+                    taskModel: widget.tasks[index],
+                    onToggleCompleted: (isCompleted) {
+                      TaskOverviewScope.of(context).toggleTask(
+                        task: widget.tasks[index],
+                        isCompleted: isCompleted,
+                        sendingApproach: SendingApproach.checkBox,
+                      );
+                      if (state.filter == TaskFilter.activeOnly) {
+                        _listKey.currentState?.removeItem(
+                          index,
+                          (context, animation) => Container(),
+                        );
+                      }
+                    },
+                  ),
                 ),
-                const NewTaskTextField(),
-                const SizedBox(height: 8),
-              ],
-            ),
-          );
-        },
+              ),
+              const NewTaskTextField(),
+              const SizedBox(height: 8),
+            ],
+          ),
+        ),
       ),
     );
   }

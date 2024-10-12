@@ -1,11 +1,11 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:todo/src/core/constant/styling/text_styles.dart';
 import 'package:todo/src/feature/tasks_overview/bloc/bloc.dart';
 import 'package:todo/src/feature/tasks_overview/filter_tasks.dart';
-import 'package:todo/src/core/constant/styling/text_styles.dart';
+import 'package:todo/src/feature/tasks_overview/view/task_overview_scope.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
   const CustomSliverAppBar({
@@ -15,21 +15,19 @@ class CustomSliverAppBar extends StatelessWidget {
   }) : super(key: key);
 
   final ThemeData themeData;
-  final InitializationState state;
+  final TaskOverviewState state;
 
   @override
-  Widget build(BuildContext context) {
-    return SliverPersistentHeader(
-      delegate: CustomSliverAppBarDelegate(
-        completedTextColor: themeData.secondaryHeaderColor,
-        primaryAppBarColor: themeData.cardColor,
-        cardAppbarColor: themeData.scaffoldBackgroundColor,
-        filter: state.filter,
-        completeTasks: state.competedTasks,
-      ),
-      pinned: true,
-    );
-  }
+  Widget build(BuildContext context) => SliverPersistentHeader(
+        delegate: CustomSliverAppBarDelegate(
+          completedTextColor: themeData.secondaryHeaderColor,
+          primaryAppBarColor: themeData.cardColor,
+          cardAppbarColor: themeData.scaffoldBackgroundColor,
+          filter: state.filter,
+          completeTasks: state.competedTasks,
+        ),
+        pinned: true,
+      );
 }
 
 class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
@@ -115,7 +113,6 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
 
 class AppBarCard extends StatelessWidget {
   const AppBarCard({
-    Key? key,
     required this.cardAppbarColor,
     required this.darkAppBarColors,
     required this.top,
@@ -126,6 +123,7 @@ class AppBarCard extends StatelessWidget {
     required this.secondInterpolate,
     required this.iconInterpolate,
     required this.filter,
+    Key? key,
   }) : super(key: key);
 
   final Color cardAppbarColor;
@@ -140,76 +138,71 @@ class AppBarCard extends StatelessWidget {
   final TaskFilter filter;
 
   @override
-  Widget build(BuildContext context) {
-    return Card(
-      color: Theme.of(context).brightness == Brightness.light
-          ? cardAppbarColor
-          : darkAppBarColors,
-      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-      margin: EdgeInsets.zero,
-      elevation: top < minExtent + 0.2 ? 4 : 0,
-      child: SizedBox(
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const SizedBox(
-              width: 10,
-            ),
-            SizedBox(
-              width: 240,
-              child: Align(
-                alignment: interpolatedAlignment!,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      AppLocalizations.of(context)!.my_tasks,
-                      style: interpolatedTextStyle,
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    AnimatedOpacity(
-                      opacity: top > 140 ? 1.0 : 0.0,
-                      duration: const Duration(milliseconds: 200),
-                      child: Text(
-                        '${AppLocalizations.of(context)!.completed} - $completeTasks',
-                        style: secondInterpolate,
-                      ),
-                    )
-                  ],
-                ),
+  Widget build(BuildContext context) => Card(
+        color: Theme.of(context).brightness == Brightness.light
+            ? cardAppbarColor
+            : darkAppBarColors,
+        shape: const RoundedRectangleBorder(),
+        margin: EdgeInsets.zero,
+        elevation: top < minExtent + 0.2 ? 4 : 0,
+        child: SizedBox(
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(
+                width: 10,
               ),
-            ),
-            const Spacer(),
-            Align(
-              alignment: iconInterpolate!,
-              child: SizedBox(
-                width: 80,
-                child: MaterialButton(
-                  shape: const CircleBorder(),
-                  onPressed: () {
-                    context.read<InitializationBloc>().add(
-                          TaskFilterChangedInitializationEvent(
-                            filter == TaskFilter.all
-                                ? TaskFilter.activeOnly
-                                : TaskFilter.all,
-                          ),
-                        );
-                  },
-                  child: Icon(
-                    filter == TaskFilter.all
-                        ? Icons.visibility
-                        : Icons.visibility_off,
-                    color: Theme.of(context).primaryColor,
+              SizedBox(
+                width: 240,
+                child: Align(
+                  alignment: interpolatedAlignment!,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        AppLocalizations.of(context)!.my_tasks,
+                        style: interpolatedTextStyle,
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      AnimatedOpacity(
+                        opacity: top > 140 ? 1.0 : 0.0,
+                        duration: const Duration(milliseconds: 200),
+                        child: Text(
+                          '${AppLocalizations.of(context)!.completed} - $completeTasks',
+                          style: secondInterpolate,
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ),
-            ),
-          ],
+              const Spacer(),
+              Align(
+                alignment: iconInterpolate!,
+                child: SizedBox(
+                  width: 80,
+                  child: MaterialButton(
+                    shape: const CircleBorder(),
+                    onPressed: () {
+                      TaskOverviewScope.of(context).filterTasks(
+                          filter == TaskFilter.all
+                              ? TaskFilter.activeOnly
+                              : TaskFilter.all);
+                    },
+                    child: Icon(
+                      filter == TaskFilter.all
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
-    );
-  }
+      );
 }

@@ -9,15 +9,15 @@ enum InitializationStatus {
 }
 
 @freezed
-class InitializationState with _$InitializationState {
-  const InitializationState._();
+class TaskOverviewState with _$TaskOverviewState {
+  const TaskOverviewState._();
 
-  const factory InitializationState({
+  const factory TaskOverviewState({
     @Default(InitializationStatus.initial) InitializationStatus status,
     @Default(0) int competedTasks,
     @Default([]) List<OnlyTaskModel> tasks,
     @Default(TaskFilter.all) TaskFilter filter,
-  }) = _InitializationState;
+  }) = _TaskOverviewStateState;
 
   Iterable<OnlyTaskModel> get filteredTasks => filter.applyAll(tasks);
 }

@@ -18,39 +18,47 @@ part 'event.dart';
 part 'state.dart';
 
 // TODO(weazzy): backend repository add
-class InitializationBloc
-    extends Bloc<InitializationEvent, InitializationState> {
+class TaskOverviewBloc extends Bloc<TaskOverviewEvent, TaskOverviewState> {
   final TasksRepository _localStorageTasksRepository;
   final DeviceInfoRepository _deviceInfo;
   final AnalyticsService _analyticsService;
 
   bool _internetConnection = true;
 
-  InitializationBloc({
+  TaskOverviewBloc({
     required TasksRepository localStorageTasksRepository,
     required DeviceInfoRepository deviceInfo,
     required AnalyticsService analyticsService,
   })  : _localStorageTasksRepository = localStorageTasksRepository,
         _deviceInfo = deviceInfo,
         _analyticsService = analyticsService,
-        super(const InitializationState()) {
+        super(const TaskOverviewState()) {
+    // on<TaskOverviewEvent>(
+    //       (event, emit) => event.map(
+    //     startInit: (e) => _onStart(e, emit),
+    //     taskCompletedToggled: (e) => _onTodoCompletionToggled(e, emit),
+    //     filterChange: (e) => _onFilterChanged(e, emit),
+    //     taskDelete: (e) => _onTodoDeleted(e, emit),
+    //     createOnMainScreen: (e) => _onFastCreate(e, emit),
+    //   ),
+    // );
     on<StartInitializationEvent>(_onStart);
-    on<TaskCompletionToggledInitializationEvent>(
+    on<TaskCompletionToggledEvent>(
       _onTodoCompletionToggled,
       transformer: sequential(),
     );
-    on<TaskFilterChangedInitializationEvent>(_onFilterChanged);
-    on<TaskDeleteInitializationEvent>(
+    on<TaskFilterChangedEvent>(_onFilterChanged);
+    on<TaskDeleteEvent>(
       _onTodoDeleted,
       transformer: sequential(),
     );
-    on<FastTaskCreateInitializationEvent>(
+    on<FastTaskCreateEvent>(
       _onFastCreate,
       transformer: sequential(),
     );
   }
 
-  void emitFailureInternetState(Emitter<InitializationState> emit) {
+  void emitFailureInternetState(Emitter<TaskOverviewState> emit) {
     _internetConnection = false;
 
     emit(
@@ -60,7 +68,7 @@ class InitializationBloc
     );
   }
 
-  void emitFailureState(Emitter<InitializationState> emit) {
+  void emitFailureState(Emitter<TaskOverviewState> emit) {
     emit(
       state.copyWith(
         status: InitializationStatus.failure,
@@ -69,8 +77,8 @@ class InitializationBloc
   }
 
   Future<void> _onFilterChanged(
-    TaskFilterChangedInitializationEvent event,
-    Emitter<InitializationState> emit,
+    TaskFilterChangedEvent event,
+    Emitter<TaskOverviewState> emit,
   ) async {
     await _analyticsService.filterChanged(
       filter: event.filter.toString(),
@@ -80,7 +88,7 @@ class InitializationBloc
 
   Future<void> _onStart(
     StartInitializationEvent event,
-    Emitter<InitializationState> emit,
+    Emitter<TaskOverviewState> emit,
   ) async {
     emit(state.copyWith(status: InitializationStatus.loading));
     await emit.forEach<List<OnlyTaskModel>>(
@@ -142,8 +150,8 @@ class InitializationBloc
   }
 
   Future<void> _onTodoCompletionToggled(
-    TaskCompletionToggledInitializationEvent event,
-    Emitter<InitializationState> emit,
+    TaskCompletionToggledEvent event,
+    Emitter<TaskOverviewState> emit,
   ) async {
     final newTask = event.task.copyWith(
       done: event.isCompleted,
@@ -179,8 +187,8 @@ class InitializationBloc
   }
 
   Future<void> _onTodoDeleted(
-    TaskDeleteInitializationEvent event,
-    Emitter<InitializationState> emit,
+    TaskDeleteEvent event,
+    Emitter<TaskOverviewState> emit,
   ) async {
     try {
       await Future.delayed(const Duration(milliseconds: 300));
@@ -207,8 +215,8 @@ class InitializationBloc
   }
 
   Future<void> _onFastCreate(
-    FastTaskCreateInitializationEvent event,
-    Emitter<InitializationState> emit,
+    FastTaskCreateEvent event,
+    Emitter<TaskOverviewState> emit,
   ) async {
     final int nowTime = DateTime.now().millisecondsSinceEpoch ~/ 1000;
     emit(state.copyWith(status: InitializationStatus.loading));
@@ -246,7 +254,7 @@ class InitializationBloc
   }
 
   Future<void> _onUpdateLocalData(
-      Emitter<InitializationState> emit, List<OnlyTaskModel> tasks) async {
+      Emitter<TaskOverviewState> emit, List<OnlyTaskModel> tasks) async {
     try {
       await _localStorageTasksRepository.saveAllTasks(tasks);
       await _analyticsService.updateOutdatedLocalTasks();
