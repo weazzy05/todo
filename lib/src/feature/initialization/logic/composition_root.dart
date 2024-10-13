@@ -1,14 +1,22 @@
 import 'package:clock/clock.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:todo/domain/remote_config_service.dart';
+import 'package:todo/src/core/analytic_service.dart';
 import 'package:todo/src/core/constant/config.dart';
+import 'package:todo/src/core/remote_config/remote_config_service.dart';
 import 'package:todo/src/core/utils/error_tracking_manager.dart';
 import 'package:todo/src/core/utils/refined_logger.dart';
 import 'package:todo/src/feature/initialization/model/dependencies_container.dart';
 import 'package:todo/src/feature/settings/bloc/app_settings_bloc.dart';
 import 'package:todo/src/feature/settings/data/app_settings_datasource.dart';
 import 'package:todo/src/feature/settings/data/app_settings_repository.dart';
+import 'package:todo/src/feature/tasks_overview/data/device_info_data_provider.dart';
+import 'package:todo/src/feature/tasks_overview/data/device_info_repository.dart';
+import 'package:todo/src/feature/tasks_overview/data/task_data_provider.dart';
+import 'package:todo/src/feature/tasks_overview/data/task_repository.dart';
+import 'package:todo/src/feature/tasks_overview/model/only_task.dart';
 
 /// {@template composition_root}
 /// A place where all dependencies are initialized.
@@ -88,10 +96,30 @@ class DependenciesFactory extends AsyncFactory<DependenciesContainer> {
     final settingsBloc = await SettingsBlocFactory(sharedPreferences).create();
     final remoteConfigService = await RemoteConfigServiceFactory().create();
 
+    if (!Hive.isAdapterRegistered(0)) {
+      Hive.registerAdapter(OnlyTaskAdapter());
+    }
+    final box =
+        await Hive.openBox<OnlyTaskModel>(LocalTaskDataProvider.kTasksBoxName);
+    final localTaskDataProvider = LocalTaskDataProvider(box: box);
+    final tasksRepository =
+        TasksRepository(localTaskDataProvider: localTaskDataProvider);
+
+    final deviceInfoPlugin = DeviceInfoPlugin();
+    final deviceDataProvider =
+        DeviceInfoDataProviderImpl(deviceInfoPlugin: deviceInfoPlugin);
+    final deviceInfoRepository =
+        DeviceInfoRepository(deviceDataProvider: deviceDataProvider);
+
+    final analyticsService = FirebaseAnalyticsService();
+
     return DependenciesContainer(
       appSettingsBloc: settingsBloc,
       errorTrackingManager: errorTrackingManager,
       remoteConfigService: remoteConfigService,
+      tasksRepository: tasksRepository,
+      deviceInfoRepository: deviceInfoRepository,
+      analyticsService: analyticsService,
     );
   }
 }
