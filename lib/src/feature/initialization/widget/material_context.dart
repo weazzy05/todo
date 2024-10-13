@@ -43,7 +43,7 @@ class _MaterialContextState extends State<MaterialContext> {
       routerConfig: _router,
       theme: settings.appTheme?.lightTheme ?? AppTheme.defaultTheme.lightTheme,
       darkTheme:
-          settings.appTheme?.darkTheme ?? AppTheme.defaultTheme.darkTheme,
+      settings.appTheme?.darkTheme ?? AppTheme.defaultTheme.darkTheme,
       themeMode: settings.appTheme?.themeMode ?? ThemeMode.system,
       locale: settings.locale,
       localizationsDelegates: Localization.localizationDelegates,

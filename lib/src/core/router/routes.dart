@@ -18,9 +18,9 @@ class DashboardRoute extends GoRouteData {
 
   @override
   Widget build(
-    BuildContext context,
-    GoRouterState state,
-  ) =>
+      BuildContext context,
+      GoRouterState state,
+      ) =>
       const TaskOverviewScope(child: MainScreen());
 }
 
@@ -36,9 +36,9 @@ class TaskRoute extends GoRouteData {
 
   @override
   CustomTransitionPage<void> buildPage(
-    BuildContext context,
-    GoRouterState state,
-  ) {
+      BuildContext context,
+      GoRouterState state,
+      ) {
     final deviceInfo = DependenciesScope.of(context).deviceInfoRepository;
     final localStorageTasksRepository =
         DependenciesScope.of(context).tasksRepository;
@@ -55,17 +55,17 @@ class TaskRoute extends GoRouteData {
         child: const EditTaskScreen(),
       ),
       transitionsBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-        Widget child,
-      ) {
+          BuildContext context,
+          Animation<double> animation,
+          Animation<double> secondaryAnimation,
+          Widget child,
+          ) {
         const begin = Offset(0.0, 1.0);
         const end = Offset.zero;
         const curve = Curves.easeOutQuart;
 
         final tween =
-            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
         return SlideTransition(
           position: animation.drive(tween),
