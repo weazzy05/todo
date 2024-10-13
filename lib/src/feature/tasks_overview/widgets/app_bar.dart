@@ -188,9 +188,10 @@ class AppBarCard extends StatelessWidget {
                     shape: const CircleBorder(),
                     onPressed: () {
                       TaskOverviewScope.of(context).filterTasks(
-                          filter == TaskFilter.all
-                              ? TaskFilter.activeOnly
-                              : TaskFilter.all);
+                        filter == TaskFilter.all
+                            ? TaskFilter.activeOnly
+                            : TaskFilter.all,
+                      );
                     },
                     child: Icon(
                       filter == TaskFilter.all

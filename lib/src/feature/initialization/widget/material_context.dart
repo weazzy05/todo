@@ -42,36 +42,34 @@ class MaterialContext extends StatelessWidget {
         analyticsService: analyticsService,
       ),
       child: Builder(
-        builder: (context) {
-          return MaterialApp.router(
-            debugShowCheckedModeBanner: false,
-            routeInformationParser: ERouteInformationParser(),
-            routerDelegate: ERouterDelegate(context.read<NavigationCubit>()),
-            // TODO(weazzy): Remove this once we have a proper theme
-            // theme: ToDoAppTheme.light,
-            // darkTheme: ToDoAppTheme.dark,
-            theme: settings.appTheme?.lightTheme ??
-                AppTheme.defaultTheme.lightTheme,
-            darkTheme:
-                settings.appTheme?.darkTheme ?? AppTheme.defaultTheme.darkTheme,
-            themeMode: settings.appTheme?.themeMode ?? ThemeMode.system,
-            locale: settings.locale,
-            localizationsDelegates: Localization.localizationDelegates,
-            supportedLocales: Localization.supportedLocales,
-            // TODO(weazzy): Remove this when we have a proper initialization flow
-            builder: (context, child) => MediaQuery(
-              key: _globalKey,
-              data: mediaQueryData.copyWith(
-                textScaler: TextScaler.linear(
-                  mediaQueryData.textScaler
-                      .scale(settings.textScale ?? 1)
-                      .clamp(0.5, 2),
-                ),
+        builder: (context) => MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          routeInformationParser: ERouteInformationParser(),
+          routerDelegate: ERouterDelegate(context.read<NavigationCubit>()),
+          // TODO(weazzy): Remove this once we have a proper theme
+          // theme: ToDoAppTheme.light,
+          // darkTheme: ToDoAppTheme.dark,
+          theme:
+              settings.appTheme?.lightTheme ?? AppTheme.defaultTheme.lightTheme,
+          darkTheme:
+              settings.appTheme?.darkTheme ?? AppTheme.defaultTheme.darkTheme,
+          themeMode: settings.appTheme?.themeMode ?? ThemeMode.system,
+          locale: settings.locale,
+          localizationsDelegates: Localization.localizationDelegates,
+          supportedLocales: Localization.supportedLocales,
+          // TODO(weazzy): Remove this when we have a proper initialization flow
+          builder: (context, child) => MediaQuery(
+            key: _globalKey,
+            data: mediaQueryData.copyWith(
+              textScaler: TextScaler.linear(
+                mediaQueryData.textScaler
+                    .scale(settings.textScale ?? 1)
+                    .clamp(0.5, 2),
               ),
-              child: TaskOverviewScope(child: child!),
             ),
-          );
-        },
+            child: TaskOverviewScope(child: child!),
+          ),
+        ),
       ),
     );
   }

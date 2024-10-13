@@ -23,8 +23,6 @@ class TaskOverviewBloc extends Bloc<TaskOverviewEvent, TaskOverviewState> {
   final DeviceInfoRepository _deviceInfo;
   final AnalyticsService _analyticsService;
 
-  bool _internetConnection = true;
-
   TaskOverviewBloc({
     required TasksRepository localStorageTasksRepository,
     required DeviceInfoRepository deviceInfo,
@@ -33,34 +31,21 @@ class TaskOverviewBloc extends Bloc<TaskOverviewEvent, TaskOverviewState> {
         _deviceInfo = deviceInfo,
         _analyticsService = analyticsService,
         super(const TaskOverviewState()) {
-    // on<TaskOverviewEvent>(
-    //       (event, emit) => event.map(
-    //     startInit: (e) => _onStart(e, emit),
-    //     taskCompletedToggled: (e) => _onTodoCompletionToggled(e, emit),
-    //     filterChange: (e) => _onFilterChanged(e, emit),
-    //     taskDelete: (e) => _onTodoDeleted(e, emit),
-    //     createOnMainScreen: (e) => _onFastCreate(e, emit),
-    //   ),
-    // );
-    on<StartInitializationEvent>(_onStart);
-    on<TaskCompletionToggledEvent>(
-      _onTodoCompletionToggled,
-      transformer: sequential(),
-    );
-    on<TaskFilterChangedEvent>(_onFilterChanged);
-    on<TaskDeleteEvent>(
-      _onTodoDeleted,
-      transformer: sequential(),
-    );
-    on<FastTaskCreateEvent>(
-      _onFastCreate,
-      transformer: sequential(),
+    on<TaskOverviewEvent>(
+      (event, emit) {
+        event.map(
+          startInit: (e) => _onStart(e, emit),
+          taskCompletedToggled: (e) => _onTodoCompletionToggled(e, emit),
+          filterChange: (e) => _onFilterChanged(e, emit),
+          taskDelete: (e) => _onTodoDeleted(e, emit),
+          createOnMainScreen: (e) => _onFastCreate(e, emit),
+        );
+      },
+      transformer: concurrent(),
     );
   }
 
   void emitFailureInternetState(Emitter<TaskOverviewState> emit) {
-    _internetConnection = false;
-
     emit(
       state.copyWith(
         status: InitializationStatus.failedInternetCollection,
@@ -80,10 +65,10 @@ class TaskOverviewBloc extends Bloc<TaskOverviewEvent, TaskOverviewState> {
     TaskFilterChangedEvent event,
     Emitter<TaskOverviewState> emit,
   ) async {
+    emit(state.copyWith(filter: event.filter));
     await _analyticsService.filterChanged(
       filter: event.filter.toString(),
     );
-    emit(state.copyWith(filter: event.filter));
   }
 
   Future<void> _onStart(
