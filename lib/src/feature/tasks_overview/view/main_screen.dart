@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo/src/core/constant/styling/colors.dart';
-import 'package:todo/src/core/navigation/cubit_navigation/navigation_cubit.dart';
+import 'package:todo/src/core/router/routes.dart';
 import 'package:todo/src/core/utils/extensions.dart';
 import 'package:todo/src/core/utils/key_widget.dart';
 import 'package:todo/src/core/utils/priority.dart';
@@ -43,7 +43,7 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.read<NavigationCubit>().goToEditAddScreen();
+          const TaskRoute().push(context);
         },
         child: const Icon(Icons.add),
       ),
