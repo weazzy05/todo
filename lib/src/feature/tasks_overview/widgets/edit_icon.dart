@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo/src/core/navigation/cubit_navigation/navigation_cubit.dart';
+import 'package:todo/src/core/router/routes.dart';
 import 'package:todo/src/core/utils/key_widget.dart';
 import 'package:todo/src/feature/tasks_overview/model/only_task.dart';
 import 'package:todo/src/feature/tasks_overview/view/main_screen.dart';
@@ -22,7 +21,7 @@ class EditTaskIconWidget extends StatelessWidget {
         key: ValueKey(Keys.iconEditTask + taskModel.id),
         borderRadius: MainScreenConfigure.iconBorderRadius,
         onTap: () {
-          context.read<NavigationCubit>().goToEditAddScreen(taskModel);
+          TaskRoute($extra: taskModel).push(context);
         },
         child: Icon(
           Icons.info_outline,
