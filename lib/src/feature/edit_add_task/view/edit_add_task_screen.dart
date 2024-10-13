@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:todo/src/core/constant/styling/colors.dart';
 import 'package:todo/src/core/constant/styling/text_styles.dart';
-import 'package:todo/src/core/navigation/cubit_navigation/navigation_cubit.dart';
+import 'package:todo/src/core/router/routes.dart';
 import 'package:todo/src/core/utils/extensions.dart';
 import 'package:todo/src/core/utils/priority.dart';
 import 'package:todo/src/feature/edit_add_task/bloc/bloc.dart';
@@ -47,22 +47,21 @@ class EditTaskScreen extends StatelessWidget {
   const EditTaskScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return BlocListener<EditAddTaskBloc, EditAddTaskState>(
-      listenWhen: (previous, current) =>
-          previous.status != current.status &&
-          (current.status == EditAddTaskStatus.success),
-      listener: (context, _) {
-        context.read<NavigationCubit>().pop();
-      },
-      child: EditTaskView(
-        state: context.watch<EditAddTaskBloc>().state,
-        status: context.select(
-          (EditAddTaskBloc bloc) => bloc.state.status,
+  Widget build(BuildContext context) =>
+      BlocListener<EditAddTaskBloc, EditAddTaskState>(
+        listenWhen: (previous, current) =>
+            previous.status != current.status &&
+            (current.status == EditAddTaskStatus.success),
+        listener: (context, _) {
+          const DashboardRoute().go(context);
+        },
+        child: EditTaskView(
+          state: context.watch<EditAddTaskBloc>().state,
+          status: context.select(
+            (EditAddTaskBloc bloc) => bloc.state.status,
+          ),
         ),
-      ),
-    );
-  }
+      );
 }
 
 class EditTaskView extends StatefulWidget {
@@ -120,100 +119,98 @@ class _EditTaskViewState extends State<EditTaskView> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).brightness == Brightness.light
-            ? null
-            : appBarColor,
-        elevation: offset > 20 ? 10 : 0,
-        surfaceTintColor: Colors.green,
-        leading: IconButton(
-          icon: const Icon(Icons.close),
-          onPressed: () => context.read<NavigationCubit>().pop(),
-        ),
-        actions: [
-          TextButton(
-            onPressed: widget.status.isLoadingOrSuccess
-                ? null
-                : () => context
-                    .read<EditAddTaskBloc>()
-                    .add(const EditTaskSubmitted()),
-            child: Text(
-              AppLocalizations.of(context)!.save.toUpperCase(),
-              style: TodoTextStyles.button,
-            ),
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).brightness == Brightness.light
+              ? null
+              : appBarColor,
+          elevation: offset > 20 ? 10 : 0,
+          surfaceTintColor: Colors.green,
+          leading: IconButton(
+            icon: const Icon(Icons.close),
+            onPressed: () => const DashboardRoute().go(context),
           ),
-        ],
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          controller: scrollController,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EditTaskScreenConfigure.paddingH16,
-                child: ConstrainedBox(
-                  constraints:
-                      EditTaskScreenConfigure.textFormFieldConstraintedBox,
-                  child: TextFieldTaskNameWidget(state: widget.state),
-                ),
+          actions: [
+            TextButton(
+              onPressed: widget.status.isLoadingOrSuccess
+                  ? null
+                  : () => context
+                      .read<EditAddTaskBloc>()
+                      .add(const EditTaskSubmitted()),
+              child: Text(
+                AppLocalizations.of(context)!.save.toUpperCase(),
+                style: TodoTextStyles.button,
               ),
-              const SizedBox(height: EditTaskScreenConfigure.sizedBoxH28),
-              Padding(
-                padding: EditTaskScreenConfigure.paddingH16,
-                child: Text(
-                  AppLocalizations.of(context)!.priority,
-                  style: EditTaskScreenConfigure.textStyleW16H18,
+            ),
+          ],
+        ),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            controller: scrollController,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EditTaskScreenConfigure.paddingH16,
+                  child: ConstrainedBox(
+                    constraints:
+                        EditTaskScreenConfigure.textFormFieldConstraintedBox,
+                    child: TextFieldTaskNameWidget(state: widget.state),
+                  ),
                 ),
-              ),
-              Padding(
-                padding: EditTaskScreenConfigure.paddingH16V10,
-                child: PriorityCustomDropdownButtonWidget(
-                  importance: widget.state.importance,
-                  listItems: widget.list,
+                const SizedBox(height: EditTaskScreenConfigure.sizedBoxH28),
+                Padding(
+                  padding: EditTaskScreenConfigure.paddingH16,
+                  child: Text(
+                    AppLocalizations.of(context)!.priority,
+                    style: EditTaskScreenConfigure.textStyleW16H18,
+                  ),
                 ),
-              ),
-              const Padding(
-                padding: EditTaskScreenConfigure.paddingH16,
-                child: Divider(
+                Padding(
+                  padding: EditTaskScreenConfigure.paddingH16V10,
+                  child: PriorityCustomDropdownButtonWidget(
+                    importance: widget.state.importance,
+                    listItems: widget.list,
+                  ),
+                ),
+                const Padding(
+                  padding: EditTaskScreenConfigure.paddingH16,
+                  child: Divider(
+                    height: EditTaskScreenConfigure.dividerH,
+                  ),
+                ),
+                const SizedBox(height: EditTaskScreenConfigure.sizedBoxH16),
+                Padding(
+                  padding: EditTaskScreenConfigure.paddingH16,
+                  child: Row(
+                    children: [
+                      DateTimeTextWidget(deadline: widget.state.deadline),
+                      const Spacer(),
+                      SwitchForDatePickerWidget(
+                        switchedDeadline: widget.state.deadline != null,
+                        mounted: mounted,
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                    height: widget.state.deadline != null
+                        ? EditTaskScreenConfigure.sizedBoxH40
+                        : EditTaskScreenConfigure.sizedBoxH50),
+                const Divider(
                   height: EditTaskScreenConfigure.dividerH,
                 ),
-              ),
-              const SizedBox(height: EditTaskScreenConfigure.sizedBoxH16),
-              Padding(
-                padding: EditTaskScreenConfigure.paddingH16,
-                child: Row(
-                  children: [
-                    DateTimeTextWidget(deadline: widget.state.deadline),
-                    const Spacer(),
-                    SwitchForDatePickerWidget(
-                      switchedDeadline: widget.state.deadline != null,
-                      mounted: mounted,
-                    ),
-                  ],
+                const SizedBox(
+                  height: EditTaskScreenConfigure.sizedBoxH22,
                 ),
-              ),
-              SizedBox(
-                  height: widget.state.deadline != null
-                      ? EditTaskScreenConfigure.sizedBoxH40
-                      : EditTaskScreenConfigure.sizedBoxH50),
-              const Divider(
-                height: EditTaskScreenConfigure.dividerH,
-              ),
-              const SizedBox(
-                height: EditTaskScreenConfigure.sizedBoxH22,
-              ),
-              Padding(
-                padding: EditTaskScreenConfigure.paddingH16,
-                child: DeleteIconButtonWidget(widget: widget),
-              ),
-              const SizedBox(height: EditTaskScreenConfigure.sizedBoxH70),
-            ],
+                Padding(
+                  padding: EditTaskScreenConfigure.paddingH16,
+                  child: DeleteIconButtonWidget(widget: widget),
+                ),
+                const SizedBox(height: EditTaskScreenConfigure.sizedBoxH70),
+              ],
+            ),
           ),
         ),
-      ),
-    );
-  }
+      );
 }
