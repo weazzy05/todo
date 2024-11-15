@@ -13,14 +13,15 @@ abstract interface class TasksRepository {
 
 class TasksRepositoryImpl implements TasksRepository {
   const TasksRepositoryImpl({
-    required LocalTaskDataProvider localTaskDataProvider,
-  }) : _localTaskDataProvider = localTaskDataProvider;
+    required TaskDataProvider taskDataProvider,
+  }) : _taskDataProvider = taskDataProvider;
 
-  final LocalTaskDataProvider _localTaskDataProvider;
+  final TaskDataProvider _taskDataProvider;
 
   ///Стрим списка Задач, блок слушает стрим, при каждом добавлении стрим списка, вызывается emit
+  @override
   Stream<List<OnlyTaskModel>> getTasks() {
-    final stream = _localTaskDataProvider.getTasks();
+    final stream = _taskDataProvider.getTasks();
     return stream.map(
       (tasks) => tasks
           .map(
@@ -31,9 +32,11 @@ class TasksRepositoryImpl implements TasksRepository {
   }
 
   ///Сохраняет или изменяет таску, если нашел уже таску с таким же Id заменяет таску, иначе добаляет в список
+  @override
   Future<void> saveTask(OnlyTaskModel todo) =>
-      _localTaskDataProvider.saveTask(todo.toCompanion());
+      _taskDataProvider.saveTask(todo.toCompanion());
 
   ///Удааляет таску с заданным Id, если Id не найдем выбрасывает экспешн
-  Future<void> deleteTask(String id) => _localTaskDataProvider.deleteTask(id);
+  @override
+  Future<void> deleteTask(String id) => _taskDataProvider.deleteTask(id);
 }

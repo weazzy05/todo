@@ -32,8 +32,8 @@ class TaskOverviewBloc extends Bloc<TaskOverviewEvent, TaskOverviewState> {
         _analyticsService = analyticsService,
         super(const TaskOverviewState()) {
     on<TaskOverviewEvent>(
-      (event, emit) {
-        event.map(
+      (event, emit) async {
+        await event.map(
           startInit: (e) => _onStart(e, emit),
           taskCompletedToggled: (e) => _onTodoCompletionToggled(e, emit),
           filterChange: (e) => _onFilterChanged(e, emit),
@@ -62,7 +62,7 @@ class TaskOverviewBloc extends Bloc<TaskOverviewEvent, TaskOverviewState> {
   }
 
   Future<void> _onFilterChanged(
-    TaskFilterChangedEvent event,
+    _TaskFilterChangedEvent event,
     Emitter<TaskOverviewState> emit,
   ) async {
     emit(state.copyWith(filter: event.filter));
@@ -72,12 +72,13 @@ class TaskOverviewBloc extends Bloc<TaskOverviewEvent, TaskOverviewState> {
   }
 
   Future<void> _onStart(
-    StartInitializationEvent event,
+    _StartInitializationEvent event,
     Emitter<TaskOverviewState> emit,
   ) async {
     emit(state.copyWith(status: InitializationStatus.loading));
+    final tasksStream = _localStorageTasksRepository.getTasks();
     await emit.forEach<List<OnlyTaskModel>>(
-      _localStorageTasksRepository.getTasks(),
+      tasksStream,
       onData: (tasks) {
         final completedTasks =
             tasks.where((element) => element.done).toList().length;
@@ -91,51 +92,10 @@ class TaskOverviewBloc extends Bloc<TaskOverviewEvent, TaskOverviewState> {
         status: InitializationStatus.failure,
       ),
     );
-    // try {
-    //   final responseServer = await _getTasksListApi.get();
-    //   if (responseServer.revision > _revisionRepository.get()) {
-    //     await _revisionRepository.set(responseServer.revision);
-    //     await _onUpdateLocalData(emit, responseServer.list);
-    //   } else {
-    //     final List<OnlyTaskModel> taskList =
-    //         await _localStorageTasksRepository.getTasks().first;
-    //     final revision = responseServer.revision;
-    //     final response = await _patchTaskListApi
-    //         .patch(
-    //           TasksRequestModel(list: taskList),
-    //           extraHeaders: RemoteRequestUtils.createRevisionHeader(revision),
-    //         )
-    //         .timeout(
-    //           RemoteRequestUtils.timeOutDuration,
-    //           onTimeout: RemoteRequestUtils.throwTimeOutInternetConnection,
-    //         );
-    //     await _revisionRepository.set(response.revision);
-    //   }
-    // } on SocketException catch (_) {
-    //   emitFailureInternetState(emit);
-    // } catch (e) {
-    //   emitFailureState(emit);
-    // } finally {
-    //   await emit.forEach<List<OnlyTaskModel>>(
-    //     _localStorageTasksRepository.getTasks(),
-    //     onData: (tasks) {
-    //       final completedTasks =
-    //           tasks.where((element) => element.done == true).toList().length;
-    //       return state.copyWith(
-    //         status: InitializationStatus.success,
-    //         competedTasks: completedTasks,
-    //         tasks: tasks,
-    //       );
-    //     },
-    //     onError: (_, __) => state.copyWith(
-    //       status: InitializationStatus.failure,
-    //     ),
-    //   );
-    // }
   }
 
   Future<void> _onTodoCompletionToggled(
-    TaskCompletionToggledEvent event,
+    _TaskCompletionToggledEvent event,
     Emitter<TaskOverviewState> emit,
   ) async {
     final newTask = event.task.copyWith(
@@ -146,24 +106,10 @@ class TaskOverviewBloc extends Bloc<TaskOverviewEvent, TaskOverviewState> {
     try {
       if (state.filter == TaskFilter.activeOnly &&
           event.sendingApproach == SendingApproach.dismissible) {
-        await Future.delayed(const Duration(milliseconds: 300));
+        await Future<void>.delayed(const Duration(milliseconds: 300));
       }
       await _localStorageTasksRepository.saveTask(newTask);
       await _analyticsService.taskCompleteEdited(id: newTask.id);
-      // if (_internetConnection) {
-      //   final revision = _revisionRepository.get();
-      //   final response = await _updateTaskRepository
-      //       .put(
-      //         TaskRequestModel(element: newTask),
-      //         id: newTask.id,
-      //         extraHeaders: RemoteRequestUtils.createRevisionHeader(revision),
-      //       )
-      //       .timeout(
-      //         RemoteRequestUtils.timeOutDuration,
-      //         onTimeout: RemoteRequestUtils.throwTimeOutInternetConnection,
-      //       );
-      //   await _revisionRepository.set(response.revision);
-      // }
     } on SocketException catch (_) {
       emitFailureInternetState(emit);
     } catch (e) {
@@ -172,25 +118,12 @@ class TaskOverviewBloc extends Bloc<TaskOverviewEvent, TaskOverviewState> {
   }
 
   Future<void> _onTodoDeleted(
-    TaskDeleteEvent event,
+    _TaskDeleteEvent event,
     Emitter<TaskOverviewState> emit,
   ) async {
     try {
       await _localStorageTasksRepository.deleteTask(event.task.id);
       await _analyticsService.deletedTask(id: event.task.id);
-      // if (_internetConnection) {
-      //   final revision = _revisionRepository.get();
-      //   final response = await _deleteTaskRepository
-      //       .delete(
-      //         id: event.task.id,
-      //         extraHeaders: RemoteRequestUtils.createRevisionHeader(revision),
-      //       )
-      //       .timeout(
-      //         RemoteRequestUtils.timeOutDuration,
-      //         onTimeout: RemoteRequestUtils.throwTimeOutInternetConnection,
-      //       );
-      //   await _revisionRepository.set(response.revision);
-      // }
     } on SocketException catch (_) {
       emitFailureInternetState(emit);
     } catch (e) {
@@ -199,11 +132,11 @@ class TaskOverviewBloc extends Bloc<TaskOverviewEvent, TaskOverviewState> {
   }
 
   Future<void> _onFastCreate(
-    FastTaskCreateEvent event,
+    _FastTaskCreateEvent event,
     Emitter<TaskOverviewState> emit,
   ) async {
     final int nowTime = DateTime.now().millisecondsSinceEpoch ~/ 1000;
-    emit(state.copyWith(status: InitializationStatus.loading));
+    // emit(state.copyWith(status: InitializationStatus.loading));
     final task = OnlyTaskModel(
       id: const Uuid().v4(),
       text: event.title,
@@ -216,19 +149,6 @@ class TaskOverviewBloc extends Bloc<TaskOverviewEvent, TaskOverviewState> {
     try {
       await _localStorageTasksRepository.saveTask(task);
       await _analyticsService.createTask(id: task.id);
-      // if (_internetConnection) {
-      //   final revision = _revisionRepository.get();
-      //   final response = await _createTasksListRepository
-      //       .post(
-      //         TaskRequestModel(element: task),
-      //         extraHeaders: RemoteRequestUtils.createRevisionHeader(revision),
-      //       )
-      //       .timeout(
-      //         RemoteRequestUtils.timeOutDuration,
-      //         onTimeout: RemoteRequestUtils.throwTimeOutInternetConnection,
-      //       );
-      //   await _revisionRepository.set(response.revision);
-      // }
       emit(state.copyWith(status: InitializationStatus.success));
     } on SocketException catch (_) {
       emitFailureInternetState(emit);

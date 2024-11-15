@@ -35,7 +35,7 @@ class MainScreenConfigure {
 }
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  const MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          const TaskRoute().push(context);
+          const TaskRoute().push<void>(context);
         },
         child: const Icon(Icons.add),
       ),
@@ -96,12 +96,12 @@ class TaskWidget extends StatelessWidget {
   final GlobalKey<AnimatedListState> listKey;
 
   const TaskWidget({
-    Key? key,
-    this.onToggleCompleted,
     required this.taskModel,
     required this.index,
     required this.listKey,
-  }) : super(key: key);
+    super.key,
+    this.onToggleCompleted,
+  });
 
   bool dismissTask(
     BuildContext context,

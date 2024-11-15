@@ -18,30 +18,30 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$TaskOverviewEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(StartInitializationEvent value) startInit,
-    required TResult Function(TaskCompletionToggledEvent value)
+    required TResult Function(_StartInitializationEvent value) startInit,
+    required TResult Function(_TaskCompletionToggledEvent value)
         taskCompletedToggled,
-    required TResult Function(TaskFilterChangedEvent value) filterChange,
-    required TResult Function(TaskDeleteEvent value) taskDelete,
-    required TResult Function(FastTaskCreateEvent value) createOnMainScreen,
+    required TResult Function(_TaskFilterChangedEvent value) filterChange,
+    required TResult Function(_TaskDeleteEvent value) taskDelete,
+    required TResult Function(_FastTaskCreateEvent value) createOnMainScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(StartInitializationEvent value)? startInit,
-    TResult? Function(TaskCompletionToggledEvent value)? taskCompletedToggled,
-    TResult? Function(TaskFilterChangedEvent value)? filterChange,
-    TResult? Function(TaskDeleteEvent value)? taskDelete,
-    TResult? Function(FastTaskCreateEvent value)? createOnMainScreen,
+    TResult? Function(_StartInitializationEvent value)? startInit,
+    TResult? Function(_TaskCompletionToggledEvent value)? taskCompletedToggled,
+    TResult? Function(_TaskFilterChangedEvent value)? filterChange,
+    TResult? Function(_TaskDeleteEvent value)? taskDelete,
+    TResult? Function(_FastTaskCreateEvent value)? createOnMainScreen,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(StartInitializationEvent value)? startInit,
-    TResult Function(TaskCompletionToggledEvent value)? taskCompletedToggled,
-    TResult Function(TaskFilterChangedEvent value)? filterChange,
-    TResult Function(TaskDeleteEvent value)? taskDelete,
-    TResult Function(FastTaskCreateEvent value)? createOnMainScreen,
+    TResult Function(_StartInitializationEvent value)? startInit,
+    TResult Function(_TaskCompletionToggledEvent value)? taskCompletedToggled,
+    TResult Function(_TaskFilterChangedEvent value)? filterChange,
+    TResult Function(_TaskDeleteEvent value)? taskDelete,
+    TResult Function(_FastTaskCreateEvent value)? createOnMainScreen,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -92,7 +92,7 @@ class __$$StartInitializationEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StartInitializationEventImpl implements StartInitializationEvent {
+class _$StartInitializationEventImpl implements _StartInitializationEvent {
   const _$StartInitializationEventImpl();
 
   @override
@@ -113,12 +113,12 @@ class _$StartInitializationEventImpl implements StartInitializationEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(StartInitializationEvent value) startInit,
-    required TResult Function(TaskCompletionToggledEvent value)
+    required TResult Function(_StartInitializationEvent value) startInit,
+    required TResult Function(_TaskCompletionToggledEvent value)
         taskCompletedToggled,
-    required TResult Function(TaskFilterChangedEvent value) filterChange,
-    required TResult Function(TaskDeleteEvent value) taskDelete,
-    required TResult Function(FastTaskCreateEvent value) createOnMainScreen,
+    required TResult Function(_TaskFilterChangedEvent value) filterChange,
+    required TResult Function(_TaskDeleteEvent value) taskDelete,
+    required TResult Function(_FastTaskCreateEvent value) createOnMainScreen,
   }) {
     return startInit(this);
   }
@@ -126,11 +126,11 @@ class _$StartInitializationEventImpl implements StartInitializationEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(StartInitializationEvent value)? startInit,
-    TResult? Function(TaskCompletionToggledEvent value)? taskCompletedToggled,
-    TResult? Function(TaskFilterChangedEvent value)? filterChange,
-    TResult? Function(TaskDeleteEvent value)? taskDelete,
-    TResult? Function(FastTaskCreateEvent value)? createOnMainScreen,
+    TResult? Function(_StartInitializationEvent value)? startInit,
+    TResult? Function(_TaskCompletionToggledEvent value)? taskCompletedToggled,
+    TResult? Function(_TaskFilterChangedEvent value)? filterChange,
+    TResult? Function(_TaskDeleteEvent value)? taskDelete,
+    TResult? Function(_FastTaskCreateEvent value)? createOnMainScreen,
   }) {
     return startInit?.call(this);
   }
@@ -138,11 +138,11 @@ class _$StartInitializationEventImpl implements StartInitializationEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(StartInitializationEvent value)? startInit,
-    TResult Function(TaskCompletionToggledEvent value)? taskCompletedToggled,
-    TResult Function(TaskFilterChangedEvent value)? filterChange,
-    TResult Function(TaskDeleteEvent value)? taskDelete,
-    TResult Function(FastTaskCreateEvent value)? createOnMainScreen,
+    TResult Function(_StartInitializationEvent value)? startInit,
+    TResult Function(_TaskCompletionToggledEvent value)? taskCompletedToggled,
+    TResult Function(_TaskFilterChangedEvent value)? filterChange,
+    TResult Function(_TaskDeleteEvent value)? taskDelete,
+    TResult Function(_FastTaskCreateEvent value)? createOnMainScreen,
     required TResult orElse(),
   }) {
     if (startInit != null) {
@@ -152,8 +152,8 @@ class _$StartInitializationEventImpl implements StartInitializationEvent {
   }
 }
 
-abstract class StartInitializationEvent implements TaskOverviewEvent {
-  const factory StartInitializationEvent() = _$StartInitializationEventImpl;
+abstract class _StartInitializationEvent implements TaskOverviewEvent {
+  const factory _StartInitializationEvent() = _$StartInitializationEventImpl;
 }
 
 /// @nodoc
@@ -217,7 +217,7 @@ class __$$TaskCompletionToggledEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TaskCompletionToggledEventImpl implements TaskCompletionToggledEvent {
+class _$TaskCompletionToggledEventImpl implements _TaskCompletionToggledEvent {
   const _$TaskCompletionToggledEventImpl(
       {required this.task,
       required this.isCompleted,
@@ -264,12 +264,12 @@ class _$TaskCompletionToggledEventImpl implements TaskCompletionToggledEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(StartInitializationEvent value) startInit,
-    required TResult Function(TaskCompletionToggledEvent value)
+    required TResult Function(_StartInitializationEvent value) startInit,
+    required TResult Function(_TaskCompletionToggledEvent value)
         taskCompletedToggled,
-    required TResult Function(TaskFilterChangedEvent value) filterChange,
-    required TResult Function(TaskDeleteEvent value) taskDelete,
-    required TResult Function(FastTaskCreateEvent value) createOnMainScreen,
+    required TResult Function(_TaskFilterChangedEvent value) filterChange,
+    required TResult Function(_TaskDeleteEvent value) taskDelete,
+    required TResult Function(_FastTaskCreateEvent value) createOnMainScreen,
   }) {
     return taskCompletedToggled(this);
   }
@@ -277,11 +277,11 @@ class _$TaskCompletionToggledEventImpl implements TaskCompletionToggledEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(StartInitializationEvent value)? startInit,
-    TResult? Function(TaskCompletionToggledEvent value)? taskCompletedToggled,
-    TResult? Function(TaskFilterChangedEvent value)? filterChange,
-    TResult? Function(TaskDeleteEvent value)? taskDelete,
-    TResult? Function(FastTaskCreateEvent value)? createOnMainScreen,
+    TResult? Function(_StartInitializationEvent value)? startInit,
+    TResult? Function(_TaskCompletionToggledEvent value)? taskCompletedToggled,
+    TResult? Function(_TaskFilterChangedEvent value)? filterChange,
+    TResult? Function(_TaskDeleteEvent value)? taskDelete,
+    TResult? Function(_FastTaskCreateEvent value)? createOnMainScreen,
   }) {
     return taskCompletedToggled?.call(this);
   }
@@ -289,11 +289,11 @@ class _$TaskCompletionToggledEventImpl implements TaskCompletionToggledEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(StartInitializationEvent value)? startInit,
-    TResult Function(TaskCompletionToggledEvent value)? taskCompletedToggled,
-    TResult Function(TaskFilterChangedEvent value)? filterChange,
-    TResult Function(TaskDeleteEvent value)? taskDelete,
-    TResult Function(FastTaskCreateEvent value)? createOnMainScreen,
+    TResult Function(_StartInitializationEvent value)? startInit,
+    TResult Function(_TaskCompletionToggledEvent value)? taskCompletedToggled,
+    TResult Function(_TaskFilterChangedEvent value)? filterChange,
+    TResult Function(_TaskDeleteEvent value)? taskDelete,
+    TResult Function(_FastTaskCreateEvent value)? createOnMainScreen,
     required TResult orElse(),
   }) {
     if (taskCompletedToggled != null) {
@@ -303,8 +303,8 @@ class _$TaskCompletionToggledEventImpl implements TaskCompletionToggledEvent {
   }
 }
 
-abstract class TaskCompletionToggledEvent implements TaskOverviewEvent {
-  const factory TaskCompletionToggledEvent(
+abstract class _TaskCompletionToggledEvent implements TaskOverviewEvent {
+  const factory _TaskCompletionToggledEvent(
           {required final OnlyTaskModel task,
           required final bool isCompleted,
           final SendingApproach sendingApproach}) =
@@ -358,7 +358,7 @@ class __$$TaskFilterChangedEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TaskFilterChangedEventImpl implements TaskFilterChangedEvent {
+class _$TaskFilterChangedEventImpl implements _TaskFilterChangedEvent {
   const _$TaskFilterChangedEventImpl(this.filter);
 
   @override
@@ -392,12 +392,12 @@ class _$TaskFilterChangedEventImpl implements TaskFilterChangedEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(StartInitializationEvent value) startInit,
-    required TResult Function(TaskCompletionToggledEvent value)
+    required TResult Function(_StartInitializationEvent value) startInit,
+    required TResult Function(_TaskCompletionToggledEvent value)
         taskCompletedToggled,
-    required TResult Function(TaskFilterChangedEvent value) filterChange,
-    required TResult Function(TaskDeleteEvent value) taskDelete,
-    required TResult Function(FastTaskCreateEvent value) createOnMainScreen,
+    required TResult Function(_TaskFilterChangedEvent value) filterChange,
+    required TResult Function(_TaskDeleteEvent value) taskDelete,
+    required TResult Function(_FastTaskCreateEvent value) createOnMainScreen,
   }) {
     return filterChange(this);
   }
@@ -405,11 +405,11 @@ class _$TaskFilterChangedEventImpl implements TaskFilterChangedEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(StartInitializationEvent value)? startInit,
-    TResult? Function(TaskCompletionToggledEvent value)? taskCompletedToggled,
-    TResult? Function(TaskFilterChangedEvent value)? filterChange,
-    TResult? Function(TaskDeleteEvent value)? taskDelete,
-    TResult? Function(FastTaskCreateEvent value)? createOnMainScreen,
+    TResult? Function(_StartInitializationEvent value)? startInit,
+    TResult? Function(_TaskCompletionToggledEvent value)? taskCompletedToggled,
+    TResult? Function(_TaskFilterChangedEvent value)? filterChange,
+    TResult? Function(_TaskDeleteEvent value)? taskDelete,
+    TResult? Function(_FastTaskCreateEvent value)? createOnMainScreen,
   }) {
     return filterChange?.call(this);
   }
@@ -417,11 +417,11 @@ class _$TaskFilterChangedEventImpl implements TaskFilterChangedEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(StartInitializationEvent value)? startInit,
-    TResult Function(TaskCompletionToggledEvent value)? taskCompletedToggled,
-    TResult Function(TaskFilterChangedEvent value)? filterChange,
-    TResult Function(TaskDeleteEvent value)? taskDelete,
-    TResult Function(FastTaskCreateEvent value)? createOnMainScreen,
+    TResult Function(_StartInitializationEvent value)? startInit,
+    TResult Function(_TaskCompletionToggledEvent value)? taskCompletedToggled,
+    TResult Function(_TaskFilterChangedEvent value)? filterChange,
+    TResult Function(_TaskDeleteEvent value)? taskDelete,
+    TResult Function(_FastTaskCreateEvent value)? createOnMainScreen,
     required TResult orElse(),
   }) {
     if (filterChange != null) {
@@ -431,8 +431,8 @@ class _$TaskFilterChangedEventImpl implements TaskFilterChangedEvent {
   }
 }
 
-abstract class TaskFilterChangedEvent implements TaskOverviewEvent {
-  const factory TaskFilterChangedEvent(final TaskFilter filter) =
+abstract class _TaskFilterChangedEvent implements TaskOverviewEvent {
+  const factory _TaskFilterChangedEvent(final TaskFilter filter) =
       _$TaskFilterChangedEventImpl;
 
   TaskFilter get filter;
@@ -491,7 +491,7 @@ class __$$TaskDeleteEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TaskDeleteEventImpl implements TaskDeleteEvent {
+class _$TaskDeleteEventImpl implements _TaskDeleteEvent {
   const _$TaskDeleteEventImpl(this.task);
 
   @override
@@ -525,12 +525,12 @@ class _$TaskDeleteEventImpl implements TaskDeleteEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(StartInitializationEvent value) startInit,
-    required TResult Function(TaskCompletionToggledEvent value)
+    required TResult Function(_StartInitializationEvent value) startInit,
+    required TResult Function(_TaskCompletionToggledEvent value)
         taskCompletedToggled,
-    required TResult Function(TaskFilterChangedEvent value) filterChange,
-    required TResult Function(TaskDeleteEvent value) taskDelete,
-    required TResult Function(FastTaskCreateEvent value) createOnMainScreen,
+    required TResult Function(_TaskFilterChangedEvent value) filterChange,
+    required TResult Function(_TaskDeleteEvent value) taskDelete,
+    required TResult Function(_FastTaskCreateEvent value) createOnMainScreen,
   }) {
     return taskDelete(this);
   }
@@ -538,11 +538,11 @@ class _$TaskDeleteEventImpl implements TaskDeleteEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(StartInitializationEvent value)? startInit,
-    TResult? Function(TaskCompletionToggledEvent value)? taskCompletedToggled,
-    TResult? Function(TaskFilterChangedEvent value)? filterChange,
-    TResult? Function(TaskDeleteEvent value)? taskDelete,
-    TResult? Function(FastTaskCreateEvent value)? createOnMainScreen,
+    TResult? Function(_StartInitializationEvent value)? startInit,
+    TResult? Function(_TaskCompletionToggledEvent value)? taskCompletedToggled,
+    TResult? Function(_TaskFilterChangedEvent value)? filterChange,
+    TResult? Function(_TaskDeleteEvent value)? taskDelete,
+    TResult? Function(_FastTaskCreateEvent value)? createOnMainScreen,
   }) {
     return taskDelete?.call(this);
   }
@@ -550,11 +550,11 @@ class _$TaskDeleteEventImpl implements TaskDeleteEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(StartInitializationEvent value)? startInit,
-    TResult Function(TaskCompletionToggledEvent value)? taskCompletedToggled,
-    TResult Function(TaskFilterChangedEvent value)? filterChange,
-    TResult Function(TaskDeleteEvent value)? taskDelete,
-    TResult Function(FastTaskCreateEvent value)? createOnMainScreen,
+    TResult Function(_StartInitializationEvent value)? startInit,
+    TResult Function(_TaskCompletionToggledEvent value)? taskCompletedToggled,
+    TResult Function(_TaskFilterChangedEvent value)? filterChange,
+    TResult Function(_TaskDeleteEvent value)? taskDelete,
+    TResult Function(_FastTaskCreateEvent value)? createOnMainScreen,
     required TResult orElse(),
   }) {
     if (taskDelete != null) {
@@ -564,8 +564,8 @@ class _$TaskDeleteEventImpl implements TaskDeleteEvent {
   }
 }
 
-abstract class TaskDeleteEvent implements TaskOverviewEvent {
-  const factory TaskDeleteEvent(final OnlyTaskModel task) =
+abstract class _TaskDeleteEvent implements TaskOverviewEvent {
+  const factory _TaskDeleteEvent(final OnlyTaskModel task) =
       _$TaskDeleteEventImpl;
 
   OnlyTaskModel get task;
@@ -612,7 +612,7 @@ class __$$FastTaskCreateEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FastTaskCreateEventImpl implements FastTaskCreateEvent {
+class _$FastTaskCreateEventImpl implements _FastTaskCreateEvent {
   const _$FastTaskCreateEventImpl(this.title);
 
   @override
@@ -646,12 +646,12 @@ class _$FastTaskCreateEventImpl implements FastTaskCreateEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(StartInitializationEvent value) startInit,
-    required TResult Function(TaskCompletionToggledEvent value)
+    required TResult Function(_StartInitializationEvent value) startInit,
+    required TResult Function(_TaskCompletionToggledEvent value)
         taskCompletedToggled,
-    required TResult Function(TaskFilterChangedEvent value) filterChange,
-    required TResult Function(TaskDeleteEvent value) taskDelete,
-    required TResult Function(FastTaskCreateEvent value) createOnMainScreen,
+    required TResult Function(_TaskFilterChangedEvent value) filterChange,
+    required TResult Function(_TaskDeleteEvent value) taskDelete,
+    required TResult Function(_FastTaskCreateEvent value) createOnMainScreen,
   }) {
     return createOnMainScreen(this);
   }
@@ -659,11 +659,11 @@ class _$FastTaskCreateEventImpl implements FastTaskCreateEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(StartInitializationEvent value)? startInit,
-    TResult? Function(TaskCompletionToggledEvent value)? taskCompletedToggled,
-    TResult? Function(TaskFilterChangedEvent value)? filterChange,
-    TResult? Function(TaskDeleteEvent value)? taskDelete,
-    TResult? Function(FastTaskCreateEvent value)? createOnMainScreen,
+    TResult? Function(_StartInitializationEvent value)? startInit,
+    TResult? Function(_TaskCompletionToggledEvent value)? taskCompletedToggled,
+    TResult? Function(_TaskFilterChangedEvent value)? filterChange,
+    TResult? Function(_TaskDeleteEvent value)? taskDelete,
+    TResult? Function(_FastTaskCreateEvent value)? createOnMainScreen,
   }) {
     return createOnMainScreen?.call(this);
   }
@@ -671,11 +671,11 @@ class _$FastTaskCreateEventImpl implements FastTaskCreateEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(StartInitializationEvent value)? startInit,
-    TResult Function(TaskCompletionToggledEvent value)? taskCompletedToggled,
-    TResult Function(TaskFilterChangedEvent value)? filterChange,
-    TResult Function(TaskDeleteEvent value)? taskDelete,
-    TResult Function(FastTaskCreateEvent value)? createOnMainScreen,
+    TResult Function(_StartInitializationEvent value)? startInit,
+    TResult Function(_TaskCompletionToggledEvent value)? taskCompletedToggled,
+    TResult Function(_TaskFilterChangedEvent value)? filterChange,
+    TResult Function(_TaskDeleteEvent value)? taskDelete,
+    TResult Function(_FastTaskCreateEvent value)? createOnMainScreen,
     required TResult orElse(),
   }) {
     if (createOnMainScreen != null) {
@@ -685,8 +685,8 @@ class _$FastTaskCreateEventImpl implements FastTaskCreateEvent {
   }
 }
 
-abstract class FastTaskCreateEvent implements TaskOverviewEvent {
-  const factory FastTaskCreateEvent(final String title) =
+abstract class _FastTaskCreateEvent implements TaskOverviewEvent {
+  const factory _FastTaskCreateEvent(final String title) =
       _$FastTaskCreateEventImpl;
 
   String get title;

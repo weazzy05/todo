@@ -100,7 +100,7 @@ class DependenciesFactory extends AsyncFactory<DependenciesContainer> {
     final localTaskDataProvider =
         LocalTaskDataProvider(todoTasksDao: database.todoTasksDao);
     final tasksRepository =
-        TasksRepositoryImpl(localTaskDataProvider: localTaskDataProvider);
+        TasksRepositoryImpl(taskDataProvider: localTaskDataProvider);
 
     final deviceInfoPlugin = DeviceInfoPlugin();
     final deviceDataProvider =

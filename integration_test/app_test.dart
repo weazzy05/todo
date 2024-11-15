@@ -26,7 +26,7 @@ String _getRandomString(int length) => String.fromCharCodes(
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
-  late final StreamSubscription loggerSub;
+  late final StreamSubscription<LogRecord> loggerSub;
 
   setUpAll(() {
     loggerSub = testLogger.onRecord
