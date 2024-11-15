@@ -4,7 +4,6 @@ import 'package:bloc_concurrency/bloc_concurrency.dart' as bloc_concurrency;
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:todo/firebase_options.dart';
 import 'package:todo/src/core/constant/config.dart';
 import 'package:todo/src/core/utils/app_bloc_observer.dart';
@@ -39,8 +38,6 @@ final class AppRunner {
 
     Future<void> initializeAndRun() async {
       try {
-        // TODO(weazzy): migrate to drift
-        await Hive.initFlutter();
         await Firebase.initializeApp(
           options: DefaultFirebaseOptions.currentPlatform,
         );

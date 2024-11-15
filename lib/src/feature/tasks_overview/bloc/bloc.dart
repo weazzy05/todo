@@ -176,7 +176,6 @@ class TaskOverviewBloc extends Bloc<TaskOverviewEvent, TaskOverviewState> {
     Emitter<TaskOverviewState> emit,
   ) async {
     try {
-      await Future.delayed(const Duration(milliseconds: 300));
       await _localStorageTasksRepository.deleteTask(event.task.id);
       await _analyticsService.deletedTask(id: event.task.id);
       // if (_internetConnection) {
@@ -236,21 +235,5 @@ class TaskOverviewBloc extends Bloc<TaskOverviewEvent, TaskOverviewState> {
     } catch (e) {
       emitFailureState(emit);
     }
-  }
-
-  Future<void> _onUpdateLocalData(
-      Emitter<TaskOverviewState> emit, List<OnlyTaskModel> tasks) async {
-    try {
-      await _localStorageTasksRepository.saveAllTasks(tasks);
-      await _analyticsService.updateOutdatedLocalTasks();
-    } catch (e) {
-      emitFailureState(emit);
-    }
-  }
-
-  @override
-  Future<void> close() async {
-    await _localStorageTasksRepository.dispose();
-    return super.close();
   }
 }

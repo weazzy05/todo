@@ -1,4 +1,5 @@
 import 'package:todo/src/core/analytic_service.dart';
+import 'package:todo/src/core/database/database.dart';
 import 'package:todo/src/core/remote_config/remote_config_service.dart';
 import 'package:todo/src/core/utils/error_tracking_manager.dart';
 import 'package:todo/src/feature/initialization/logic/composition_root.dart';
@@ -23,6 +24,7 @@ base class DependenciesContainer {
     required this.tasksRepository,
     required this.deviceInfoRepository,
     required this.analyticsService,
+    required this.database,
   });
 
   /// [AppSettingsBloc] instance, used to manage theme and locale.
@@ -42,6 +44,9 @@ base class DependenciesContainer {
 
   /// [AnalyticsService] instance, used to report analytics events.
   final AnalyticsService analyticsService;
+
+  /// [AppDatabase] instance, used to local storage
+  final AppDatabase database;
 }
 
 /// {@template testing_dependencies_container}

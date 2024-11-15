@@ -14,36 +14,17 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-OnlyTaskModel _$OnlyTaskModelFromJson(Map<String, dynamic> json) {
-  return _TaskModel.fromJson(json);
-}
-
 /// @nodoc
 mixin _$OnlyTaskModel {
-  @HiveField(0)
   String get id => throw _privateConstructorUsedError;
-  @HiveField(1)
   String get text => throw _privateConstructorUsedError;
-  @HiveField(2)
   String get importance => throw _privateConstructorUsedError;
-  @HiveField(3)
   int? get deadline => throw _privateConstructorUsedError;
-  @HiveField(4)
   bool get done => throw _privateConstructorUsedError;
-  @HiveField(5)
   String? get color => throw _privateConstructorUsedError;
-  @JsonKey(name: 'created_at')
-  @HiveField(6)
   int get createdAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'changed_at')
-  @HiveField(7)
   int get changedAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'last_updated_by')
-  @HiveField(8)
   String get lastUpdatedBy => throw _privateConstructorUsedError;
-
-  /// Serializes this OnlyTaskModel to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
   /// Create a copy of OnlyTaskModel
   /// with the given fields replaced by the non-null parameter values.
@@ -59,15 +40,15 @@ abstract class $OnlyTaskModelCopyWith<$Res> {
       _$OnlyTaskModelCopyWithImpl<$Res, OnlyTaskModel>;
   @useResult
   $Res call(
-      {@HiveField(0) String id,
-      @HiveField(1) String text,
-      @HiveField(2) String importance,
-      @HiveField(3) int? deadline,
-      @HiveField(4) bool done,
-      @HiveField(5) String? color,
-      @JsonKey(name: 'created_at') @HiveField(6) int createdAt,
-      @JsonKey(name: 'changed_at') @HiveField(7) int changedAt,
-      @JsonKey(name: 'last_updated_by') @HiveField(8) String lastUpdatedBy});
+      {String id,
+      String text,
+      String importance,
+      int? deadline,
+      bool done,
+      String? color,
+      int createdAt,
+      int changedAt,
+      String lastUpdatedBy});
 }
 
 /// @nodoc
@@ -145,15 +126,15 @@ abstract class _$$TaskModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@HiveField(0) String id,
-      @HiveField(1) String text,
-      @HiveField(2) String importance,
-      @HiveField(3) int? deadline,
-      @HiveField(4) bool done,
-      @HiveField(5) String? color,
-      @JsonKey(name: 'created_at') @HiveField(6) int createdAt,
-      @JsonKey(name: 'changed_at') @HiveField(7) int changedAt,
-      @JsonKey(name: 'last_updated_by') @HiveField(8) String lastUpdatedBy});
+      {String id,
+      String text,
+      String importance,
+      int? deadline,
+      bool done,
+      String? color,
+      int createdAt,
+      int changedAt,
+      String lastUpdatedBy});
 }
 
 /// @nodoc
@@ -221,56 +202,38 @@ class __$$TaskModelImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-@HiveType(typeId: 0, adapterName: 'OnlyTaskAdapter')
+
 class _$TaskModelImpl extends _TaskModel {
   _$TaskModelImpl(
-      {@HiveField(0) required this.id,
-      @HiveField(1) required this.text,
-      @HiveField(2) this.importance = 'basic',
-      @HiveField(3) this.deadline,
-      @HiveField(4) required this.done,
-      @HiveField(5) this.color,
-      @JsonKey(name: 'created_at') @HiveField(6) required this.createdAt,
-      @JsonKey(name: 'changed_at') @HiveField(7) required this.changedAt,
-      @JsonKey(name: 'last_updated_by')
-      @HiveField(8)
+      {required this.id,
+      required this.text,
+      this.importance = 'basic',
+      this.deadline,
+      required this.done,
+      this.color,
+      required this.createdAt,
+      required this.changedAt,
       required this.lastUpdatedBy})
       : super._();
 
-  factory _$TaskModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TaskModelImplFromJson(json);
-
   @override
-  @HiveField(0)
   final String id;
   @override
-  @HiveField(1)
   final String text;
   @override
   @JsonKey()
-  @HiveField(2)
   final String importance;
   @override
-  @HiveField(3)
   final int? deadline;
   @override
-  @HiveField(4)
   final bool done;
   @override
-  @HiveField(5)
   final String? color;
   @override
-  @JsonKey(name: 'created_at')
-  @HiveField(6)
   final int createdAt;
   @override
-  @JsonKey(name: 'changed_at')
-  @HiveField(7)
   final int changedAt;
   @override
-  @JsonKey(name: 'last_updated_by')
-  @HiveField(8)
   final String lastUpdatedBy;
 
   @override
@@ -299,7 +262,6 @@ class _$TaskModelImpl extends _TaskModel {
                 other.lastUpdatedBy == lastUpdatedBy));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, text, importance, deadline,
       done, color, createdAt, changedAt, lastUpdatedBy);
@@ -311,62 +273,38 @@ class _$TaskModelImpl extends _TaskModel {
   @pragma('vm:prefer-inline')
   _$$TaskModelImplCopyWith<_$TaskModelImpl> get copyWith =>
       __$$TaskModelImplCopyWithImpl<_$TaskModelImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TaskModelImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _TaskModel extends OnlyTaskModel {
   factory _TaskModel(
-      {@HiveField(0) required final String id,
-      @HiveField(1) required final String text,
-      @HiveField(2) final String importance,
-      @HiveField(3) final int? deadline,
-      @HiveField(4) required final bool done,
-      @HiveField(5) final String? color,
-      @JsonKey(name: 'created_at') @HiveField(6) required final int createdAt,
-      @JsonKey(name: 'changed_at') @HiveField(7) required final int changedAt,
-      @JsonKey(name: 'last_updated_by')
-      @HiveField(8)
+      {required final String id,
+      required final String text,
+      final String importance,
+      final int? deadline,
+      required final bool done,
+      final String? color,
+      required final int createdAt,
+      required final int changedAt,
       required final String lastUpdatedBy}) = _$TaskModelImpl;
   _TaskModel._() : super._();
 
-  factory _TaskModel.fromJson(Map<String, dynamic> json) =
-      _$TaskModelImpl.fromJson;
-
   @override
-  @HiveField(0)
   String get id;
   @override
-  @HiveField(1)
   String get text;
   @override
-  @HiveField(2)
   String get importance;
   @override
-  @HiveField(3)
   int? get deadline;
   @override
-  @HiveField(4)
   bool get done;
   @override
-  @HiveField(5)
   String? get color;
   @override
-  @JsonKey(name: 'created_at')
-  @HiveField(6)
   int get createdAt;
   @override
-  @JsonKey(name: 'changed_at')
-  @HiveField(7)
   int get changedAt;
   @override
-  @JsonKey(name: 'last_updated_by')
-  @HiveField(8)
   String get lastUpdatedBy;
 
   /// Create a copy of OnlyTaskModel
