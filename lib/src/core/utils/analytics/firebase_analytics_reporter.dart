@@ -8,8 +8,10 @@ import 'package:todo/src/core/utils/refined_logger.dart';
 /// {@endtemplate}
 final class FirebaseAnalyticsReporter implements AnalyticsReporter {
   /// {@macro firebase_analytics_reporter}
-  const FirebaseAnalyticsReporter(
-      {required this.logger, required this.analytics});
+  const FirebaseAnalyticsReporter({
+    required this.logger,
+    required this.analytics,
+  });
 
   /// The logger used to log events locally for debugging.
   final RefinedLogger logger;

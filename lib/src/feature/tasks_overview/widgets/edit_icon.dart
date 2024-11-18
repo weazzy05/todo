@@ -6,9 +6,9 @@ import 'package:todo/src/feature/tasks_overview/view/main_screen.dart';
 
 class EditTaskIconWidget extends StatelessWidget {
   const EditTaskIconWidget({
-    Key? key,
     required this.taskModel,
-  }) : super(key: key);
+    super.key,
+  });
 
   final OnlyTaskModel taskModel;
 
@@ -21,7 +21,7 @@ class EditTaskIconWidget extends StatelessWidget {
         key: ValueKey(Keys.iconEditTask + taskModel.id),
         borderRadius: MainScreenConfigure.iconBorderRadius,
         onTap: () {
-          TaskRoute($extra: taskModel).push(context);
+          TaskRoute($extra: taskModel).push<void>(context);
         },
         child: Icon(
           Icons.info_outline,

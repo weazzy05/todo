@@ -9,9 +9,9 @@ class PriorityIconWidget extends StatelessWidget {
   final String taskModelImportance;
 
   const PriorityIconWidget({
-    Key? key,
     required this.taskModelImportance,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

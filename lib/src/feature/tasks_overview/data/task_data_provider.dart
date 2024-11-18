@@ -17,8 +17,6 @@ class LocalTaskDataProvider implements TaskDataProvider {
 
   final TodoTasksDao _todoTasksDao;
 
-  static const kTasksBoxName = '__tasks_box__';
-
   @override
   Stream<List<TodoTask>> getTasks() => _todoTasksDao.getAllTodos();
 

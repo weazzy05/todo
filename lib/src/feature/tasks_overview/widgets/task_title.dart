@@ -5,9 +5,9 @@ import 'package:todo/src/feature/tasks_overview/model/only_task.dart';
 
 class TaskTextWidget extends StatelessWidget {
   const TaskTextWidget({
-    Key? key,
     required this.taskModel,
-  }) : super(key: key);
+    super.key,
+  });
 
   final OnlyTaskModel taskModel;
 
@@ -23,9 +23,8 @@ class TaskTextWidget extends StatelessWidget {
           style: TodoTextStyles.body.copyWith(
             fontWeight: FontWeight.w400,
             decorationColor: themeData.hintColor,
-            color: taskModel.done == true ? themeData.hintColor : null,
-            decoration:
-                taskModel.done == true ? TextDecoration.lineThrough : null,
+            color: taskModel.done ? themeData.hintColor : null,
+            decoration: taskModel.done ? TextDecoration.lineThrough : null,
           ),
           overflow: TextOverflow.ellipsis,
         ),

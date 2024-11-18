@@ -139,7 +139,9 @@ class EnhancedCompositedTransformFollower
 
   @override
   void updateRenderObject(
-      BuildContext context, EnhancedRenderFollowerLayer renderObject) {
+    BuildContext context,
+    EnhancedRenderFollowerLayer renderObject,
+  ) {
     renderObject
       ..link = link
       ..showWhenUnlinked = showWhenUnlinked
@@ -571,7 +573,8 @@ class EnhancedRenderFollowerLayer extends RenderProxyBox {
     properties
         .add(DiagnosticsProperty<bool>('showWhenUnlinked', showWhenUnlinked));
     properties.add(
-        TransformProperty('current transform matrix', getCurrentTransform()));
+      TransformProperty('current transform matrix', getCurrentTransform()),
+    );
   }
 
   @override

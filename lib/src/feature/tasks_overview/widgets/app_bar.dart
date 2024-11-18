@@ -9,10 +9,10 @@ import 'package:todo/src/feature/tasks_overview/view/task_overview_scope.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
   const CustomSliverAppBar({
-    Key? key,
     required this.themeData,
     required this.state,
-  }) : super(key: key);
+    super.key,
+  });
 
   final ThemeData themeData;
   final TaskOverviewState state;
@@ -95,7 +95,7 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
       ),
       expendPercentage,
     );
-    double top = minExtent + (maxExtent - minExtent) * expendPercentage;
+    final top = minExtent + (maxExtent - minExtent) * expendPercentage;
     return AppBarCard(
       cardAppbarColor: cardAppbarColor,
       darkAppBarColors: darkAppBarColors,
@@ -123,8 +123,8 @@ class AppBarCard extends StatelessWidget {
     required this.secondInterpolate,
     required this.iconInterpolate,
     required this.filter,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Color cardAppbarColor;
   final Color? darkAppBarColors;
@@ -174,7 +174,7 @@ class AppBarCard extends StatelessWidget {
                           '${AppLocalizations.of(context)!.completed} - $completeTasks',
                           style: secondInterpolate,
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),

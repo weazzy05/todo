@@ -2,17 +2,17 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:todo/src/feature/edit_add_task/bloc/bloc.dart';
 import 'package:todo/src/core/utils/extensions.dart';
 import 'package:todo/src/core/utils/priority.dart';
+import 'package:todo/src/feature/edit_add_task/bloc/bloc.dart';
 import 'package:todo/src/feature/initialization/widget/dependencies_scope.dart';
 
 class PriorityCustomDropdownButtonWidget extends StatelessWidget {
   const PriorityCustomDropdownButtonWidget({
-    Key? key,
     required this.importance,
     required this.listItems,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String? importance;
   final List<String> listItems;

@@ -4,7 +4,7 @@ import 'package:todo/src/feature/tasks_overview/view/main_screen.dart';
 import 'package:todo/src/feature/tasks_overview/view/task_overview_scope.dart';
 
 class NewTaskTextField extends StatefulWidget {
-  const NewTaskTextField({Key? key}) : super(key: key);
+  const NewTaskTextField({super.key});
 
   @override
   State<NewTaskTextField> createState() => _NewTaskTextFieldState();

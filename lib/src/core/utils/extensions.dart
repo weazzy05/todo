@@ -28,7 +28,7 @@ extension CustomColorScheme on ColorScheme {
 
 extension ColorExtension on String {
   Color toColor() {
-    var hexString = this;
+    final hexString = this;
     final buffer = StringBuffer();
     if (hexString.length == 6 || hexString.length == 7) buffer.write('ff');
     buffer.write(hexString.replaceFirst('#', ''));
@@ -37,7 +37,5 @@ extension ColorExtension on String {
 }
 
 extension ParseToString on Priority {
-  String toShortString() {
-    return this.toString().split('.').last;
-  }
+  String toShortString() => toString().split('.').last;
 }

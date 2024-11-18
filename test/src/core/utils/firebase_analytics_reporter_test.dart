@@ -45,7 +45,7 @@ void main() {
           name: 'test_event',
           parameters: {
             'test_parameter': 'test_value',
-            'test_parameter2': 'test_value2'
+            'test_parameter2': 'test_value2',
           },
         ),
       ).called(1);

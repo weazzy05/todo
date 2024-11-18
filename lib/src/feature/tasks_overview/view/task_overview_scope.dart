@@ -93,7 +93,7 @@ class TaskOverviewScopeState extends State<TaskOverviewScope> {
 
   /// The error message.
   String? get error {
-    final error = null;
+    const error = null;
 
     if (error != null) {
       return error.toString();

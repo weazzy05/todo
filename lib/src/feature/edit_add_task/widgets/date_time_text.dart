@@ -5,9 +5,9 @@ import 'package:todo/src/feature/edit_add_task/view/edit_add_task_screen.dart';
 
 class DateTimeTextWidget extends StatelessWidget {
   const DateTimeTextWidget({
-    Key? key,
     required this.deadline,
-  }) : super(key: key);
+    super.key,
+  });
 
   final int? deadline;
 

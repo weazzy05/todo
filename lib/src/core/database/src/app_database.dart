@@ -16,7 +16,7 @@ class AppDatabase extends _$AppDatabase {
       : super(
           driftDatabase(
             name: 'todo_app',
-            native: const DriftNativeOptions(shareAcrossIsolates: true),
+            native: const DriftNativeOptions(),
             // TODO(mlazebny): Update the sqlite3Wasm and driftWorker paths
             // to match the location of the files in your project if needed.
             // https://drift.simonbinder.eu/web/#prerequisites
@@ -36,10 +36,12 @@ class TodoTasksDao extends DatabaseAccessor<AppDatabase>
     with _$TodoTasksDaoMixin {
   // this constructor is required so that the main database can create an instance
   // of this object.
-  TodoTasksDao(AppDatabase db) : super(db);
+  TodoTasksDao(super.attachedDatabase);
 
   // Получить все задачи
   Stream<List<TodoTask>> getAllTodos() => select(todoTasks).watch();
+
+  Future<List<TodoTask>> getAllTodosSync() => select(todoTasks).get();
 
   // Получить задачу по ID
   Future<TodoTask?> getTodoById(String id) =>
@@ -53,9 +55,8 @@ class TodoTasksDao extends DatabaseAccessor<AppDatabase>
   Future<bool> updateTodo(TodoTasksCompanion todo) =>
       update(todoTasks).replace(todo);
 
-  Future<int> createOrUpdateUser(TodoTasksCompanion todo) {
-    return into(todoTasks).insertOnConflictUpdate(todo);
-  }
+  Future<int> createOrUpdateUser(TodoTasksCompanion todo) =>
+      into(todoTasks).insertOnConflictUpdate(todo);
 
   // Удалить задачу по ID
   Future<int> deleteTodo(String id) =>
@@ -67,7 +68,8 @@ class TodoTasks extends Table {
   TextColumn get description =>
       text().withLength(min: 1, max: 1000)(); // Основной текст задачи
   TextColumn get importance => text().withDefault(
-      const Constant('basic'))(); // Важность задачи с дефолтным значением
+        const Constant('basic'),
+      )(); // Важность задачи с дефолтным значением
   IntColumn get deadline => integer().nullable()(); // Дедлайн, nullable
   BoolColumn get done => boolean()(); // Статус выполнения задачи
   TextColumn get color => text().nullable()(); // Цвет задачи, nullable

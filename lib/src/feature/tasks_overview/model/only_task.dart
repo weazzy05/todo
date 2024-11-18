@@ -6,18 +6,19 @@ part 'only_task.freezed.dart';
 
 @freezed
 class OnlyTaskModel with _$OnlyTaskModel {
-  const OnlyTaskModel._();
   factory OnlyTaskModel({
     required String id,
     required String text,
-    @Default('basic') String importance,
-    int? deadline,
     required bool done,
-    String? color,
     required int createdAt,
     required int changedAt,
     required String lastUpdatedBy,
+    @Default('basic') String importance,
+    int? deadline,
+    String? color,
   }) = _TaskModel;
+
+  const OnlyTaskModel._();
 
   factory OnlyTaskModel.fromDb({
     required TodoTask localTask,
