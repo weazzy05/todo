@@ -8,11 +8,9 @@ class RemoteConfigService {
       : _firebaseRemoteConfig =
             firebaseRemoteConfig ?? FirebaseRemoteConfig.instance;
 
-  String colorImportant() {
-    return getValueOrDefault<String>(
-      key: ValuesRemoveConfig.useDefaultPriorityColor,
-    );
-  }
+  String colorImportant() => getValueOrDefault<String>(
+        key: ValuesRemoveConfig.useDefaultPriorityColor,
+      );
 
   Future<void> init() async {
     await _firebaseRemoteConfig.setConfigSettings(
@@ -65,7 +63,7 @@ class RemoteConfigService {
         final value = _firebaseRemoteConfig.getInt(key);
         return value as T;
       case bool:
-        final bool value = _firebaseRemoteConfig.getBool(key);
+        final value = _firebaseRemoteConfig.getBool(key);
         return value as T;
       case double:
         final value = _firebaseRemoteConfig.getDouble(key);

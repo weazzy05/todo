@@ -114,11 +114,9 @@ class TaskWidget extends StatelessWidget {
         isCompleted: true,
       );
       if (state.filter == TaskFilter.activeOnly) {
-        Future.delayed(const Duration(milliseconds: 300)).then(
-          (value) => listKey.currentState?.removeItem(
-            index,
-            (_, __) => Container(),
-          ),
+        listKey.currentState?.removeItem(
+          index,
+          (_, __) => Container(),
         );
         return true;
       }

@@ -93,7 +93,7 @@ class EditAddTaskBloc extends Bloc<EditAddTaskEvent, EditAddTaskState> {
     EditTaskSubmitted event,
     Emitter<EditAddTaskState> emit,
   ) async {
-    final int nowTime = DateTime.now().millisecondsSinceEpoch ~/ 1000;
+    final nowTime = DateTime.now().millisecondsSinceEpoch ~/ 1000;
     emit(state.copyWith(status: EditAddTaskStatus.loading));
     final task = (state.initialTask ??
             OnlyTaskModel(
@@ -101,7 +101,6 @@ class EditAddTaskBloc extends Bloc<EditAddTaskEvent, EditAddTaskState> {
               createdAt: nowTime,
               lastUpdatedBy: await _deviceInfo.getInfo(),
               changedAt: nowTime,
-              deadline: null,
               done: false,
               id: const Uuid().v4(),
             ))

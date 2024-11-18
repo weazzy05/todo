@@ -8,7 +8,7 @@ import 'package:todo/src/feature/tasks_overview/view/task_overview_scope.dart';
 import 'package:todo/src/feature/tasks_overview/widgets/new_task_text_field.dart';
 
 class TasksCard extends StatefulWidget {
-  const TasksCard({Key? key, required this.tasks}) : super(key: key);
+  const TasksCard({required this.tasks, super.key});
 
   final List<OnlyTaskModel> tasks;
 
@@ -22,15 +22,10 @@ class _TasksCardState extends State<TasksCard> {
   @override
   void initState() {
     super.initState();
-    var future = Future(() {});
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       for (var i = 0; i < widget.tasks.length; i++) {
-        future = future.then((_) {
-          return Future.delayed(const Duration(milliseconds: 10), () {
-            _listKey.currentState
-                ?.insertItem(i, duration: const Duration(milliseconds: 500));
-          });
-        });
+        _listKey.currentState
+            ?.insertItem(i, duration: const Duration(milliseconds: 500));
       }
     });
   }
@@ -53,17 +48,17 @@ class _TasksCardState extends State<TasksCard> {
             }
           },
           listener: (context, state) {
-            for (int i = 0; i < widget.tasks.length; i++) {
+            for (var i = 0; i < widget.tasks.length; i++) {
               _listKey.currentState?.removeItem(0, (_, __) => Container());
             }
             if (state.filter == TaskFilter.activeOnly) {
-              for (int i = 0;
+              for (var i = 0;
                   i < widget.tasks.length - state.competedTasks;
                   i++) {
                 _listKey.currentState?.insertItem(i);
               }
             } else {
-              for (int i = 0; i < state.tasks.length; i++) {
+              for (var i = 0; i < state.tasks.length; i++) {
                 _listKey.currentState?.insertItem(i);
               }
             }

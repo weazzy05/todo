@@ -135,7 +135,7 @@ class TaskOverviewBloc extends Bloc<TaskOverviewEvent, TaskOverviewState> {
     _FastTaskCreateEvent event,
     Emitter<TaskOverviewState> emit,
   ) async {
-    final int nowTime = DateTime.now().millisecondsSinceEpoch ~/ 1000;
+    final nowTime = DateTime.now().millisecondsSinceEpoch ~/ 1000;
     // emit(state.copyWith(status: InitializationStatus.loading));
     final task = OnlyTaskModel(
       id: const Uuid().v4(),

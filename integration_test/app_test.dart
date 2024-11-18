@@ -53,7 +53,7 @@ void main() {
       app.main();
       await tester.pumpAndSettle();
       await tester.pumpTimes(20, const Duration(milliseconds: 60));
-      final String textName = _getRandomString(10);
+      final textName = _getRandomString(10);
       await tester.pumpAndWait(
         pumpTimes: 50,
         waitSeconds: 7,
@@ -69,8 +69,8 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.widgetWithText(TextButton, 'СОХРАНИТЬ'));
       await tester.pumpAndSettle(const Duration(seconds: 10));
-      Finder finderTaskWidget = find.byWidgetPredicate(
-        (widget) => (widget is TaskWidget && widget.taskModel.text == textName),
+      final finderTaskWidget = find.byWidgetPredicate(
+        (widget) => widget is TaskWidget && widget.taskModel.text == textName,
       );
       final customAppbarMain =
           tester.widget<CustomSliverAppBar>(find.byType(CustomSliverAppBar));
@@ -82,7 +82,7 @@ void main() {
         find.byKey(ValueKey(Keys.iconEditTask + taskWidget.taskModel.id)),
         findsOneWidget,
       );
-      Finder finderDismissibleTaskWidget = find.byKey(
+      final finderDismissibleTaskWidget = find.byKey(
         ValueKey(Keys.dismissableTaskWidget + taskWidget.taskModel.id),
       );
       await tester.ensureVisible(finderDismissibleTaskWidget);
@@ -112,7 +112,7 @@ extension TesterExt on WidgetTester {
       await pump(pumpDuration);
     }
     if (waitSeconds != null) {
-      waitSec(waitSeconds);
+      await waitSec(waitSeconds);
     }
   }
 

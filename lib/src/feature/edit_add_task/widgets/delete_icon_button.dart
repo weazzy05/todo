@@ -8,9 +8,9 @@ import 'package:todo/src/feature/edit_add_task/view/edit_add_task_screen.dart';
 
 class DeleteIconButtonWidget extends StatelessWidget {
   const DeleteIconButtonWidget({
-    Key? key,
     required this.widget,
-  }) : super(key: key);
+    super.key,
+  });
 
   final EditTaskView widget;
 
@@ -42,7 +42,7 @@ class DeleteIconButtonWidget extends StatelessWidget {
                   ? themeData.disabledColor
                   : themeData.colorScheme.red,
             ),
-          )
+          ),
         ],
       ),
     );

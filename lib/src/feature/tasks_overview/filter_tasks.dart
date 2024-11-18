@@ -15,7 +15,6 @@ extension TodosViewFilterX on TaskFilter {
     }
   }
 
-  Iterable<OnlyTaskModel> applyAll(Iterable<OnlyTaskModel> tasks) {
-    return tasks.where(apply);
-  }
+  Iterable<OnlyTaskModel> applyAll(Iterable<OnlyTaskModel> tasks) =>
+      tasks.where(apply);
 }

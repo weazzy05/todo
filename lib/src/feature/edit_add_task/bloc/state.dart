@@ -17,8 +17,6 @@ extension EditAddTaskStatusX on EditAddTaskStatus {
 
 @freezed
 class EditAddTaskState with _$EditAddTaskState {
-  const EditAddTaskState._();
-
   const factory EditAddTaskState({
     @Default(EditAddTaskStatus.initial) EditAddTaskStatus status,
     OnlyTaskModel? initialTask,
@@ -26,6 +24,7 @@ class EditAddTaskState with _$EditAddTaskState {
     String? importance,
     int? deadline,
   }) = _EditAddTaskState;
+  const EditAddTaskState._();
 
   bool get isNewTodo => initialTask == null;
 }

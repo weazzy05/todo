@@ -8,18 +8,18 @@ import 'package:todo/src/feature/tasks_overview/view/main_screen.dart';
 
 class CheckBoxWidget extends StatelessWidget {
   const CheckBoxWidget({
-    Key? key,
     required this.themeData,
     required this.taskModel,
     required this.onToggleCompleted,
-  }) : super(key: key);
+    super.key,
+  });
 
   final OnlyTaskModel taskModel;
   final ThemeData themeData;
   final ValueChanged<bool>? onToggleCompleted;
 
-  Color? changeColor(Set<MaterialState> states) {
-    if (states.contains(MaterialState.selected)) {
+  Color? changeColor(Set<WidgetState> states) {
+    if (states.contains(WidgetState.selected)) {
       return themeData.colorScheme.green;
     }
     if (taskModel.importance == Priority.important.toShortString()) {
@@ -45,9 +45,9 @@ class CheckBoxWidget extends StatelessWidget {
         scale: MainScreenConfigure.size20 / Checkbox.width,
         child: Checkbox(
           key: ValueKey(Keys.checkBoxTask + taskModel.id),
-          fillColor: MaterialStateProperty.resolveWith(
-            (Set<MaterialState> states) {
-              if (states.contains(MaterialState.selected)) {
+          fillColor: WidgetStateProperty.resolveWith(
+            (Set<WidgetState> states) {
+              if (states.contains(WidgetState.selected)) {
                 return themeData.colorScheme.green;
               }
               if (taskModel.importance == Priority.important.toShortString()) {

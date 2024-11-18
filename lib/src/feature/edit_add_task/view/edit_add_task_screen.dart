@@ -194,9 +194,10 @@ class _EditTaskViewState extends State<EditTaskView> {
                   ),
                 ),
                 SizedBox(
-                    height: widget.state.deadline != null
-                        ? EditTaskScreenConfigure.sizedBoxH40
-                        : EditTaskScreenConfigure.sizedBoxH50),
+                  height: widget.state.deadline != null
+                      ? EditTaskScreenConfigure.sizedBoxH40
+                      : EditTaskScreenConfigure.sizedBoxH50,
+                ),
                 const Divider(
                   height: EditTaskScreenConfigure.dividerH,
                 ),
